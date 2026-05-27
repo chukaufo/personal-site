@@ -121,9 +121,7 @@ section {
 
 .hero-photo img {
   width: 260px;
-  height: 320px;
-  object-fit: cover;
-  object-position: right top;
+  height: auto;
   border: 1px solid var(--border);
   filter: grayscale(20%);
 }
