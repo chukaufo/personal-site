@@ -106,10 +106,27 @@ section {
 .hero {
   min-height: 82vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
   padding-top: 3rem;
   position: relative;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.hero-photo img {
+  width: 300px;
+  height: 380px;
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid var(--border);
+  filter: grayscale(20%);
 }
 
 .hero-bg {
