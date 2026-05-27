@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chuka Uwefoh | Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <nav id="nav">
+    <div class="nav-logo">CU</div>
+    <div class="nav-links">
+      <a class="active" data-target="hero">Home</a>
+      <a data-target="projects">Projects</a>
+      <a data-target="writing">Writing</a>
+      <a data-target="skills">Skills</a>
+      <a data-target="contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-tag">// Full-stack developer · Toronto, ON</div>
+    <h1 class="hero-name">Chuka<br><span>Uwefoh.</span></h1>
+    <p class="hero-sub">I build production systems that ship. From B2C SaaS to accessible platforms — architecture first, always.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary" data-scroll="projects">View Projects</button>
+      <button class="btn btn-secondary" data-scroll="contact">Get in Touch</button>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-label">Selected Work</div>
+    <div class="projects-grid">
+
+      <div class="project-card proj-card-featured" data-href="https://uforiya.com">
+        <div class="proj-num">01 — Featured</div>
+        <div class="proj-title">Uforiya</div>
+        <div class="proj-desc">B2C SaaS for music creators to collaborate remotely. Solo-built — full stack from cloud storage through backend API, Python audio worker, and frontend.</div>
+        <div class="proj-tags">
+          <span class="tag">TypeScript</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">Python</span>
+          <span class="tag">React</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">Cloudflare</span>
+        </div>
+        <div class="proj-footer">
+          <div class="proj-status"><span class="live-dot"></span>Live · 20+ users</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+      </div>
+
+      <div class="project-card" data-href="https://revved-up.skhs.queensu.ca/">
+        <div class="proj-num">02</div>
+        <div class="proj-title">Revved Up</div>
+        <div class="proj-desc">Accessible fitness management platform. Cut manual trainer work by 3–6 hrs/week. Honourable Mention — Queen's Creative Computing Showcase 2026.</div>
+        <div class="proj-tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Azure</span>
+          <span class="tag">SQLite</span>
+        </div>
+        <div class="proj-footer">
+          <div class="proj-status"><span class="live-dot"></span>Live · 70+ users</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+      </div>
+
+      <div class="project-card" data-href="#">
+        <div class="proj-num">03</div>
+        <div class="proj-title">Spend Sight</div>
+        <div class="proj-desc">iOS receipt scanning app using Apple Vision OCR. Transforms raw receipt history into actionable spending insights with daily and weekly chart views.</div>
+        <div class="proj-tags">
+          <span class="tag">Swift</span>
+          <span class="tag">SwiftUI</span>
+          <span class="tag">Core Data</span>
+          <span class="tag">Vision OCR</span>
+        </div>
+        <div class="proj-footer">
+          <div class="proj-status">iOS App</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+      </div>
+
+      <div class="project-card" data-href="https://uf0-tech.github.io/online-currency-converter/">
+        <div class="proj-num">04</div>
+        <div class="proj-title">Currency Converter</div>
+        <div class="proj-desc">Web-based currency converter rebuilt for accessibility across all devices — moving from a desktop-only Java app to a responsive, live-rate web tool.</div>
+        <div class="proj-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">REST API</span>
+        </div>
+        <div class="proj-footer">
+          <div class="proj-status"><span class="live-dot"></span>Live</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="writing">
+    <div class="section-label">Writing</div>
+    <div class="writing-list">
+
+      <div class="article-row" data-href="https://chukaufo.github.io/Portfolio/articles/foundation-first/">
+        <div class="art-content">
+          <div class="art-topic">Architecture · Backend</div>
+          <div class="art-title">Foundation First: Backend-First Architecture</div>
+          <div class="art-desc">How building the backend before a single line of UI enabled shipping Uforiya solo — faster, more securely, with less rework.</div>
+        </div>
+        <div class="art-meta">
+          <div class="art-date">May 12, 2026</div>
+          <div class="art-arrow">↗</div>
+        </div>
+      </div>
+
+      <div class="article-row" data-href="https://chukaufo.github.io/Portfolio/articles/requirements-gathering/">
+        <div class="art-content">
+          <div class="art-topic">Process · Systems Design</div>
+          <div class="art-title">Why Requirements Gathering is Essential</div>
+          <div class="art-desc">How spending 4 months on requirements before a single line of code meant only two change requests at handoff for Revved Up.</div>
+        </div>
+        <div class="art-meta">
+          <div class="art-date">May 8, 2026</div>
+          <div class="art-arrow">↗</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-label">Technologies</div>
+    <div class="skills-grid" id="skills-grid">
+      <div class="skill-item" data-pct="95"><div class="skill-name">TypeScript</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
+      <div class="skill-item" data-pct="90"><div class="skill-name">React</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
+      <div class="skill-item" data-pct="85"><div class="skill-name">Python</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
+      <div class="skill-item" data-pct="88"><div class="skill-name">Node.js</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
+      <div class="skill-item" data-pct="80"><div class="skill-name">Swift / SwiftUI</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Projects</div></div>
+      <div class="skill-item" data-pct="75"><div class="skill-name">Azure</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
+      <div class="skill-item" data-pct="85"><div class="skill-name">PostgreSQL</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
+      <div class="skill-item" data-pct="90"><div class="skill-name">Next.js</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-block">
+      <div class="contact-headline">Let's<br>build<br><span>something.</span></div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:chukauwefoh2@gmail.com">chukauwefoh2@gmail.com</a>
+        <a class="contact-link" href="https://linkedin.com/in/chuka-uwefoh-6183b3277" target="_blank">LinkedIn</a>
+        <a class="contact-link" href="https://github.com/chukaufo" target="_blank">GitHub</a>
+        <a class="contact-link" href="https://chukaufo.github.io/Portfolio/resume/" target="_blank">Resume ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Chuka Uwefoh · chukaufo.xyz</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
