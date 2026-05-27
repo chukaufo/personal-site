@@ -45,12 +45,23 @@
   .edu-date { font-size: 0.62rem; color: var(--muted); }
   .edu-deg { font-size: 0.65rem; color: var(--accent); margin-top: 0.1rem; }
   @media print { body { background: white; padding: 0; } .actions { display: none; } .resume { border: none; width: 100%; } }
+ @media (max-width: 860px) {
+  body { padding: 0.75rem; }
+  .resume { width: 100%; padding: 1.25rem; }
+  .header { flex-direction: column; gap: 0.75rem; }
+  .header-contact { text-align: left; }
+  .actions { max-width: 100%; }
+  .entry-header { flex-direction: column; gap: 0.1rem; }
+  .entry-date { white-space: normal; }
+  .skills-row { grid-template-columns: 1fr 1fr; }
+  .edu-row { flex-direction: column; gap: 0.1rem; }
+}
 </style>
 </head>
 <body>
 
 <div class="actions">
-  <button class="btn btn-print" onclick="window.print()">Print</button>
+ <button class="btn btn-print" onclick="window.open('files/Chuka Uwefoh Resume.pdf')">Print</button>
   <a class="btn btn-download" href="files/Chuka Uwefoh Resume.pdf" download>Download PDF</a>
 </div>
 
