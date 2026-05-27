@@ -369,6 +369,7 @@ section {
   font-size: 1.2rem;
   color: var(--accent);
   transition: transform 0.2s, color 0.2s;
+  font-family: sans-serif;
 }
 
 /* ── Writing ── */
@@ -443,6 +444,7 @@ section {
   font-size: 1.1rem;
   color: var(--muted);
   transition: all 0.2s;
+  font-family: sans-serif;
 }
 
 /* ── Skills ── */
