@@ -555,4 +555,7 @@ footer {
   .contact-links { align-items: flex-start; }
   .article-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .art-meta { flex-direction: row; align-items: center; }
+  .hero { flex-direction: column; align-items: flex-start; }
+  .hero-photo { width: 100%; }
+  .hero-photo img { width: 100%; height: auto; }
 }
