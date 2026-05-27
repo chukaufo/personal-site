@@ -123,7 +123,7 @@ section {
   width: 260px;
   height: 320px;
   object-fit: cover;
-  object-position: top;
+  object-position: right top;
   border: 1px solid var(--border);
   filter: grayscale(20%);
 }
