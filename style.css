@@ -69,11 +69,10 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 
-.nav-logo {
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--accent-bright);
+.nav-logo img {
+  height: 48px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
