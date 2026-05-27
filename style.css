@@ -534,3 +534,23 @@ footer {
   .article-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .art-meta { flex-direction: row; align-items: center; }
 }
+
+.hero {
+  min-height: 82vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-top: 3rem;
+  position: relative;
+}
+
+.hero-photo img {
+  width: 340px;
+  height: 420px;
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid var(--border);
+  filter: grayscale(20%);
+}
