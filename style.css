@@ -543,8 +543,10 @@ footer {
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  nav { padding: 1.25rem 1.5rem; }
-  .nav-links { gap: 1.25rem; }
+  nav { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+  .nav-logo img { height: 48px; }
+  .nav-links { gap: 1rem; flex-wrap: wrap; }
+  .nav-links a { font-size: 0.65rem; letter-spacing: 0.08em; }
   section { padding: 4rem 1.5rem; }
   .projects-grid { grid-template-columns: 1fr; }
   .proj-card-featured { grid-column: 1; }
