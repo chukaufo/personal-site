@@ -14,7 +14,9 @@
   <div class="cursor-ring" id="cursor-ring"></div>
 
   <nav id="nav">
-    <img src="images/chukaufo.PNG" alt="Chukaufo logo" style="height: 48px;">
+    <div class="nav-logo">
+      <img src="images/chukaufo.PNG" alt="Chukaufo logo">
+    </div>
     <div class="nav-links">
       <a class="active" data-target="hero">Home</a>
       <a data-target="projects">Projects</a>
@@ -24,89 +26,210 @@
     </div>
   </nav>
 
-<section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <div class="hero-tag">// Full-stack developer · Toronto, ON</div>
-    <h1 class="hero-name">Chuka<br><span>Uwefoh.</span></h1>
-    <p class="hero-sub">Software developer who builds real products. Music platforms, fitness systems, iOS apps. From architecture to finished product.</p>
-    <div class="hero-ctas">
-      <button class="btn btn-primary" data-scroll="projects">View Projects</button>
-      <button class="btn btn-secondary" data-scroll="contact">Get in Touch</button>
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-tag">// Full-stack developer · Toronto, ON</div>
+      <h1 class="hero-name">Chuka<br><span>Uwefoh.</span></h1>
+      <p class="hero-sub">Software developer who builds real products. Music platforms, fitness systems, iOS apps. From architecture to finished product.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" data-scroll="projects">View Projects</button>
+        <button class="btn btn-secondary" data-scroll="contact">Get in Touch</button>
+      </div>
     </div>
-  </div>
-  <div class="hero-photo">
-    <img src="images/chukapro.JPG" alt="Chuka at Queen's Creative Computing Showcase" />
-  </div>
-</section>
+    <div class="hero-photo">
+      <img src="images/chukapro.JPG" alt="Chuka at Queen's Creative Computing Showcase" />
+    </div>
+  </section>
 
   <section id="projects">
     <div class="section-label">Selected Work</div>
     <div class="projects-grid">
 
+      <!-- UFORIYA -->
       <div class="project-card proj-card-featured" data-href="https://uforiya.space">
-        <div class="proj-num">01 — Featured</div>
-        <div class="proj-title">Uforiya</div>
-        <div class="proj-desc">B2C SaaS for music creators to collaborate remotely. Solo-built: full stack from cloud storage through backend API, Python audio worker, and frontend.</div>
-        <div class="proj-tags">
-          <span class="tag">TypeScript</span>
-          <span class="tag">Next.js</span>
-          <span class="tag">Python</span>
-          <span class="tag">React</span>
-          <span class="tag">Supabase</span>
-          <span class="tag">Cloudflare</span>
+        <div class="card-slide active" data-slide="info">
+          <div class="proj-num">01 — Featured</div>
+          <div class="proj-logo"><img src="images/logos/ufologo.png" alt="Uforiya logo"></div>
+          <div class="proj-title">Uforiya</div>
+          <div class="proj-desc">B2C SaaS for music creators to collaborate remotely. Solo-built: full stack from cloud storage through backend API, Python audio worker, and frontend.</div>
+          <div class="proj-tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Python</span>
+            <span class="tag">React</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Cloudflare</span>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-status"><span class="live-dot"></span>Live · 20+ users</div>
+            <div class="card-controls">
+              <button class="slide-btn" data-dir="next" aria-label="View screenshots">
+                <span class="ctrl-icon" style="font-family:sans-serif;">&#x25B6;&#xFE0E;</span>
+              </button>
+              <a class="proj-arrow" href="https://uforiya.space" target="_blank" onclick="event.stopPropagation()">
+                <span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="proj-footer">
-          <div class="proj-status"><span class="live-dot"></span>Live · 20+ users</div>
-          <div class="proj-arrow"><span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span></div>
+        <div class="card-slide" data-slide="screenshots">
+          <div class="proj-num">01 — Screenshots</div>
+          <div class="screenshot-gallery">
+            <img src="images/uforiya/dashboard.png" alt="Uforiya dashboard" class="screenshot active">
+            <img src="images/uforiya/loginpage.png" alt="Uforiya login" class="screenshot">
+            <img src="images/uforiya/audioplayer.png" alt="Uforiya audio player" class="screenshot">
+            <img src="images/uforiya/collaboratorsettings.png" alt="Uforiya collaborator settings" class="screenshot">
+          </div>
+          <div class="screenshot-dots" id="dots-uforiya"></div>
+          <div class="proj-footer">
+            <div class="proj-status"><span class="live-dot"></span>Uforiya</div>
+            <div class="card-controls">
+              <button class="slide-btn" data-dir="prev" aria-label="Back to info">
+                <span class="ctrl-icon" style="font-family:sans-serif;">&#x25C0;&#xFE0E;</span>
+              </button>
+              <button class="slide-btn" data-dir="screenshot-prev" aria-label="Previous screenshot">
+                <span class="ctrl-icon" style="font-family:sans-serif;">&#x2039;&#xFE0E;</span>
+              </button>
+              <button class="slide-btn" data-dir="screenshot-next" aria-label="Next screenshot">
+                <span class="ctrl-icon" style="font-family:sans-serif;">&#x203A;&#xFE0E;</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
+      <!-- REVVED UP -->
       <div class="project-card" data-href="https://revved-up.skhs.queensu.ca/">
-        <div class="proj-num">02</div>
-        <div class="proj-title">Revved Up</div>
-        <div class="proj-desc">Accessible fitness management platform. Cut manual trainer work by 3–6 hrs/week. Honourable Mention at Queen's Creative Computing Showcase 2026.</div>
-        <div class="proj-tags">
-          <span class="tag">Node.js</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Azure</span>
-          <span class="tag">SQLite</span>
+        <div class="card-slide active" data-slide="info">
+          <div class="proj-num">02</div>
+          <div class="proj-logo"><img src="images/logos/RevvedUp-Badge.png" alt="Revved Up logo"></div>
+          <div class="proj-title">Revved Up</div>
+          <div class="proj-desc">Accessible fitness management platform. Cut manual trainer work by 3–6 hrs/week. Honourable Mention at Queen's Creative Computing Showcase 2026.</div>
+          <div class="proj-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Azure</span>
+            <span class="tag">SQLite</span>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-status"><span class="live-dot"></span>Live · 70+ users</div>
+            <div class="card-controls">
+              <button class="slide-btn" data-dir="next" aria-label="View screenshots">
+                <span class="ctrl-icon" style="font-family:sans-serif;">&#x25B6;&#xFE0E;</span>
+              </button>
+              <a class="proj-arrow" href="https://revved-up.skhs.queensu.ca/" target="_blank" onclick="event.stopPropagation()">
+                <span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="proj-footer">
-          <div class="proj-status"><span class="live-dot"></span>Live · 70+ users</div>
-          <div class="proj-arrow"><span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span></div>
+        <div class="card-slide" data-slide="screenshots">
+          <div class="proj-num">02 — Screenshots</div>
+          <div class="screenshot-gallery">
+            <img src="images/revvedup/exercisespage.png" alt="Revved Up exercises" class="screenshot active">
+            <img src="images/revvedup/exercisetagspage.png" alt="Revved Up exercise tags" class="screenshot">
+            <img src="images/revvedup/programspage.png" alt="Revved Up programs" class="screenshot">
+          </div>
+          <div class="screenshot-dots" id="dots-revvedup"></div>
+          <div class="proj-footer">
+            <div class="proj-status"><span class="live-dot"></span>Revved Up</div>
+            <div class="card-controls">
+              <button class="slide-btn" data-dir="prev" aria-label="Back to info">
+                <span class="ctrl-icon" style="font-family:sans-serif;">&#x25C0;&#xFE0E;</span>
+              </button>
+              <button class="slide-btn" data-dir="screenshot-prev" aria-label="Previous screenshot">
+                <span class="ctrl-icon" style="font-family:sans-serif;">&#x2039;&#xFE0E;</span>
+              </button>
+              <button class="slide-btn" data-dir="screenshot-next" aria-label="Next screenshot">
+                <span class="ctrl-icon" style="font-family:sans-serif;">&#x203A;&#xFE0E;</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
+      <!-- SPEND SIGHT -->
       <div class="project-card" data-href="https://chukaufo.github.io/Spend-Sight/">
-        <div class="proj-num">03</div>
-        <div class="proj-title">Spend Sight</div>
-        <div class="proj-desc">iOS receipt scanning app using Apple Vision OCR. Transforms raw receipt history into actionable spending insights with daily and weekly chart views.</div>
-        <div class="proj-tags">
-          <span class="tag">Swift</span>
-          <span class="tag">SwiftUI</span>
-          <span class="tag">Core Data</span>
-          <span class="tag">Vision OCR</span>
+        <div class="card-slide active" data-slide="info">
+          <div class="proj-num">03</div>
+          <div class="proj-logo"><img src="images/logos/spendsightlogo.PNG" alt="Spend Sight logo"></div>
+          <div class="proj-title">Spend Sight</div>
+          <div class="proj-desc">iOS receipt scanning app using Apple Vision OCR. Transforms raw receipt history into actionable spending insights with daily and weekly chart views.</div>
+          <div class="proj-tags">
+            <span class="tag">Swift</span>
+            <span class="tag">SwiftUI</span>
+            <span class="tag">Core Data</span>
+            <span class="tag">Vision OCR</span>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-status"><span class="live-dot"></span>iOS App · Website</div>
+            <div class="card-controls">
+              <button class="slide-btn" data-dir="next" aria-label="View screenshots">
+                <span class="ctrl-icon" style="font-family:sans-serif;">&#x25B6;&#xFE0E;</span>
+              </button>
+              <a class="proj-arrow" href="https://chukaufo.github.io/Spend-Sight/" target="_blank" onclick="event.stopPropagation()">
+                <span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="proj-footer">
-          <div class="proj-status"><span class="live-dot"></span>iOS App · Website</div>
-          <div class="proj-arrow"><span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span></div>
+        <div class="card-slide" data-slide="screenshots">
+          <div class="proj-num">03 — Screenshots</div>
+          <div class="screenshot-gallery">
+            <img src="images/spend sight/SpendSight.png" alt="Spend Sight app" class="screenshot active">
+          </div>
+          <div class="screenshot-dots" id="dots-spendsight"></div>
+          <div class="proj-footer">
+            <div class="proj-status"><span class="live-dot"></span>Spend Sight</div>
+            <div class="card-controls">
+              <button class="slide-btn" data-dir="prev" aria-label="Back to info">
+                <span class="ctrl-icon" style="font-family:sans-serif;">&#x25C0;&#xFE0E;</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
+      <!-- CURRENCY CONVERTER -->
       <div class="project-card" data-href="https://uf0-tech.github.io/online-currency-converter/">
-        <div class="proj-num">04</div>
-        <div class="proj-title">Currency Converter</div>
-        <div class="proj-desc">Web-based currency converter rebuilt for accessibility across all devices — moving from a desktop-only Java app to a responsive, live-rate web tool.</div>
-        <div class="proj-tags">
-          <span class="tag">JavaScript</span>
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">REST API</span>
+        <div class="card-slide active" data-slide="info">
+          <div class="proj-num">04</div>
+          <div class="proj-logo"><img src="images/logos/onlineconverterlogo.PNG" alt="Currency Converter logo"></div>
+          <div class="proj-title">Currency Converter</div>
+          <div class="proj-desc">Web-based currency converter rebuilt for accessibility across all devices, moving from a desktop-only Java app to a responsive, live-rate web tool.</div>
+          <div class="proj-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">REST API</span>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-status"><span class="live-dot"></span>Live</div>
+            <div class="card-controls">
+              <button class="slide-btn" data-dir="next" aria-label="View screenshots">
+                <span class="ctrl-icon" style="font-family:sans-serif;">&#x25B6;&#xFE0E;</span>
+              </button>
+              <a class="proj-arrow" href="https://uf0-tech.github.io/online-currency-converter/" target="_blank" onclick="event.stopPropagation()">
+                <span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="proj-footer">
-          <div class="proj-status"><span class="live-dot"></span>Live</div>
-          <div class="proj-arrow"><span style="font-family:sans-serif;"><span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span></span></div>
+        <div class="card-slide" data-slide="screenshots">
+          <div class="proj-num">04 — Screenshots</div>
+          <div class="screenshot-gallery">
+            <img src="images/onlineconverter/onlineconverter.png" alt="Currency Converter" class="screenshot active">
+          </div>
+          <div class="screenshot-dots" id="dots-converter"></div>
+          <div class="proj-footer">
+            <div class="proj-status"><span class="live-dot"></span>Currency Converter</div>
+            <div class="card-controls">
+              <button class="slide-btn" data-dir="prev" aria-label="Back to info">
+                <span class="ctrl-icon" style="font-family:sans-serif;">&#x25C0;&#xFE0E;</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -116,7 +239,6 @@
   <section id="writing">
     <div class="section-label">Writing</div>
     <div class="writing-list">
-
       <div class="article-row" data-href="https://blog.chukaufo.xyz/foundation-first/">
         <div class="art-content">
           <div class="art-topic">Architecture · Backend</div>
@@ -128,7 +250,6 @@
           <div class="art-arrow"><span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span></div>
         </div>
       </div>
-
       <div class="article-row" data-href="https://blog.chukaufo.xyz/requirements-gathering/">
         <div class="art-content">
           <div class="art-topic">Process · Systems Design</div>
@@ -140,7 +261,6 @@
           <div class="art-arrow"><span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span></div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -165,7 +285,7 @@
         <a class="contact-link" href="mailto:chukauwefoh2@gmail.com">chukauwefoh2@gmail.com</a>
         <a class="contact-link" href="https://linkedin.com/in/chuka-uwefoh-6183b3277" target="_blank">LinkedIn</a>
         <a class="contact-link" href="https://github.com/chukaufo" target="_blank">GitHub</a>
-        <a class="contact-link" href="https://chukaufo.xyz/resume/" target="_blank">Resume ↓</a>
+        <a class="contact-link" href="https://chukaufo.xyz/resume/" target="_blank">Resume</a>
       </div>
     </div>
   </section>
