@@ -112,12 +112,11 @@ section {
   gap: 3rem;
   padding-top: 3rem;
   position: relative;
+  overflow: hidden;
 }
 
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+.hero-photo {
+  flex-shrink: 0;
 }
 
 .hero-photo img {
@@ -128,6 +127,13 @@ section {
   border: 1px solid var(--border);
   filter: grayscale(20%);
 }
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
 
 .hero-bg {
   position: absolute;
