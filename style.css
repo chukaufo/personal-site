@@ -257,7 +257,14 @@ section {
   gap: 1rem;
 }
 
-.section-label::after {
+.label-text {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 1rem;
+}
+
+.label-text::after {
   content: '';
   flex: 1;
   height: 1px;
