@@ -675,3 +675,18 @@ footer {
 .proj-card-featured .proj-logo img {
   height: 64px;
 }
+
+.section-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.section-link:hover {
+  color: var(--accent-bright);
+}
