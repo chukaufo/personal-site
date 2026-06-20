@@ -65,10 +65,67 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 
-.nav-logo img {
-  height: 72px;
-  width: auto;
-  display: block;
+.nav-logo {
+  position: relative;
+}
+
+.glitch-logo {
+  margin: 0;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  position: relative;
+  display: inline-block;
+  cursor: none;
+  text-shadow: 0 0 8px rgba(176, 143, 255, 0.4);
+}
+
+.glitch-logo::before,
+.glitch-logo::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  opacity: 0;
+}
+
+.glitch-logo::before { color: var(--accent-bright); }
+.glitch-logo::after { color: #ff3df0; }
+
+.nav-logo:not(:hover) .glitch-logo::before { animation: glitchA 6s infinite steps(1,end); }
+.nav-logo:not(:hover) .glitch-logo::after { animation: glitchB 7.5s infinite steps(1,end); }
+
+.nav-logo:hover .glitch-logo::before { animation: glitchA 140ms infinite steps(1,end); }
+.nav-logo:hover .glitch-logo::after { animation: glitchB 160ms infinite steps(1,end); }
+
+.nav-logo:hover .glitch-logo {
+  text-shadow: 0 0 10px rgba(176,143,255,0.8), 0 0 24px rgba(255,61,240,0.5);
+}
+
+@keyframes glitchA {
+  0% { opacity:0; transform:translate(0,0); clip-path: inset(0 0 95% 0); }
+  8% { opacity:0.85; transform:translate(-2px,-1px); clip-path: inset(10% 0 75% 0); }
+  16% { opacity:0; }
+  40% { opacity:0.7; transform:translate(2px,1px); clip-path: inset(55% 0 20% 0); }
+  48% { opacity:0; }
+  70% { opacity:0.6; transform:translate(-2px,0); clip-path: inset(30% 0 50% 0); }
+  78% { opacity:0; }
+  100% { opacity:0; }
+}
+
+@keyframes glitchB {
+  0% { opacity:0; transform:translate(0,0); clip-path: inset(80% 0 0 0); }
+  10% { opacity:0; }
+  25% { opacity:0.8; transform:translate(2px,1px); clip-path: inset(5% 0 70% 0); }
+  33% { opacity:0; }
+  60% { opacity:0.7; transform:translate(-2px,-1px); clip-path: inset(60% 0 10% 0); }
+  68% { opacity:0; }
+  100% { opacity:0; }
 }
 
 .nav-links {
@@ -580,7 +637,7 @@ footer {
 /* ── Responsive ── */
 @media (max-width: 768px) {
   nav { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
-  .nav-logo img { height: 48px; }
+  .glitch-logo { font-size: 1.1rem; }
   .nav-links { gap: 1rem; flex-wrap: wrap; }
   .nav-links a { font-size: 0.65rem; letter-spacing: 0.08em; }
 
