@@ -13,8 +13,6 @@
   .btn { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.25rem; border-radius: 2px; cursor: pointer; border: none; transition: all 0.2s; text-decoration: none; display: inline-block; }
   .btn-download { background: var(--accent); color: #fff; }
   .btn-download:hover { background: #4c1d95; }
-  .btn-print { background: transparent; color: #333; border: 1px solid #ccc; }
-  .btn-print:hover { border-color: var(--accent); color: var(--accent); }
   .resume { width: 820px; background: #fff; padding: 2rem 2.5rem; border: 1px solid var(--border); }
   .header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 2px solid #0a0a0a; margin-bottom: 0.9rem; }
   .header h1 { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
@@ -26,6 +24,7 @@
   .section-title { font-family: 'Syne', sans-serif; font-size: 0.58rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
   .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
   .summary { font-size: 0.7rem; line-height: 1.65; color: #333; }
+  .summary a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
   .entry { margin-bottom: 0.6rem; }
   .entry-header { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
   .entry-title { font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; }
@@ -61,7 +60,6 @@
 <body>
 
 <div class="actions">
- <button class="btn btn-print" onclick="window.open('files/Chuka Uwefoh Resume.pdf')">Print</button>
   <a class="btn btn-download" href="files/Chuka Uwefoh Resume.pdf" download>Download PDF</a>
 </div>
 
@@ -77,13 +75,14 @@
       <a href="mailto:chukauwefoh2@gmail.com">chukauwefoh2@gmail.com</a><br>
       <a href="https://linkedin.com/in/chuka-uwefoh-6183b3277" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
       <a href="https://github.com/chukaufo" target="_blank">GitHub</a> &nbsp;·&nbsp;
-      <a href="https://chukaufo.xyz" target="_blank">chukaufo.xyz</a>
+      <a href="https://chukaufo.github.io/Portfolio" target="_blank">Portfolio</a> &nbsp;·&nbsp;
+      <a href="https://blog.chukaufo.xyz" target="_blank">Blog</a>
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Summary</div>
-    <p class="summary">Full-stack developer and Software Design graduate from Queen's University who builds and launches production systems. Founded Uforiya, a B2C SaaS for music creators to collaborate remotely, and helped build Revved Up's accessible fitness platform, which cut manual trainer work by 3 to 6 hours a week and earned an Honourable Mention at Queen's Creative Computing Showcase 2026.</p>
+    <p class="summary">Full-stack developer and Queen's Software Design graduate who builds and ships production systems. Founded <a href="https://uforiya.space" target="_blank">Uforiya</a>, a B2C SaaS platform for music creators, launched <a href="https://apps.apple.com/us/app/fint/id6775697441" target="_blank">Fint</a>, a privacy-first finance tracker on the App Store, and architected the backend for <a href="https://revved-up.skhs.queensu.ca/" target="_blank">Revved Up</a>, an accessible fitness platform that automated trainer workflows, earning an Honourable Mention at Queen's Creative Computing Showcase 2026.</p>
   </div>
 
   <div class="section">
@@ -97,7 +96,6 @@
       <div class="entry-sub">Full-Stack System for Accessible Fitness Management</div>
       <ul>
         <li>Designed the architecture for a TypeScript and Node.js system using a layered controller, service, and repository structure, automating trainer program management and saving 3 to 6 hours of admin work per trainer each week.</li>
-        <li>Assisted in implementing role-based access control with service-layer permission checks across four user roles, enabling Revved Up to restrict feature access cleanly by role.</li>
         <li>Collaborated with a 5-person team across backend and frontend to integrate the system, aligning on API contracts and data flow so both sides shipped on time without blockers.</li>
         <li>Enabled 70+ users to access workout programs online by deploying Revved Up to the queensu.ca domain on Azure with reverse proxy routing, SSL encryption, and SQLite persistence, plus documentation for setup and maintenance.</li>
       </ul>
@@ -110,7 +108,7 @@
       </div>
       <ul>
         <li>Led React and TypeScript development for Queen's Black Tech's website, building and shipping core features that connected 100+ Black students with tech events and career opportunities.</li>
-        <li>Mentored 2 interns with no prior coding experience on Git workflows and React best practices, helping them ship production features independently.</li>
+        <li>Mentored a cohort of interns with no prior coding experience on Git workflows and React best practices, helping them ship production features independently.</li>
       </ul>
     </div>
 
@@ -147,21 +145,21 @@
       </div>
       <div class="entry-sub">TypeScript · Next.js · Python · React · Supabase · Cloudflare</div>
       <ul>
-        <li>Launched a B2C SaaS solo, architecting the full stack from cloud storage through backend API, Python audio worker, and frontend, with Claude helping on non-critical implementation, resulting in a live platform with 20+ users.</li>
+        <li>Architected and launched a B2C SaaS solo from cloud storage through backend API, Python audio worker, and React frontend, enabling musicians to collaborate and manage their unreleased music remotely; live with 20+ users.</li>
         <li>Eliminated ops overhead by building serverless infrastructure on Vercel, Supabase, and Cloudflare, enabling instant deployments and automatic scaling.</li>
-        <li>Secured sensitive user data by implementing backend-enforced permissions and RLS policies, keeping all access control off the frontend.</li>
-        <li>Demonstrated technical communication by publishing an <a href="https://blog.chukaufo.xyz/foundation-first/" target="_blank">article</a> on backend-first architecture, serverless tradeoffs, and security-first design, documenting the reasoning behind Uforiya's key architectural decisions.</li>
+        <li>Secured unreleased music and user data by implementing backend-enforced permissions and RLS policies across 13 tables, keeping all access control server-side.</li>
       </ul>
     </div>
 
     <div class="entry">
       <div class="entry-header">
-        <div class="entry-title">Spend Sight — iOS Finance App &nbsp;<a href="https://chukaufo.github.io/Spend-Sight/" target="_blank">Website</a> &nbsp;·&nbsp; <a href="https://github.com/chukaufo/Spend-Sight" target="_blank">GitHub</a></div>
-        <div class="entry-date">Swift · SwiftUI · Xcode</div>
+        <div class="entry-title">Fint — iOS & iPadOS Finance App &nbsp;<a href="https://apps.apple.com/us/app/fint/id6775697441" target="_blank">App Store</a> &nbsp;·&nbsp; <a href="https://github.com/chukaufo/Fint" target="_blank">GitHub</a></div>
+        <div class="entry-date">Swift · SwiftUI · CloudKit · Core Data · Xcode</div>
       </div>
       <ul>
-        <li>Built an iOS receipt scanning app using SwiftUI and Apple Vision OCR to extract store name, total, and date from physical receipts, storing structured data locally with Core Data for persistent access across app launches.</li>
-        <li>Transformed raw receipt history into actionable spending insights by building daily and weekly chart views with Swift Charts, surfacing 30-day totals and average daily spend in a single dashboard.</li>
+        <li>Built fully on-device data storage with Core Data and CloudKit sync, eliminating financial privacy risk by requiring no accounts or servers and keeping all user data within their Apple ecosystem.</li>
+        <li>Designed daily, weekly, and yearly Swift Charts dashboards with proactive budget alerts at 50%, 75%, 90%, and 100% thresholds, surfacing actionable spending patterns and giving users real-time visibility into their finances.</li>
+        <li>Implemented on-device receipt scanning with Apple Vision OCR, letting users log purchases by pointing their camera at a receipt instead of typing, with all data stored locally and optionally synced across Apple devices through iCloud.</li>
       </ul>
     </div>
   </div>
@@ -178,9 +176,9 @@
   <div class="section">
     <div class="section-title">Skills</div>
     <div class="skills-row">
-      <div><div class="skill-label">Languages</div><div class="skill-value">TypeScript, JavaScript, Python, Swift, Java, C++, HTML, CSS</div></div>
+      <div><div class="skill-label">Languages</div><div class="skill-value">TypeScript, JavaScript, Python, Swift, Java, HTML, CSS</div></div>
       <div><div class="skill-label">Frameworks</div><div class="skill-value">React, Next.js, Node.js, SwiftUI</div></div>
-      <div><div class="skill-label">Tools</div><div class="skill-value">Git, GitHub, Vercel, Azure, Supabase, Cloudflare, Xcode, Figma, Bash</div></div>
+      <div><div class="skill-label">Tools</div><div class="skill-value">Git, GitHub, Vercel, Azure, Supabase, Cloudflare, Core Data, CloudKit, Xcode, Figma, Bash</div></div>
       <div><div class="skill-label">Databases</div><div class="skill-value">MySQL, PostgreSQL, SQLite</div></div>
     </div>
   </div>
