@@ -697,3 +697,13 @@ footer {
 .section-link:hover {
   color: var(--accent-bright);
 }
+.hero-sub a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 3px;
+}
+
+.hero-sub a:hover {
+  text-decoration-color: currentColor;
+}
