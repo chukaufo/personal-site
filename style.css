@@ -60,7 +60,12 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(7, 5, 15, 0.92);
+  background-image: 
+    linear-gradient(rgba(7, 5, 15, 0.75), rgba(7, 5, 15, 0.75)),
+    url('../images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -643,7 +648,10 @@ footer {
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  nav { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+  nav {
+    background-attachment: scroll;
+    background-size: 200%;
+  }
   .glitch-logo { font-size: 1.1rem; }
   .nav-links { gap: 1rem; flex-wrap: wrap; }
   .nav-links a { font-size: 0.65rem; letter-spacing: 0.08em; }
