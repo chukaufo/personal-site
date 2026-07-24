@@ -60,12 +60,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-image: 
-    linear-gradient(rgba(7, 5, 15, 0.55), rgba(7, 5, 15, 0.55)),
-    url('../images/background.png');
-  background-size: 450px 450px;
-  background-repeat: repeat;
-  background-position: 0 0;
+  background: rgba(7, 5, 15, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -639,21 +634,30 @@ section {
 /* ── Footer ── */
 footer {
   text-align: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
   font-family: 'DM Mono', monospace;
   font-size: 0.68rem;
-  color: var(--muted);
+  color: var(--text);
   border-top: 1px solid var(--border);
+  background-image: 
+    linear-gradient(rgba(7, 5, 15, 0.65), rgba(7, 5, 15, 0.65)),
+    url('../images/background.png');
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  position: relative;
 }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-    nav {
+  footer {
+    background-size: 300px 300px;
+  }
+  
+  nav {
     flex-direction: column;
     gap: 1.5rem;
     padding: 1.5rem 1.25rem;
-    background-size: 300px 300px;
-    background-repeat: repeat;
   }
   
   .nav-logo { width: 100%; text-align: center; }
@@ -665,7 +669,7 @@ footer {
     width: 100%;
   }
   .nav-links a { font-size: 0.7rem; letter-spacing: 0.08em; }
-
+ 
   section { padding: 4rem 1.5rem; }
 
   .hero { flex-direction: column; align-items: flex-start; }
