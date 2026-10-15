@@ -5,10 +5,39 @@
   <link rel="icon" href="images/chukaufo.PNG" type="image/png" />
   <link rel="apple-touch-icon" href="images/chukaufo.PNG" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chuka Uwefoh | Software Developer</title>
+  <title>Chuka Uwefoh | Founder of Uforiya · Software Developer</title>
+  <meta name="description" content="Chuka Uwefoh is the founder and solo developer of Uforiya, a version and collaboration workspace for unreleased music. iOS and full-stack developer in Toronto." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Uforiya spotlight section styles (move into style.css if you prefer) -->
+  <style>
+    .ufo-spotlight { --ufo-accent: var(--accent, #a855f7); --ufo-line: rgba(255,255,255,0.10); }
+    .ufo-head { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.25rem; }
+    .ufo-head img { width: 64px; height: 64px; object-fit: contain; }
+    .ufo-head h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1; margin: 0; }
+    .ufo-tagline { font-family: 'DM Mono', monospace; font-size: 0.85rem; letter-spacing: 0.04em; color: var(--ufo-accent); margin-top: 0.4rem; }
+    .ufo-lede { max-width: 760px; font-size: 1.05rem; line-height: 1.7; opacity: 0.85; margin: 0 0 2rem; }
+    .ufo-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: var(--ufo-line); border: 1px solid var(--ufo-line); margin-bottom: 2.5rem; }
+    .ufo-stat { background: var(--bg, #050507); padding: 1.1rem 1.25rem; }
+    .ufo-stat-val { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.3rem; }
+    .ufo-stat-label { font-family: 'DM Mono', monospace; font-size: 0.72rem; opacity: 0.6; margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .ufo-subhead { font-family: 'DM Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; margin: 0 0 1rem; }
+    .ufo-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+    .ufo-feature { border: 1px solid var(--ufo-line); padding: 1.25rem; border-radius: 4px; }
+    .ufo-feature h3 { font-family: 'Syne', sans-serif; font-size: 1.05rem; margin: 0 0 0.5rem; }
+    .ufo-feature p { margin: 0; font-size: 0.92rem; line-height: 1.6; opacity: 0.75; }
+    .ufo-pill { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.65rem; padding: 0.15rem 0.45rem; border: 1px solid var(--ufo-accent); color: var(--ufo-accent); border-radius: 999px; margin-left: 0.4rem; vertical-align: middle; }
+    .ufo-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+    .ufo-panel { border: 1px solid var(--ufo-line); padding: 1.5rem; border-radius: 4px; }
+    .ufo-panel h3 { font-family: 'Syne', sans-serif; font-size: 1.25rem; margin: 0 0 0.75rem; }
+    .ufo-panel p { margin: 0 0 1rem; font-size: 0.95rem; line-height: 1.65; opacity: 0.8; }
+    .ufo-panel ul { margin: 0 0 1rem; padding-left: 1.1rem; font-size: 0.92rem; line-height: 1.7; opacity: 0.8; }
+    .ufo-panel a { color: var(--ufo-accent); }
+    .ufo-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .ufo-ctas a.btn { text-decoration: none; display: inline-flex; align-items: center; }
+  </style>
 </head>
 <body>
 
@@ -16,11 +45,12 @@
   <div class="cursor-ring" id="cursor-ring"></div>
 
   <nav id="nav">
-<div class="nav-logo">
+    <div class="nav-logo">
       <h1 class="glitch-logo" data-text="CHUKAUFO">CHUKAUFO</h1>
     </div>
     <div class="nav-links">
       <a class="active" data-target="hero">Home</a>
+      <a data-target="uforiya">Uforiya</a>
       <a data-target="projects">Products</a>
       <a data-target="writing">Writing</a>
       <a data-target="skills">Skills</a>
@@ -31,16 +61,111 @@
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-     <div class="hero-tag">// iOS & Full-stack Developer · Toronto, ON</div>
+      <div class="hero-tag">// Founder of Uforiya · iOS &amp; Full-stack Developer · Toronto, ON</div>
       <h1 class="hero-name">Chuka<br><span>Uwefoh.</span></h1>
-      <p class="hero-sub">iOS and full-stack developer who turns ideas into live products. Built <a href="#fint">Fint</a>, a privacy-first iOS finance tracker, solo, live on the App Store; founded and developed <a href="#uforiya">Uforiya</a>, a music collaboration platform live with 20+ users; and architected <a href="#revved-up">Revved Up</a>'s backend, automating a manual trainer process and earning an Honourable Mention at Queen's Creative Computing Showcase 2026.</p>
+      <p class="hero-sub">I'm building <a href="#uforiya">Uforiya</a>, a version and collaboration workspace for unreleased music, where every track keeps its versions, stems, collaborators and comments in one place. I designed and built it solo, end to end: web app, Python audio worker, cloud storage, billing, in-browser audio tools, and a free desktop Sample Organizer. It's in open beta with 20+ users. Before that I shipped <a href="#fint">Fint</a>, a privacy-first iOS finance tracker on the App Store, and architected <a href="#revved-up">Revved Up</a>, which earned an Honourable Mention at Queen's Creative Computing Showcase 2026.</p>
       <div class="hero-ctas">
-        <button class="btn btn-primary" data-scroll="projects">View Projects</button>
-        <button class="btn btn-secondary" data-scroll="contact">Get in Touch</button>
+        <button class="btn btn-primary" data-scroll="uforiya">Explore Uforiya</button>
+        <a class="btn btn-secondary" href="https://uforiya.space" target="_blank" rel="noopener">Try the Beta ↗</a>
       </div>
     </div>
     <div class="hero-photo">
       <img src="images/chukapro.JPG" alt="Chuka at Queen's Creative Computing Showcase" />
+    </div>
+  </section>
+
+  <!-- UFORIYA SPOTLIGHT -->
+  <section id="uforiya" class="ufo-spotlight">
+    <div class="section-label"><span class="label-text">Now Building</span><a href="https://uforiya.com" target="_blank" class="section-link">uforiya.com ↗</a></div>
+
+    <div class="ufo-head">
+      <img src="images/logos/ufologo.png" alt="Uforiya logo" />
+      <div>
+        <h2>Uforiya</h2>
+        <div class="ufo-tagline">Every track. Every version. Every collaborator. Nothing lost.</div>
+      </div>
+    </div>
+
+    <p class="ufo-lede">Unreleased music usually lives in a shared folder full of files named <em>final_v3_REALFINAL</em>. Uforiya replaces that with tracks that know their own history: who owns them, who's on them, what each person can touch, every bounce side by side, and stems grouped under the version they belong to. Built for producers, recording artists, songwriters, mix engineers, independent labels and studios working together remotely.</p>
+
+    <div class="ufo-stats">
+      <div class="ufo-stat"><div class="ufo-stat-val"><span class="live-dot"></span> Open beta</div><div class="ufo-stat-label">Live · 20+ users</div></div>
+      <div class="ufo-stat"><div class="ufo-stat-val">Free + Pro</div><div class="ufo-stat-label">Stripe subscriptions · $15 CAD/mo</div></div>
+      <div class="ufo-stat"><div class="ufo-stat-val">7 tools</div><div class="ufo-stat-label">In-browser audio editing</div></div>
+      <div class="ufo-stat"><div class="ufo-stat-val">Web + Desktop</div><div class="ufo-stat-label">Browser, mobile web, Windows</div></div>
+    </div>
+
+    <div class="ufo-subhead">What it does</div>
+    <div class="ufo-features">
+      <div class="ufo-feature">
+        <h3>Upload &amp; auto-analysis</h3>
+        <p>MP3, WAV, FLAC, AIFF and M4A. BPM, key and duration are detected on upload by a Python audio worker, so nobody types metadata by hand.</p>
+      </div>
+      <div class="ufo-feature">
+        <h3>Version history</h3>
+        <p>Rough idea, revised bounce, final master: every version stays under the same track, and only the owner decides which one is current.</p>
+      </div>
+      <div class="ufo-feature">
+        <h3>Roles &amp; credits</h3>
+        <p>Invite by username or email. Owners, editors and listeners get exactly the access they need, with credits attached to every collaborator.</p>
+      </div>
+      <div class="ufo-feature">
+        <h3>Timestamped feedback</h3>
+        <p>Waveform playback in the browser with comments pinned to the second, plus stems and lyrics living alongside each track.</p>
+      </div>
+      <div class="ufo-feature">
+        <h3>Private sessions <span class="ufo-pill">Pro</span></h3>
+        <p>Hosted rooms for studio and recording sessions: password join links, per-member roles, uploads billed to the host's storage, and a lock when the session wraps.</p>
+      </div>
+      <div class="ufo-feature">
+        <h3>Share links, not attachments</h3>
+        <p>Public tracks get a link that unfurls with cover art and title and plays instantly. Private tracks have no link at all.</p>
+      </div>
+    </div>
+
+    <div class="ufo-split">
+      <div class="ufo-panel">
+        <h3>How it's built</h3>
+        <p>Solo-built, backend first. I designed the data model, storage and permission rules before writing any UI, then layered the product on top.</p>
+        <ul>
+          <li>Next.js API and React frontend in TypeScript</li>
+          <li>Supabase / PostgreSQL for data and auth</li>
+          <li>Cloudflare R2 for audio and stem storage</li>
+          <li>Python (FastAPI) worker for audio analysis</li>
+          <li>Client-side audio processing for the free tools</li>
+          <li>Stripe for Pro subscriptions</li>
+        </ul>
+        <a href="https://blog.chukaufo.xyz/foundation-first/" target="_blank">Read: Foundation First ↗</a>
+      </div>
+      <div class="ufo-panel">
+        <h3>Sample Organizer <span class="ufo-pill">Desktop</span></h3>
+        <p>A free, open-source Electron app that finds byte-identical samples repeated across a producer's drum kits and clears the copies. On one real library it found 443MB of duplicates across 4.5GB in about a second.</p>
+        <ul>
+          <li>Matches file contents, not names, with no fuzzy guesses</li>
+          <li>Fully local: no account, no upload, works offline</li>
+          <li>Safety in the engine: one copy always survives, removals are staged and reversible</li>
+          <li>Incremental rescans after the first pass</li>
+        </ul>
+        <a href="https://uforiya.com/sample-organizer/" target="_blank">Windows v0.3.0 · macOS next ↗</a>
+      </div>
+    </div>
+
+    <div class="proj-tags" style="margin-bottom:1.5rem;">
+      <span class="tag">TypeScript</span>
+      <span class="tag">Next.js</span>
+      <span class="tag">React</span>
+      <span class="tag">Python</span>
+      <span class="tag">FastAPI</span>
+      <span class="tag">Supabase</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">Cloudflare R2</span>
+      <span class="tag">Stripe</span>
+      <span class="tag">Electron</span>
+    </div>
+
+    <div class="ufo-ctas">
+      <a class="btn btn-primary" href="https://uforiya.space" target="_blank" rel="noopener">Try the Beta ↗</a>
+      <a class="btn btn-secondary" href="https://uforiya.space/tools" target="_blank" rel="noopener">Free Audio Tools ↗</a>
     </div>
   </section>
 
@@ -49,12 +174,12 @@
     <div class="projects-grid">
 
       <!-- UFORIYA -->
-      <div class="project-card proj-card-featured" data-href="https://uforiya.com" id="uforiya">
+      <div class="project-card proj-card-featured" data-href="https://uforiya.com" id="uforiya-card">
         <div class="card-slide active" data-slide="info">
           <div class="proj-num">01 — Featured</div>
           <div class="proj-logo"><img src="images/logos/ufologo.png" alt="Uforiya logo"></div>
           <div class="proj-title">Uforiya</div>
-          <div class="proj-desc">Version and collaboration manager for unreleased music. Solo-built full stack: cloud storage, Next.js API, Python audio worker, and React frontend; designed for producers, artists and engineers working remotely.</div>
+          <div class="proj-desc">Version and collaboration workspace for unreleased music. Every track carries its versions, stems, collaborators, roles and timestamped comments. Solo-built full stack: Next.js API, Python audio worker, Supabase, Cloudflare R2 and Stripe, with free in-browser audio tools, Pro private sessions, and a companion desktop Sample Organizer.</div>
           <div class="proj-tags">
             <span class="tag">TypeScript</span>
             <span class="tag">Next.js</span>
@@ -62,9 +187,11 @@
             <span class="tag">React</span>
             <span class="tag">Supabase</span>
             <span class="tag">Cloudflare</span>
+            <span class="tag">Stripe</span>
+            <span class="tag">Electron</span>
           </div>
           <div class="proj-footer">
-            <div class="proj-status"><span class="live-dot"></span>Live · 20+ users</div>
+            <div class="proj-status"><span class="live-dot"></span>Open beta · 20+ users</div>
             <div class="card-controls">
             <button class="slide-btn" data-dir="next" aria-label="View screenshots">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -109,7 +236,7 @@
           <div class="proj-num">02</div>
           <div class="proj-logo"><img src="images/logos/RevvedUp-Badge.png" alt="Revved Up logo"></div>
           <div class="proj-title">Revved Up</div>
-         <div class="proj-desc">Accessible fitness management platform. Converted a manual, paper-based trainer process into a fully automated system. Honourable Mention at Queen's Creative Computing Showcase 2026.</div>
+          <div class="proj-desc">Accessible fitness management platform. Converted a manual, paper-based trainer process into a fully automated system. Honourable Mention at Queen's Creative Computing Showcase 2026.</div>
           <div class="proj-tags">
             <span class="tag">Node.js</span>
             <span class="tag">TypeScript</span>
@@ -156,7 +283,7 @@
       </div>
 
       <!-- FINT -->
-      <div class="project-card" data-href=" https://apps.apple.com/us/app/fint/id6775697441" id="fint">
+      <div class="project-card" data-href="https://apps.apple.com/us/app/fint/id6775697441" id="fint">
         <div class="card-slide active" data-slide="info">
           <div class="proj-num">03</div>
           <div class="proj-logo"><img src="images/logos/fint-transparent.png" alt="Fint logo"></div>
@@ -167,7 +294,7 @@
             <span class="tag">SwiftUI</span>
             <span class="tag">Core Data</span>
             <span class="tag">Vision OCR</span>
-             <span class="tag">CloudKit</span>
+            <span class="tag">CloudKit</span>
           </div>
           <div class="proj-footer">
             <div class="proj-status"><span class="live-dot"></span>Live · App Store</div>
@@ -188,12 +315,12 @@
           <div class="screenshot-gallery">
             <img src="images/fint/fint promo.png" alt="Fint app" class="screenshot active">
             <img src="images/fint/receiptposter.png" alt="Fint Receipt Scanner" class="screenshot">
-            <img src="images/fint/realtimealerts ipad.png" alt="Fint App on Ipad" class="screenshot">   
+            <img src="images/fint/realtimealerts ipad.png" alt="Fint App on Ipad" class="screenshot">
           </div>
           <div class="screenshot-dots" id="dots-fint"></div>
           <div class="proj-footer">
             <div class="proj-status"><span class="live-dot"></span>Fint</div>
-         <div class="card-controls">
+            <div class="card-controls">
               <button class="slide-btn" data-dir="prev" aria-label="Back to info">
                 <span class="ctrl-icon" style="font-family:sans-serif;">&#x25C0;&#xFE0E;</span>
               </button>
@@ -256,10 +383,23 @@
   </section>
 
   <section id="writing">
-    
-   <div class="section-label"><span class="label-text">Writing</span><a href="https://blog.chukaufo.xyz" target="_blank" class="section-link">Visit Blog ↗</a></div>
+
+    <div class="section-label"><span class="label-text">Writing</span><a href="https://blog.chukaufo.xyz" target="_blank" class="section-link">Visit Blog ↗</a></div>
     <div class="writing-list">
-    <div class="article-row" data-href="https://blog.chukaufo.xyz/zero-backend/">
+
+      <div class="article-row" data-href="https://blog.chukaufo.xyz/foundation-first/">
+        <div class="art-content">
+          <div class="art-topic">Uforiya · Architecture · Backend</div>
+          <div class="art-title">Foundation First: Backend-First Architecture</div>
+          <div class="art-desc">How building the backend before a single line of UI enabled shipping Uforiya solo — faster, more securely, with less rework.</div>
+        </div>
+        <div class="art-meta">
+          <div class="art-date">May 12, 2026</div>
+          <div class="art-arrow"><span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span></div>
+        </div>
+      </div>
+
+      <div class="article-row" data-href="https://blog.chukaufo.xyz/zero-backend/">
         <div class="art-content">
           <div class="art-topic">iOS · Mobile App Architecture</div>
           <div class="art-title">How I Built a Finance Tracker on iOS with Zero Backend</div>
@@ -270,20 +410,7 @@
           <div class="art-arrow"><span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span></div>
         </div>
       </div>
-    
-    
-      <div class="article-row" data-href="https://blog.chukaufo.xyz/foundation-first/">
-        <div class="art-content">
-          <div class="art-topic">Architecture · Backend</div>
-          <div class="art-title">Foundation First: Backend-First Architecture</div>
-          <div class="art-desc">How building the backend before a single line of UI enabled shipping Uforiya solo — faster, more securely, with less rework.</div>
-        </div>
-        <div class="art-meta">
-          <div class="art-date">May 12, 2026</div>
-          <div class="art-arrow"><span style="font-family:sans-serif;">&#x2197;&#xFE0E;</span></div>
-        </div>
-      </div>
-      
+
       <div class="article-row" data-href="https://blog.chukaufo.xyz/requirements-gathering/">
         <div class="art-content">
           <div class="art-topic">Process · Systems Design</div>
@@ -301,14 +428,14 @@
   <section id="skills">
     <div class="section-label">Technologies</div>
     <div class="skills-grid" id="skills-grid">
-      <div class="skill-item" data-pct="95"><div class="skill-name">TypeScript</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
-      <div class="skill-item" data-pct="90"><div class="skill-name">React</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
-      <div class="skill-item" data-pct="85"><div class="skill-name">Python</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
-      <div class="skill-item" data-pct="88"><div class="skill-name">Node.js</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
-      <div class="skill-item" data-pct="80"><div class="skill-name">Swift / SwiftUI</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
-      <div class="skill-item" data-pct="75"><div class="skill-name">Azure</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
-      <div class="skill-item" data-pct="85"><div class="skill-name">PostgreSQL</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
-      <div class="skill-item" data-pct="90"><div class="skill-name">Next.js</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production</div></div>
+      <div class="skill-item" data-pct="95"><div class="skill-name">TypeScript</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Uforiya</div></div>
+      <div class="skill-item" data-pct="90"><div class="skill-name">Next.js</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Uforiya</div></div>
+      <div class="skill-item" data-pct="90"><div class="skill-name">React</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Uforiya</div></div>
+      <div class="skill-item" data-pct="85"><div class="skill-name">Python</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Uforiya</div></div>
+      <div class="skill-item" data-pct="85"><div class="skill-name">PostgreSQL</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Uforiya</div></div>
+      <div class="skill-item" data-pct="88"><div class="skill-name">Node.js</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Revved Up</div></div>
+      <div class="skill-item" data-pct="80"><div class="skill-name">Swift / SwiftUI</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Fint</div></div>
+      <div class="skill-item" data-pct="75"><div class="skill-name">Azure</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Revved Up</div></div>
     </div>
   </section>
 
@@ -317,6 +444,7 @@
       <div class="contact-headline">Let's<br>build<br><span>something.</span></div>
       <div class="contact-links">
         <a class="contact-link" href="mailto:chukauwefoh2@gmail.com">chukauwefoh2@gmail.com</a>
+        <a class="contact-link" href="https://uforiya.com" target="_blank">Uforiya</a>
         <a class="contact-link" href="https://linkedin.com/in/chuka-uwefoh-6183b3277" target="_blank">LinkedIn</a>
         <a class="contact-link" href="https://github.com/chukaufo" target="_blank">GitHub</a>
         <a class="contact-link" href="https://x.com/chukaufo">Twitter(X)</a>
@@ -325,7 +453,7 @@
     </div>
   </section>
 
-  <footer>© 2026 Chuka Uwefoh · chukaufo.xyz</footer>
+  <footer>© 2026 Chuka Uwefoh · Founder, <a href="https://uforiya.com" target="_blank" style="color:inherit;">Uforiya</a> · chukaufo.xyz</footer>
 
   <script src="script.js"></script>
 </body>
