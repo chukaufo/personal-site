@@ -239,10 +239,26 @@ section {
   border: none;
 }
 
+a.btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .btn-primary { background: var(--accent2); color: #fff; }
 .btn-primary:hover { background: var(--accent); color: var(--bg); transform: translateY(-2px); }
 .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
 .btn-secondary:hover { border-color: var(--accent); color: var(--accent-bright); transform: translateY(-2px); }
+
+/* ── Icons (SVG, never render as emoji) ── */
+.arr {
+  width: 0.75em;
+  height: 0.75em;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
 
 /* ── Section Label ── */
 .section-label {
@@ -269,6 +285,242 @@ section {
   flex: 1;
   height: 1px;
   background: var(--border);
+}
+
+/* ── Uforiya ── */
+.ufo-head {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.ufo-head img {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.ufo-title {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--accent-bright);
+  text-shadow: 0 0 60px rgba(176, 143, 255, 0.3);
+}
+
+.ufo-tagline {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 0.75rem;
+}
+
+.ufo-lede {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.ufo-lede em {
+  color: var(--text);
+  font-style: normal;
+}
+
+.ufo-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+.ufo-stat {
+  background: var(--bg);
+  padding: 1.5rem;
+  transition: background 0.2s;
+}
+
+.ufo-stat:hover { background: var(--surface); }
+
+.ufo-stat-val {
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ufo-stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ufo-subhead {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.ufo-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+.ufo-feature {
+  background: var(--bg);
+  padding: 2rem;
+  transition: background 0.2s;
+}
+
+.ufo-feature:hover { background: var(--surface); }
+
+.ufo-feature h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+
+.ufo-feature p {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.ufo-pill {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 400;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid rgba(176, 143, 255, 0.35);
+  border-radius: 2px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.ufo-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+
+.ufo-panel {
+  background: var(--bg);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.ufo-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.ufo-panel:hover { background: var(--surface); }
+.ufo-panel:hover::before { opacity: 1; }
+
+.ufo-panel h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.ufo-panel p {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.ufo-panel ul {
+  list-style: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+.ufo-panel li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0.35rem;
+}
+
+.ufo-panel li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.ufo-link {
+  margin-top: auto;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s;
+  cursor: none;
+  position: relative;
+  z-index: 1;
+}
+
+.ufo-link:hover { color: var(--accent-bright); }
+
+#uforiya .proj-tags { margin-bottom: 2rem; }
+
+.ufo-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /* ── Projects Grid ── */
@@ -404,6 +656,7 @@ section {
   animation: pulse 2s infinite;
   box-shadow: 0 0 6px rgba(167, 139, 250, 0.5);
   flex-shrink: 0;
+  display: inline-block;
 }
 
 @keyframes pulse {
@@ -440,8 +693,8 @@ section {
 }
 
 .ctrl-icon {
-  font-family: sans-serif;
-  line-height: 1;
+  width: 14px;
+  height: 14px;
   display: block;
 }
 
@@ -449,7 +702,6 @@ section {
   font-size: 1.2rem;
   color: var(--accent);
   transition: transform 0.2s, color 0.2s;
-  font-family: sans-serif;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -568,7 +820,7 @@ section {
   font-size: 1.1rem;
   color: var(--muted);
   transition: all 0.2s;
-  font-family: sans-serif;
+  display: flex;
 }
 
 /* ── Skills ── */
@@ -648,6 +900,15 @@ footer {
   position: relative;
 }
 
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  cursor: none;
+  transition: color 0.2s;
+}
+
+footer a:hover { color: var(--accent-bright); }
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   footer {
@@ -667,6 +928,7 @@ footer {
     gap: 1.2rem;
     justify-content: center;
     width: 100%;
+    flex-wrap: wrap;
   }
   .nav-links a { font-size: 0.7rem; letter-spacing: 0.08em; }
  
@@ -675,6 +937,15 @@ footer {
   .hero { flex-direction: column; align-items: flex-start; }
   .hero-photo { width: 100%; }
   .hero-photo img { width: 100%; height: auto; }
+
+  .ufo-head { gap: 1rem; }
+  .ufo-head img { height: 48px; }
+  .ufo-stats { grid-template-columns: 1fr 1fr; }
+  .ufo-stat { padding: 1.25rem; }
+  .ufo-feature { padding: 1.5rem; }
+  .ufo-split { grid-template-columns: 1fr; }
+  .ufo-panel { padding: 1.5rem; }
+  .ufo-panel h3 { font-size: 1.4rem; }
 
   .projects-grid { grid-template-columns: 1fr; }
   .proj-card-featured { grid-column: 1; }
@@ -714,11 +985,16 @@ footer {
   text-transform: uppercase;
   white-space: nowrap;
   transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: none;
 }
 
 .section-link:hover {
   color: var(--accent-bright);
 }
+
 .hero-sub a {
   color: inherit;
   text-decoration: underline;
