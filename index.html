@@ -5,79 +5,11 @@
   <link rel="icon" href="images/chukaufo.PNG" type="image/png" />
   <link rel="apple-touch-icon" href="images/chukaufo.PNG" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chuka Uwefoh | Founder of Uforiya · Software Developer</title>
-  <meta name="description" content="Chuka Uwefoh is the founder of Uforiya, an app where artists and producers keep every version of their unreleased songs and work on them together. Software developer in Toronto." />
+  <title>Chuka Uwefoh | Audio Software Engineer · Building Uforiya</title>
+  <meta name="description" content="Chuka Uwefoh is an audio software engineer in Toronto building Uforiya, a creative ecosystem for musicians: a collaboration workspace for unreleased tracks, free browser audio tools, a desktop Sample Organizer, and a VST in development." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    /* Uforiya section + icon styles (built on the site's own colour tokens) */
-    a.btn { text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
-    .arr { width: 0.75em; height: 0.75em; display: inline-block; vertical-align: middle; flex-shrink: 0; }
-    .ctrl-icon { width: 14px; height: 14px; display: block; }
-    .live-dot { display: inline-block; }
-    .section-link { display: inline-flex; align-items: center; gap: 0.4rem; cursor: none; }
-    .art-arrow { display: flex; }
-    footer a { color: var(--accent); text-decoration: none; cursor: none; transition: color 0.2s; }
-    footer a:hover { color: var(--accent-bright); }
-
-    .ufo-head { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.75rem; }
-    .ufo-head img { height: 64px; width: auto; max-width: 64px; object-fit: contain; display: block; flex-shrink: 0; }
-    .ufo-title { font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; line-height: 0.9; letter-spacing: -0.04em; color: var(--accent-bright); text-shadow: 0 0 60px rgba(176, 143, 255, 0.3); }
-    .ufo-tagline { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.75rem; }
-    .ufo-lede { font-family: 'DM Mono', monospace; font-size: 0.9rem; color: var(--muted); line-height: 1.8; max-width: 680px; margin-bottom: 3rem; }
-    .ufo-lede em { color: var(--text); font-style: normal; }
-
-    .ufo-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 3rem; }
-    .ufo-stat { background: var(--bg); padding: 1.5rem; transition: background 0.2s; }
-    .ufo-stat:hover { background: var(--surface); }
-    .ufo-stat-val { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.6rem; color: var(--text); }
-    .ufo-stat-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); margin-top: 0.5rem; letter-spacing: 0.08em; text-transform: uppercase; }
-
-    .ufo-subhead { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.25rem; }
-
-    .ufo-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 3rem; }
-    .ufo-feature { background: var(--bg); padding: 2rem; transition: background 0.2s; }
-    .ufo-feature:hover { background: var(--surface); }
-    .ufo-feature h3 { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 0.6rem; color: var(--text); }
-    .ufo-feature p { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--muted); line-height: 1.7; margin: 0; }
-
-    .ufo-pill { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.58rem; font-weight: 400; padding: 0.15rem 0.5rem; border: 1px solid rgba(176, 143, 255, 0.35); border-radius: 2px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-left: 0.5rem; vertical-align: middle; }
-
-    .ufo-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 2.5rem; }
-    .ufo-panel { background: var(--bg); padding: 2.5rem; display: flex; flex-direction: column; position: relative; transition: background 0.3s; }
-    .ufo-panel::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), transparent); opacity: 0; transition: opacity 0.3s; pointer-events: none; }
-    .ufo-panel:hover { background: var(--surface); }
-    .ufo-panel:hover::before { opacity: 1; }
-    .ufo-panel h3 { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 0.75rem; color: var(--text); }
-    .ufo-panel p { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--muted); line-height: 1.7; margin: 0 0 1.25rem; }
-    .ufo-panel ul { list-style: none; padding: 0; font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--muted); line-height: 1.7; margin: 0 0 1.75rem; }
-    .ufo-panel li { position: relative; padding-left: 1.1rem; margin-bottom: 0.35rem; }
-    .ufo-panel li::before { content: ''; position: absolute; left: 0; top: 0.7em; width: 4px; height: 4px; background: var(--accent); border-radius: 50%; }
-
-    .ufo-link { margin-top: auto; font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--accent); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s; cursor: none; position: relative; z-index: 1; }
-    .ufo-link:hover { color: var(--accent-bright); }
-
-    #uforiya .proj-tags { margin-bottom: 2rem; }
-    .ufo-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    @media (max-width: 900px) {
-      .ufo-features { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 768px) {
-      .nav-links { flex-wrap: wrap; }
-      .ufo-head { gap: 1rem; }
-      .ufo-head img { height: 48px; max-width: 48px; }
-      .ufo-stats { grid-template-columns: 1fr 1fr; }
-      .ufo-stat { padding: 1.25rem; }
-      .ufo-features { grid-template-columns: 1fr; }
-      .ufo-feature { padding: 1.5rem; }
-      .ufo-split { grid-template-columns: 1fr; }
-      .ufo-panel { padding: 1.5rem; }
-      .ufo-panel h3 { font-size: 1.4rem; }
-    }
-  </style>
 </head>
 <body>
 
@@ -91,101 +23,112 @@
     <div class="nav-links">
       <a class="active" data-target="hero">Home</a>
       <a data-target="uforiya">Uforiya</a>
-      <a data-target="projects">Products</a>
+      <a data-target="building">Building</a>
       <a data-target="writing">Writing</a>
-      <a data-target="skills">Skills</a>
+      <a data-target="past">Past Work</a>
       <a data-target="contact">Contact</a>
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <div class="hero-tag">// Founder of Uforiya · Software Developer · Toronto, ON</div>
+      <div class="hero-tag">// Audio Software Engineer · Toronto, ON</div>
       <h1 class="hero-name">Chuka<br><span>Uwefoh.</span></h1>
-      <p class="hero-sub">I'm building <a href="#uforiya">Uforiya</a>, an app where artists and producers keep every version of their unreleased songs and work on them together. I built it on my own, start to finish, and it's live in beta with 20+ users. I also made <a href="#fint">Fint</a>, a private finance tracker on the App Store, and <a href="#revved-up">Revved Up</a>, an Honourable Mention at Queen's Creative Computing Showcase 2026.</p>
+      <p class="hero-sub">I'm an audio software engineer building <a href="#uforiya">Uforiya</a>, a creative ecosystem for musicians. It starts with one home for every unreleased track, and grows into the tools artists and producers use to make the music itself: in the browser, on the desktop, and soon inside the DAW.</p>
       <div class="hero-ctas">
         <button class="btn btn-primary" data-scroll="uforiya">Explore Uforiya</button>
         <a class="btn btn-secondary" href="https://uforiya.space" target="_blank" rel="noopener">Try the Beta <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
       </div>
     </div>
     <div class="hero-photo">
-      <img src="images/chukapro.JPG" alt="Chuka at Queen's Creative Computing Showcase" />
+      <img src="images/chukapro.JPG" alt="Chuka Uwefoh" />
     </div>
   </section>
 
   <!-- UFORIYA -->
   <section id="uforiya">
-    <div class="section-label"><span class="label-text">Now Building</span><a href="https://uforiya.com" target="_blank" class="section-link">uforiya.com <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></div>
+    <div class="section-label"><span class="label-text">Uforiya</span><a href="https://uforiya.com" target="_blank" rel="noopener" class="section-link">uforiya.com <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></div>
 
     <div class="ufo-head">
-      <img src="images/logos/ufologo.png" alt="Uforiya logo" width="64" height="64" style="width:64px;height:64px;object-fit:contain;" />
+      <img src="images/logos/ufologo.png" alt="Uforiya logo" width="64" height="64" />
       <div>
         <div class="ufo-title">Uforiya</div>
         <div class="ufo-tagline">Every track. Every version. Every collaborator. Nothing lost.</div>
       </div>
     </div>
 
-    <p class="ufo-lede">When people make music together, files get sent back and forth and pile up in folders with names like <em>final_v3_REALFINAL</em>. Nobody is sure which one is the latest. Uforiya gives every song one home: every version, everyone working on it, and all of their feedback in one place. It's made for artists, producers, songwriters and studios working together from anywhere.</p>
+    <p class="ufo-lede">Right now, Uforiya is a workspace for unreleased music. A song keeps every version, its stems and everyone working on it in one place, instead of a folder full of files named <em>final_v3_REALFINAL</em>. Producers, artists, songwriters, mix engineers and studios work on the same track from anywhere, with feedback pinned to the exact second it's about.</p>
+
+    <div class="vision">
+      <div class="vision-label">Where it's going</div>
+      <p>I'm building Uforiya into a full creative ecosystem: software that helps musicians make music and improves the creative process from the first idea to the final master. The workspace is the foundation. The audio tools, the Sample Organizer and the VST I'm building now are the next pieces.</p>
+    </div>
 
     <div class="ufo-stats">
       <div class="ufo-stat"><div class="ufo-stat-val"><span class="live-dot"></span>Open beta</div><div class="ufo-stat-label">Live · 20+ users</div></div>
-      <div class="ufo-stat"><div class="ufo-stat-val">Free + Pro</div><div class="ufo-stat-label">Pro is $15 CAD a month</div></div>
-      <div class="ufo-stat"><div class="ufo-stat-val">7 free tools</div><div class="ufo-stat-label">Quick audio edits online</div></div>
+      <div class="ufo-stat"><div class="ufo-stat-val">Toronto studios</div><div class="ufo-stat-label">Used to run writing camps</div></div>
+      <div class="ufo-stat"><div class="ufo-stat-val">7 audio tools</div><div class="ufo-stat-label">Processed in the browser</div></div>
       <div class="ufo-stat"><div class="ufo-stat-val">Web + Desktop</div><div class="ufo-stat-label">Phone, computer, Windows app</div></div>
     </div>
 
-    <div class="ufo-subhead">What it does</div>
+    <div class="ufo-subhead">What it does today</div>
     <div class="ufo-features">
       <div class="ufo-feature">
-        <h3>Upload a song</h3>
-        <p>Drop in any common audio file and Uforiya works out its speed, musical key and length for you.</p>
+        <h3>Reads the track for you</h3>
+        <p>Drop in MP3, WAV, FLAC, AIFF or M4A. BPM, key and duration are detected on upload by a Python analysis service.</p>
       </div>
       <div class="ufo-feature">
-        <h3>Every version saved</h3>
-        <p>First draft, updated draft, final version. They all stay together, and the owner picks which one is the real one.</p>
+        <h3>Every version, with stems</h3>
+        <p>Rough idea, revised bounce, final master. Each version stays side by side with its stems sorted underneath, and only the owner marks one as current.</p>
       </div>
       <div class="ufo-feature">
-        <h3>Invite your team</h3>
-        <p>Add people by username or email and choose what each person can do. Everyone gets credit for their part.</p>
+        <h3>Roles and credits</h3>
+        <p>Invite by username or email. Owners, editors and listeners each get exactly the access they need, and everyone keeps credit for their part.</p>
       </div>
       <div class="ufo-feature">
-        <h3>Feedback at the exact moment</h3>
-        <p>Leave a comment at the exact second of the song you mean, so notes are never confusing.</p>
+        <h3>Timestamped feedback</h3>
+        <p>Waveform playback in the browser, with comments pinned to the second. Lyrics live with the track too.</p>
       </div>
       <div class="ufo-feature">
         <h3>Private sessions <span class="ufo-pill">Pro</span></h3>
-        <p>A private space for a studio day. Share one link, everyone uploads to the same place, and lock it when you're done.</p>
+        <p>A closed room for a studio day or a camp. One join link, everyone uploads to the host's 1TB, and the session locks when it wraps.</p>
       </div>
       <div class="ufo-feature">
         <h3>Free audio tools</h3>
-        <p>Cut, fade, speed up, change pitch or change the file type right in your browser. Some tools don't even need an account.</p>
+        <p>Trim, fade, convert, compress, pitch, tempo and normalize, all processed in the browser. Four of them work with no account.</p>
       </div>
+    </div>
+
+    <div class="shots">
+      <figure><img src="images/uforiya/dashboard.png" alt="Uforiya library of projects" loading="lazy"><figcaption>Library</figcaption></figure>
+      <figure><img src="images/uforiya/audioplayer.png" alt="Uforiya waveform player with a timestamped comment" loading="lazy"><figcaption>Player</figcaption></figure>
+      <figure><img src="images/uforiya/collaboratorsettings.png" alt="Uforiya collaborator roles and credits" loading="lazy"><figcaption>Collaborators</figcaption></figure>
     </div>
 
     <div class="ufo-split">
       <div class="ufo-panel">
         <h3>How it's built</h3>
-        <p>I built Uforiya on my own and started with the foundation: how data is stored, who can see what, and how files stay safe. Only then did I design the screens.</p>
+        <p>I built Uforiya solo, foundation first: data model, permissions and file security before a single screen. The audio pipeline sits on top of that.</p>
         <ul>
           <li>Next.js and React (TypeScript) for the app</li>
-          <li>Supabase and PostgreSQL for accounts and data</li>
-          <li>Cloudflare R2 for storing audio files</li>
-          <li>A Python service that reads each song's speed and key</li>
-          <li>Stripe for Pro payments</li>
+          <li>Python / FastAPI worker for BPM and key analysis</li>
+          <li>Browser-side audio processing for the tools</li>
+          <li>Supabase and PostgreSQL for accounts, roles and data</li>
+          <li>Cloudflare R2 for audio storage, Stripe for Pro</li>
         </ul>
-        <a class="ufo-link" href="https://blog.chukaufo.xyz/foundation-first/" target="_blank">Read: Foundation First <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+        <a class="ufo-link" href="https://blog.chukaufo.xyz/foundation-first/" target="_blank" rel="noopener">Read: Foundation First <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
       </div>
       <div class="ufo-panel">
-        <h3>Sample Organizer <span class="ufo-pill">Desktop</span></h3>
-        <p>A free desktop app for producers. Producers buy lots of sound packs, and the same sounds often show up in many of them under different names. This app finds the exact copies and clears them out. On one real library it found 443MB of copies in about one second.</p>
+        <h3>In the studio</h3>
+        <p>Uforiya is used in real rooms, not just in demos. I've worked with studios across Toronto, most notably Main One, who use Uforiya to run their camps: every writer and producer uploads to one private session, and nothing gets lost between rooms.</p>
         <ul>
-          <li>Finds true copies, even when the names are different</li>
-          <li>Runs on your computer. Nothing is uploaded, no account needed</li>
-          <li>Never deletes your last copy, and removed files can be restored</li>
-          <li>Built with Electron and open source</li>
+          <li>Private sessions built around how camps actually run</li>
+          <li>Feature work shaped directly by studio feedback</li>
+          <li>Built in the open with the producers using it</li>
         </ul>
-        <a class="ufo-link" href="https://uforiya.com/sample-organizer/" target="_blank">Windows now · Mac coming soon <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+        <a class="ufo-link" href="https://uforiya.space" target="_blank" rel="noopener">Try the beta <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
       </div>
     </div>
 
@@ -195,234 +138,41 @@
       <span class="tag">React</span>
       <span class="tag">Python</span>
       <span class="tag">FastAPI</span>
-      <span class="tag">Supabase</span>
+      <span class="tag">Web Audio</span>
       <span class="tag">PostgreSQL</span>
       <span class="tag">Cloudflare R2</span>
-      <span class="tag">Stripe</span>
       <span class="tag">Electron</span>
     </div>
+  </section>
 
-    <div class="ufo-ctas">
-      <a class="btn btn-primary" href="https://uforiya.space" target="_blank" rel="noopener">Try the Beta <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
-      <a class="btn btn-secondary" href="https://uforiya.space/tools" target="_blank" rel="noopener">Free Audio Tools <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+  <!-- BUILDING -->
+  <section id="building">
+    <div class="section-label"><span class="label-text">Building the ecosystem</span></div>
+    <div class="now-grid">
+      <div class="now-item">
+        <div class="now-status"><span class="live-dot"></span>Live · Beta</div>
+        <h3>Uforiya Web</h3>
+        <p>The collaboration workspace and seven free audio tools. Works on phone and desktop browsers.</p>
+        <a class="ufo-link" href="https://uforiya.space" target="_blank" rel="noopener">uforiya.space <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+      </div>
+      <div class="now-item">
+        <div class="now-status"><span class="live-dot"></span>Shipped · Windows</div>
+        <h3>Sample Organizer</h3>
+        <p>A free, open-source desktop app that finds true duplicate samples across drum kits, even under different names. It cleared 443MB of copies from a 4.5GB library in about a second. Runs locally, never deletes your last copy. Mac coming soon.</p>
+        <a class="ufo-link" href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener">Get it free <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+      </div>
+      <div class="now-item now-item-next">
+        <div class="now-status"><span class="dev-dot"></span>In development</div>
+        <h3>Uforiya VST</h3>
+        <p>A plugin that brings Uforiya into the DAW, so the creative work and the workspace stop living in separate places. This is what I'm building right now.</p>
+        <span class="now-soon">More soon</span>
+      </div>
     </div>
   </section>
 
-  <section id="projects">
-    <div class="section-label">Selected Work</div>
-    <div class="projects-grid">
-
-      <!-- UFORIYA -->
-      <div class="project-card proj-card-featured" data-href="https://uforiya.com" id="uforiya-card">
-        <div class="card-slide active" data-slide="info">
-          <div class="proj-num">01 · Featured</div>
-          <div class="proj-logo"><img src="images/logos/ufologo.png" alt="Uforiya logo"></div>
-          <div class="proj-title">Uforiya</div>
-          <div class="proj-desc">A shared home for unreleased music. Artists and producers keep every version of a song, invite the people working on it, and leave feedback at the exact moment in the track. Built solo from start to finish, with free online audio tools and a companion desktop app.</div>
-          <div class="proj-tags">
-            <span class="tag">TypeScript</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">Python</span>
-            <span class="tag">React</span>
-            <span class="tag">Supabase</span>
-            <span class="tag">Cloudflare</span>
-            <span class="tag">Stripe</span>
-            <span class="tag">Electron</span>
-          </div>
-          <div class="proj-footer">
-            <div class="proj-status"><span class="live-dot"></span>Open beta · 20+ users</div>
-            <div class="card-controls">
-              <button class="slide-btn" data-dir="next" aria-label="View screenshots">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-              </button>
-              <a class="proj-arrow" href="https://uforiya.com" target="_blank" onclick="event.stopPropagation()" aria-label="Open Uforiya">
-                <svg class="arr" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card-slide" data-slide="screenshots">
-          <div class="proj-num">01 · Screenshots</div>
-          <div class="screenshot-gallery">
-            <img src="images/uforiya/dashboard.png" alt="Uforiya dashboard" class="screenshot active">
-            <img src="images/uforiya/loginpage.png" alt="Uforiya login" class="screenshot">
-            <img src="images/uforiya/audioplayer.png" alt="Uforiya audio player" class="screenshot">
-            <img src="images/uforiya/collaboratorsettings.png" alt="Uforiya collaborator settings" class="screenshot">
-          </div>
-          <div class="screenshot-dots" id="dots-uforiya"></div>
-          <div class="proj-footer">
-            <div class="proj-status"><span class="live-dot"></span>Uforiya</div>
-            <div class="card-controls">
-              <button class="slide-btn" data-dir="prev" aria-label="Back to info">
-                <svg class="ctrl-icon" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6h-7M5.5 3 2.5 6l3 3"/></svg>
-              </button>
-              <button class="slide-btn" data-dir="screenshot-prev" aria-label="Previous screenshot">
-                <svg class="ctrl-icon" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 2.5 4 6l3.5 3.5"/></svg>
-              </button>
-              <button class="slide-btn" data-dir="screenshot-next" aria-label="Next screenshot">
-                <svg class="ctrl-icon" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- REVVED UP -->
-      <div class="project-card" data-href="https://revved-up.skhs.queensu.ca/" id="revved-up">
-        <div class="card-slide active" data-slide="info">
-          <div class="proj-num">02</div>
-          <div class="proj-logo"><img src="images/logos/RevvedUp-Badge.png" alt="Revved Up logo"></div>
-          <div class="proj-title">Revved Up</div>
-          <div class="proj-desc">Accessible fitness management platform. Converted a manual, paper-based trainer process into a fully automated system. Honourable Mention at Queen's Creative Computing Showcase 2026.</div>
-          <div class="proj-tags">
-            <span class="tag">Node.js</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Azure</span>
-            <span class="tag">SQLite</span>
-          </div>
-          <div class="proj-footer">
-            <div class="proj-status"><span class="live-dot"></span>Live · 70+ users</div>
-            <div class="card-controls">
-              <button class="slide-btn" data-dir="next" aria-label="View screenshots">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-              </button>
-              <a class="proj-arrow" href="https://revved-up.skhs.queensu.ca/" target="_blank" onclick="event.stopPropagation()" aria-label="Open Revved Up">
-                <svg class="arr" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card-slide" data-slide="screenshots">
-          <div class="proj-num">02 · Screenshots</div>
-          <div class="screenshot-gallery">
-            <img src="images/revvedup/exercisespage.png" alt="Revved Up exercises" class="screenshot active">
-            <img src="images/revvedup/exercisetagspage.png" alt="Revved Up exercise tags" class="screenshot">
-            <img src="images/revvedup/programspage.png" alt="Revved Up programs" class="screenshot">
-          </div>
-          <div class="screenshot-dots" id="dots-revvedup"></div>
-          <div class="proj-footer">
-            <div class="proj-status"><span class="live-dot"></span>Revved Up</div>
-            <div class="card-controls">
-              <button class="slide-btn" data-dir="prev" aria-label="Back to info">
-                <svg class="ctrl-icon" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6h-7M5.5 3 2.5 6l3 3"/></svg>
-              </button>
-              <button class="slide-btn" data-dir="screenshot-prev" aria-label="Previous screenshot">
-                <svg class="ctrl-icon" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 2.5 4 6l3.5 3.5"/></svg>
-              </button>
-              <button class="slide-btn" data-dir="screenshot-next" aria-label="Next screenshot">
-                <svg class="ctrl-icon" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FINT -->
-      <div class="project-card" data-href="https://apps.apple.com/us/app/fint/id6775697441" id="fint">
-        <div class="card-slide active" data-slide="info">
-          <div class="proj-num">03</div>
-          <div class="proj-logo"><img src="images/logos/fint-transparent.png" alt="Fint logo"></div>
-          <div class="proj-title">Fint</div>
-          <div class="proj-desc">Built a privacy-first iOS and iPadOS finance tracker that scans receipts, tracks spending over time, and generates an annual spending summary, with all data stored on-device and synced across devices via iCloud.</div>
-          <div class="proj-tags">
-            <span class="tag">Swift</span>
-            <span class="tag">SwiftUI</span>
-            <span class="tag">Core Data</span>
-            <span class="tag">Vision OCR</span>
-            <span class="tag">CloudKit</span>
-          </div>
-          <div class="proj-footer">
-            <div class="proj-status"><span class="live-dot"></span>Live · App Store</div>
-            <div class="card-controls">
-              <button class="slide-btn" data-dir="next" aria-label="View screenshots">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-              </button>
-              <a class="proj-arrow" href="https://apps.apple.com/us/app/fint/id6775697441" target="_blank" onclick="event.stopPropagation()" aria-label="Open Fint on the App Store">
-                <svg class="arr" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card-slide" data-slide="screenshots">
-          <div class="proj-num">03 · Screenshots</div>
-          <div class="screenshot-gallery">
-            <img src="images/fint/fint promo.png" alt="Fint app" class="screenshot active">
-            <img src="images/fint/receiptposter.png" alt="Fint Receipt Scanner" class="screenshot">
-            <img src="images/fint/realtimealerts ipad.png" alt="Fint App on Ipad" class="screenshot">
-          </div>
-          <div class="screenshot-dots" id="dots-fint"></div>
-          <div class="proj-footer">
-            <div class="proj-status"><span class="live-dot"></span>Fint</div>
-            <div class="card-controls">
-              <button class="slide-btn" data-dir="prev" aria-label="Back to info">
-                <svg class="ctrl-icon" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6h-7M5.5 3 2.5 6l3 3"/></svg>
-              </button>
-              <button class="slide-btn" data-dir="screenshot-prev" aria-label="Previous screenshot">
-                <svg class="ctrl-icon" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 2.5 4 6l3.5 3.5"/></svg>
-              </button>
-              <button class="slide-btn" data-dir="screenshot-next" aria-label="Next screenshot">
-                <svg class="ctrl-icon" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CURRENCY CONVERTER -->
-      <div class="project-card" data-href="https://uf0-tech.github.io/online-currency-converter/">
-        <div class="card-slide active" data-slide="info">
-          <div class="proj-num">04</div>
-          <div class="proj-logo"><img src="images/logos/onlineconverterlogo.PNG" alt="Currency Converter logo"></div>
-          <div class="proj-title">Currency Converter</div>
-          <div class="proj-desc">Web-based currency converter rebuilt for accessibility across all devices, moving from a desktop-only Java app to a responsive, live-rate web tool.</div>
-          <div class="proj-tags">
-            <span class="tag">JavaScript</span>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">REST API</span>
-          </div>
-          <div class="proj-footer">
-            <div class="proj-status"><span class="live-dot"></span>Live</div>
-            <div class="card-controls">
-              <button class="slide-btn" data-dir="next" aria-label="View screenshots">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-              </button>
-              <a class="proj-arrow" href="https://uforyc.github.io/online-currency-converter/" target="_blank" onclick="event.stopPropagation()" aria-label="Open Currency Converter">
-                <svg class="arr" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card-slide" data-slide="screenshots">
-          <div class="proj-num">04 · Screenshots</div>
-          <div class="screenshot-gallery">
-            <img src="images/onlineconverter/onlineconverter.png" alt="Currency Converter" class="screenshot active">
-          </div>
-          <div class="screenshot-dots" id="dots-converter"></div>
-          <div class="proj-footer">
-            <div class="proj-status"><span class="live-dot"></span>Currency Converter</div>
-            <div class="card-controls">
-              <button class="slide-btn" data-dir="prev" aria-label="Back to info">
-                <svg class="ctrl-icon" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6h-7M5.5 3 2.5 6l3 3"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
+  <!-- WRITING -->
   <section id="writing">
-    <div class="section-label"><span class="label-text">Writing</span><a href="https://blog.chukaufo.xyz" target="_blank" class="section-link">Visit Blog <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></div>
+    <div class="section-label"><span class="label-text">Writing</span><a href="https://blog.chukaufo.xyz" target="_blank" rel="noopener" class="section-link">Visit Blog <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></div>
     <div class="writing-list">
 
       <div class="article-row" data-href="https://blog.chukaufo.xyz/foundation-first/">
@@ -463,35 +213,53 @@
     </div>
   </section>
 
-  <section id="skills">
-    <div class="section-label">Technologies</div>
-    <div class="skills-grid" id="skills-grid">
-      <div class="skill-item" data-pct="95"><div class="skill-name">TypeScript</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Uforiya</div></div>
-      <div class="skill-item" data-pct="90"><div class="skill-name">Next.js</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Uforiya</div></div>
-      <div class="skill-item" data-pct="90"><div class="skill-name">React</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Uforiya</div></div>
-      <div class="skill-item" data-pct="85"><div class="skill-name">Python</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Uforiya</div></div>
-      <div class="skill-item" data-pct="85"><div class="skill-name">PostgreSQL</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Uforiya</div></div>
-      <div class="skill-item" data-pct="88"><div class="skill-name">Node.js</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Revved Up</div></div>
-      <div class="skill-item" data-pct="80"><div class="skill-name">Swift / SwiftUI</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Fint</div></div>
-      <div class="skill-item" data-pct="75"><div class="skill-name">Azure</div><div class="skill-bar-bg"><div class="skill-bar"></div></div><div class="skill-level">Production · Revved Up</div></div>
+  <!-- PAST PROJECTS -->
+  <section id="past">
+    <div class="section-label"><span class="label-text">Past projects</span></div>
+    <div class="past-list">
+      <a class="past-row" href="https://revved-up.skhs.queensu.ca/" target="_blank" rel="noopener">
+        <img class="past-logo" src="images/logos/RevvedUp-Badge.png" alt="" />
+        <div class="past-body">
+          <div class="past-title">Revved Up <span class="past-meta">Node.js · TypeScript · Azure</span></div>
+          <div class="past-desc">Fitness management platform that replaced a paper-based trainer process. 70+ users. Honourable Mention, Queen's Creative Computing Showcase 2026.</div>
+        </div>
+        <svg class="arr past-arr" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg>
+      </a>
+      <a class="past-row" href="https://apps.apple.com/us/app/fint/id6775697441" target="_blank" rel="noopener">
+        <img class="past-logo" src="images/logos/fint-transparent.png" alt="" />
+        <div class="past-body">
+          <div class="past-title">Fint <span class="past-meta">Swift · SwiftUI · CloudKit</span></div>
+          <div class="past-desc">Privacy-first iOS and iPadOS finance tracker with receipt scanning, on-device storage and iCloud sync. Live on the App Store.</div>
+        </div>
+        <svg class="arr past-arr" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg>
+      </a>
+      <a class="past-row" href="https://uforyc.github.io/online-currency-converter/" target="_blank" rel="noopener">
+        <img class="past-logo" src="images/logos/onlineconverterlogo.PNG" alt="" />
+        <div class="past-body">
+          <div class="past-title">Currency Converter <span class="past-meta">JavaScript · REST API</span></div>
+          <div class="past-desc">A desktop-only Java app rebuilt as a responsive web tool with live exchange rates.</div>
+        </div>
+        <svg class="arr past-arr" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg>
+      </a>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <div class="contact-block">
-      <div class="contact-headline">Let's<br>build<br><span>something.</span></div>
+      <div class="contact-headline">Let's<br>make<br><span>something.</span></div>
       <div class="contact-links">
-        <a class="contact-link" href="mailto:chukauwefoh2@gmail.com">chukauwefoh2@gmail.com</a>
-        <a class="contact-link" href="https://uforiya.com" target="_blank">Uforiya</a>
-        <a class="contact-link" href="https://linkedin.com/in/chuka-uwefoh-6183b3277" target="_blank">LinkedIn</a>
-        <a class="contact-link" href="https://github.com/chukaufo" target="_blank">GitHub</a>
-        <a class="contact-link" href="https://x.com/chukaufo">Twitter(X)</a>
-        <a class="contact-link" href="https://chukaufo.xyz/files/Chuka_Uwefoh_Resume.pdf" target="_blank">Resume</a>
+        <a class="contact-link" href="mailto:chuka@uforiya.com">chuka@uforiya.com</a>
+        <a class="contact-link" href="https://uforiya.com" target="_blank" rel="noopener">Uforiya</a>
+        <a class="contact-link" href="https://linkedin.com/in/chuka-uwefoh-6183b3277" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="contact-link" href="https://github.com/chukaufo" target="_blank" rel="noopener">GitHub</a>
+        <a class="contact-link" href="https://x.com/chukaufo" target="_blank" rel="noopener">Twitter(X)</a>
+        <a class="contact-link" href="https://chukaufo.xyz/files/Chuka_Uwefoh_Resume.pdf" target="_blank" rel="noopener">Resume</a>
       </div>
     </div>
   </section>
 
-  <footer>© 2026 Chuka Uwefoh · Founder, <a href="https://uforiya.com" target="_blank">Uforiya</a> · chukaufo.xyz</footer>
+  <footer>© 2026 Chuka Uwefoh · Audio Software Engineer · Building <a href="https://uforiya.com" target="_blank" rel="noopener">Uforiya</a> · chukaufo.xyz</footer>
 
   <script src="script.js"></script>
 </body>
