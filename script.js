@@ -17,7 +17,7 @@ function animateRing() {
 }
 animateRing();
 
-const interactiveEls = 'a, button, .project-card, .article-row, .skill-item, .slide-btn';
+const interactiveEls = 'a, button, .past-row, .ufo-does li';
 document.querySelectorAll(interactiveEls).forEach(el => {
   el.addEventListener('mouseenter', () => {
     ring.style.opacity = '0.9';
@@ -37,143 +37,34 @@ document.querySelectorAll('[data-target], [data-scroll]').forEach(el => {
   });
 });
 
-/* ── Active Nav on Scroll ── */
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a[data-target]');
+/* ── Active Nav on Scroll ──
+   Picks whichever section has crossed a line ~30% down the screen,
+   so tall sections (Uforiya) highlight just like short ones. */
+const navLinks = [...document.querySelectorAll('.nav-links a[data-target]')];
+const navSections = navLinks
+  .map(link => document.getElementById(link.dataset.target))
+  .filter(Boolean);
 
-const navObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.dataset.target === entry.target.id);
-      });
-    }
-  });
-}, { threshold: 0.4 });
+function updateActiveNav() {
+  const line = window.innerHeight * 0.3;
+  let current = navSections[0];
 
-sections.forEach(s => navObserver.observe(s));
-
-/* ── Project Card Carousel ── */
-function initCard(card) {
-  const slides = card.querySelectorAll('.card-slide');
-  const screenshotSlide = card.querySelector('[data-slide="screenshots"]');
-  const screenshots = screenshotSlide ? screenshotSlide.querySelectorAll('.screenshot') : [];
-  let currentScreenshot = 0;
-
-  // Build dots
-  const dotsContainer = screenshotSlide ? screenshotSlide.querySelector('.screenshot-dots') : null;
-  if (dotsContainer && screenshots.length > 1) {
-    screenshots.forEach((_, i) => {
-      const dot = document.createElement('div');
-      dot.className = 'dot' + (i === 0 ? ' active' : '');
-      dot.addEventListener('click', e => {
-        e.stopPropagation();
-        showScreenshot(i);
-      });
-      dotsContainer.appendChild(dot);
-    });
-  }
-
-  function showScreenshot(index) {
-    screenshots.forEach(s => s.classList.remove('active'));
-    screenshots[index].classList.add('active');
-    currentScreenshot = index;
-    if (dotsContainer) {
-      dotsContainer.querySelectorAll('.dot').forEach((d, i) => {
-        d.classList.toggle('active', i === index);
-      });
-    }
-  }
-
-  function showSlide(name) {
-    slides.forEach(s => s.classList.remove('active'));
-    const target = card.querySelector(`[data-slide="${name}"]`);
-    if (target) target.classList.add('active');
-  }
-
-  // Slide buttons
-  card.querySelectorAll('.slide-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      const dir = btn.dataset.dir;
-      if (dir === 'next') {
-        showSlide('screenshots');
-      } else if (dir === 'prev') {
-        showSlide('info');
-        currentScreenshot = 0;
-        showScreenshot(0);
-      } else if (dir === 'screenshot-next') {
-        const next = (currentScreenshot + 1) % screenshots.length;
-        showScreenshot(next);
-      } else if (dir === 'screenshot-prev') {
-        const prev = (currentScreenshot - 1 + screenshots.length) % screenshots.length;
-        showScreenshot(prev);
-      }
-    });
+  navSections.forEach(section => {
+    if (section.getBoundingClientRect().top <= line) current = section;
   });
 
-  // Tap card = toggle between info and screenshots (if not tapping a button or link)
-  card.addEventListener('click', e => {
-    if (e.target.closest('.slide-btn') || e.target.closest('.proj-arrow')) return;
-    const activeSlide = card.querySelector('.card-slide.active');
-    if (activeSlide && activeSlide.dataset.slide === 'info') {
-      showSlide('screenshots');
-    } else {
-      showSlide('info');
-      currentScreenshot = 0;
-      showScreenshot(0);
-    }
+  // At the very bottom, highlight the last section (Contact is too short to reach the line)
+  const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+  if (atBottom) current = navSections[navSections.length - 1];
+
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.dataset.target === current.id);
   });
-
-  // Touch swipe support for screenshots
-  let touchStartX = 0;
-  if (screenshotSlide) {
-    screenshotSlide.addEventListener('touchstart', e => {
-      touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-
-    screenshotSlide.addEventListener('touchend', e => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0) {
-          const next = (currentScreenshot + 1) % screenshots.length;
-          showScreenshot(next);
-        } else {
-          const prev = (currentScreenshot - 1 + screenshots.length) % screenshots.length;
-          showScreenshot(prev);
-        }
-      }
-    }, { passive: true });
-  }
 }
 
-document.querySelectorAll('.project-card').forEach(initCard);
-
-/* ── Article Row Clicks ── */
-document.querySelectorAll('.article-row[data-href]').forEach(row => {
-  row.addEventListener('click', () => {
-    const url = row.dataset.href;
-    if (url && url !== '#') window.open(url, '_blank');
-  });
-});
-
-/* ── Skill Bars ── */
-const skillsGrid = document.getElementById('skills-grid');
-
-const skillObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.skill-item').forEach((item, i) => {
-        const bar = item.querySelector('.skill-bar');
-        const pct = item.dataset.pct || 0;
-        setTimeout(() => { bar.style.width = pct + '%'; }, i * 80);
-      });
-      skillObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
-
-if (skillsGrid) skillObserver.observe(skillsGrid);
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+window.addEventListener('resize', updateActiveNav);
+updateActiveNav();
 
 /* ── Hero Entrance ── */
 window.addEventListener('load', () => {
