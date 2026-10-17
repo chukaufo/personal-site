@@ -471,6 +471,8 @@ a.btn {
   vertical-align: middle;
 }
 
+.ufo-subhead-gap { margin-top: 3.5rem; }
+
 /* Screenshots strip */
 .shots {
   display: grid;
@@ -910,12 +912,26 @@ footer a:hover { color: var(--accent-bright); }
   .glitch-logo { font-size: 1.2rem; }
 
   .nav-links {
-    gap: 1.2rem;
-    justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
+    gap: 1.4rem;
+    width: calc(100% + 2.5rem);
+    margin: 0 -1.25rem;
+    padding: 0 1.25rem 0.25rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-  .nav-links a { font-size: 0.7rem; letter-spacing: 0.08em; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  /* centre the links when they fit, scroll when they don't */
+  .nav-links a:first-child { margin-left: auto; }
+  .nav-links a:last-child { margin-right: auto; }
 
   section { padding: 4rem 1.5rem; }
 
