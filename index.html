@@ -49,8 +49,8 @@
     </div>
     <div class="nav-links">
       <a class="active" data-target="hero">Home</a>
-      <a data-target="sample-organizer">Sample Organizer</a>
       <a data-target="uforiya">Uforiya</a>
+      <a data-target="sample-organizer">Sample Organizer</a>
       <a data-target="past">Past Work</a>
       <a data-target="contact">Contact</a>
     </div>
@@ -64,65 +64,12 @@
       <h1 class="hero-name">Chuka<br><span>Uwefoh.</span></h1>
       <p class="hero-sub">I'm an audio software engineer, audio technician and music producer building <a href="#uforiya">Uforiya</a>, a creative ecosystem for musicians. It starts with a workspace for your unreleased tracks, with every version, stem and collaborator in one place, and grows into the tools artists and producers use to make the music itself, like the <a href="#sample-organizer">Sample Organizer</a>, a free desktop app that clears duplicate samples out of drum kits. I've also set up, operated and maintained audio equipment across 130+ rooms.</p>
       <div class="hero-ctas">
-        <button class="btn btn-primary" data-scroll="sample-organizer">Sample Organizer</button>
-        <button class="btn btn-secondary" data-scroll="uforiya">Explore Uforiya</button>
+        <button class="btn btn-primary" data-scroll="uforiya">Explore Uforiya</button>
+        <button class="btn btn-secondary" data-scroll="sample-organizer">Sample Organizer</button>
       </div>
     </div>
     <div class="hero-photo">
       <img src="images/chukapro2026.jpg" alt="Chuka Uwefoh" />
-    </div>
-  </section>
-
-  <!-- SAMPLE ORGANIZER -->
-  <section id="sample-organizer">
-    <div class="section-label"><span class="label-text">Sample Organizer</span><a href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener" class="section-link">Download <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></div>
-
-    <div class="ufo-head">
-      <img src="images/sample/uforiya-sample-icon-256.png" alt="Sample Organizer icon" width="64" height="64" />
-      <div>
-        <div class="ufo-title">Sample Organizer</div>
-        <div class="ufo-tagline">Find duplicate samples across your drum kits. Remove them safely.</div>
-      </div>
-    </div>
-
-    <p class="ufo-lede">Producers buy kits constantly, and the same samples end up in five folders under five different names. Sample Organizer scans your library, finds every exact copy, and clears them in one click while one copy of each sample always stays. It runs fully on your computer, works offline, and never uploads anything.</p>
-
-    <div class="ufo-stats">
-      <div class="ufo-stat"><div class="ufo-stat-val">443MB</div><div class="ufo-stat-label">Cleared from a 4.5GB library</div></div>
-      <div class="ufo-stat"><div class="ufo-stat-val">568</div><div class="ufo-stat-label">Duplicate files found</div></div>
-      <div class="ufo-stat"><div class="ufo-stat-val">408</div><div class="ufo-stat-label">Duplicate groups</div></div>
-      <div class="ufo-stat"><div class="ufo-stat-val">~1 second</div><div class="ufo-stat-label">To scan 4,817 files</div></div>
-    </div>
-
-    <div class="shots">
-      <figure><img src="images/sample/mostcopies.png" alt="Sample Organizer scan results with space reclaimable and duplicate groups" loading="lazy"><figcaption>Scan</figcaption></figure>
-      <figure><img src="images/sample/movetoqurantine.png" alt="Duplicate groups expanded, one copy marked keep, play button on every copy" loading="lazy"><figcaption>Keep one</figcaption></figure>
-      <figure><img src="images/sample/quarantine.png" alt="Quarantine with put back and delete permanently" loading="lazy"><figcaption>Quarantine</figcaption></figure>
-    </div>
-
-    <div class="ufo-split">
-      <div class="ufo-panel">
-        <h3>How it stays safe</h3>
-        <p>Deleting the wrong sample from someone's library is the one mistake this app can't make, so safety is built into the engine, not just the screen.</p>
-        <ul>
-          <li>Exact byte-for-byte matching, no guessing</li>
-          <li>One copy of every group always survives</li>
-          <li>Play button on every copy before you decide</li>
-          <li>Removals go to quarantine, one click puts them back</li>
-          <li>Permanent delete is a separate, deliberate step</li>
-        </ul>
-        <a class="ufo-link" href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener">Get it free <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
-      </div>
-      <div class="ufo-panel">
-        <h3>How it's built</h3>
-        <p>A desktop app built with Electron. I also built near-duplicate detection using MFCC audio fingerprints, then turned it off: it flagged samples that sounded alike but weren't the same. Exact matches only means it never removes something you wanted.</p>
-        <ul>
-          <li>Free and open source</li>
-          <li>No account, no login, nothing uploaded</li>
-          <li>Windows now, macOS next, Linux after</li>
-        </ul>
-        <a class="ufo-link" href="https://github.com/chukaufo/uforiya-sample-organizer" target="_blank" rel="noopener">Source on GitHub <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
-      </div>
     </div>
   </section>
 
@@ -214,8 +161,61 @@
       <div class="now-item">
         <div class="now-status"><span class="live-dot"></span>Shipped · Windows</div>
         <h3>Sample Organizer</h3>
-        <p>A free, open-source desktop app that finds true duplicate samples across drum kits, even under different names. It cleared 443MB of copies from a 4.5GB library in about a second. Runs locally, never deletes your last copy. Mac coming soon.</p>
+        <p>A free, open-source desktop app that finds true duplicate samples across drum kits, even under different names. It found 41.3GB of copies in a 45.4GB library. Runs locally, never deletes your last copy. Mac coming soon.</p>
         <a class="ufo-link" href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener">Get it free <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE ORGANIZER -->
+  <section id="sample-organizer">
+    <div class="section-label"><span class="label-text">Sample Organizer</span><a href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener" class="section-link">Download <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></div>
+
+    <div class="ufo-head">
+      <img src="images/sample/uforiya-sample-icon-256.png" alt="Sample Organizer icon" width="64" height="64" />
+      <div>
+        <div class="ufo-title">Sample Organizer</div>
+        <div class="ufo-tagline">Find duplicate samples across your drum kits. Remove them safely.</div>
+      </div>
+    </div>
+
+    <p class="ufo-lede">Producers buy kits constantly, and the same samples end up in five folders under five different names. Sample Organizer scans your library, finds every exact copy, and clears them in one click while one copy of each sample always stays. It runs fully on your computer, works offline, and never uploads anything.</p>
+
+    <div class="ufo-stats">
+      <div class="ufo-stat"><div class="ufo-stat-val">41.3GB</div><div class="ufo-stat-label">Reclaimable from a 45.4GB library</div></div>
+      <div class="ufo-stat"><div class="ufo-stat-val">43,921</div><div class="ufo-stat-label">Duplicate files found</div></div>
+      <div class="ufo-stat"><div class="ufo-stat-val">4,249</div><div class="ufo-stat-label">Duplicate groups</div></div>
+      <div class="ufo-stat"><div class="ufo-stat-val">48,170</div><div class="ufo-stat-label">Files scanned</div></div>
+    </div>
+
+    <div class="shots">
+      <figure><img src="images/sample/mostcopies.png" alt="Sample Organizer scan results with space reclaimable and duplicate groups" loading="lazy"><figcaption>Scan</figcaption></figure>
+      <figure><img src="images/sample/movetoqurantine.png" alt="Duplicate groups expanded, one copy marked keep, play button on every copy" loading="lazy"><figcaption>Keep one</figcaption></figure>
+      <figure><img src="images/sample/quarantine.png" alt="Quarantine with put back and delete permanently" loading="lazy"><figcaption>Quarantine</figcaption></figure>
+    </div>
+
+    <div class="ufo-split">
+      <div class="ufo-panel">
+        <h3>How it stays safe</h3>
+        <p>Deleting the wrong sample from someone's library is the one mistake this app can't make, so safety is built into the engine, not just the screen.</p>
+        <ul>
+          <li>Exact byte-for-byte matching, no guessing</li>
+          <li>One copy of every group always survives</li>
+          <li>Play button on every copy before you decide</li>
+          <li>Removals go to quarantine, one click puts them back</li>
+          <li>Permanent delete is a separate, deliberate step</li>
+        </ul>
+        <a class="ufo-link" href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener">Get it free <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+      </div>
+      <div class="ufo-panel">
+        <h3>How it's built</h3>
+        <p>A desktop app built with Electron. I also built near-duplicate detection using MFCC audio fingerprints, then turned it off: it flagged samples that sounded alike but weren't the same. Exact matches only means it never removes something you wanted.</p>
+        <ul>
+          <li>Free and open source</li>
+          <li>No account, no login, nothing uploaded</li>
+          <li>Windows now, macOS next, Linux after</li>
+        </ul>
+        <a class="ufo-link" href="https://github.com/chukaufo/uforiya-sample-organizer" target="_blank" rel="noopener">Source on GitHub <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
       </div>
     </div>
   </section>
