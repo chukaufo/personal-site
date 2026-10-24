@@ -411,3 +411,7 @@ footer a { color: var(--muted); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
+
+/* about */
+.about-copy { max-width: 64ch; }
+.about-copy p:not(.lead) { color: var(--soft); margin: 0 0 28px; }
