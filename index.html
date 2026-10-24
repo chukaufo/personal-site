@@ -35,226 +35,370 @@
   <meta name="twitter:image:alt" content="Chuka Uwefoh, Audio Software Engineer" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/glitch.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=6" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body data-mix="all">
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <a class="skip" href="#intro">Skip to content</a>
 
   <nav id="nav">
     <div class="nav-logo">
       <h1 class="glitch-logo" data-text="CHUKAUFO">CHUKAUFO</h1>
     </div>
     <div class="nav-links">
-      <a class="active" data-target="hero">About</a>
-      <a data-target="uforiya">Uforiya</a>
-      <a data-target="sample-organizer">Sample Organizer</a>
-      <a data-target="past">Past Work</a>
-      <a data-target="contact">Contact</a>
+      <a href="#uforiya">Uforiya</a>
+      <a href="#sample-organizer">Sample Organizer</a>
+      <a href="#bsides">B-sides</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="transport">
+      <button class="t-btn" id="sound-toggle" type="button" aria-pressed="false" aria-label="Turn sound on">
+        <span class="t-icon" aria-hidden="true"></span><span class="t-label">Sound off</span>
+      </button>
+      <span class="timecode" id="timecode" aria-hidden="true">00:00:00</span>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <div class="hero-tag">// Toronto, Ontario</div>
-      <h1 class="hero-name">Chuka<br><span>Uwefoh.</span></h1>
-      <p class="hero-sub">I'm an audio software engineer, audio technician and music producer building <a href="#uforiya">Uforiya</a>, a creative ecosystem for musicians. It starts with a workspace for your unreleased tracks, with every version, stem and collaborator in one place, and grows into the tools artists and producers use to make the music itself, like the <a href="#sample-organizer">Sample Organizer</a>, a free desktop app that clears duplicate samples out of drum kits. I've also set up, operated and maintained audio equipment across 130+ rooms.</p>
-      <div class="hero-ctas">
-        <button class="btn btn-primary" data-scroll="uforiya">Explore Uforiya</button>
-        <button class="btn btn-secondary" data-scroll="sample-organizer">Sample Organizer</button>
-      </div>
-    </div>
-    <div class="hero-photo">
-      <img src="images/chukapro2026.jpg" alt="Chuka Uwefoh" />
-    </div>
-  </section>
+  <main>
 
-  <!-- UFORIYA -->
-  <section id="uforiya">
-    <div class="section-label"><span class="label-text">Uforiya</span><a href="https://uforiya.com" target="_blank" rel="noopener" class="section-link">uforiya.com <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></div>
-
-    <div class="ufo-head">
-      <img src="images/logos/ufologo.png" alt="Uforiya logo" width="64" height="64" />
-      <div>
-        <div class="ufo-title">Uforiya</div>
-        <div class="ufo-tagline">Every track. Every version. Every collaborator. Nothing lost.</div>
-      </div>
-    </div>
-
-    <p class="ufo-lede">Right now, Uforiya is a workspace for unreleased music. A song keeps every version, its stems and everyone working on it in one place, instead of a folder full of files named <em>final_v3_REALFINAL</em>. Producers, artists, songwriters, mix engineers and studios work on the same track from anywhere, with feedback pinned to the exact second it's about.</p>
-
-    <div class="vision">
-      <div class="vision-label">Where it's going</div>
-      <p>I'm building Uforiya into a full creative ecosystem: software that helps musicians make music and improves the creative process from the first idea to the final master. The workspace is the foundation. The audio tools and the Sample Organizer are the next pieces, and both are already out.</p>
-    </div>
-
-    <div class="ufo-stats">
-      <div class="ufo-stat"><div class="ufo-stat-val"><span class="live-dot"></span>Open beta</div><div class="ufo-stat-label">Live · 20+ users</div></div>
-      <div class="ufo-stat"><div class="ufo-stat-val">Main One Camp 12</div><div class="ufo-stat-label">First camp with Uforiya, Oct 28 to 29</div></div>
-    </div>
-
-    <div class="ufo-subhead">What it does today</div>
-    <ul class="ufo-does">
-      <li>Detects BPM, key and duration on upload</li>
-      <li>Keeps every version of a track, with its stems</li>
-      <li>Collaborator roles and credits</li>
-      <li>Comments pinned to the exact second</li>
-      <li>Private sessions for studio days and camps</li>
-      <li>Seven browser-based audio tools</li>
-    </ul>
-
-    <div class="shots">
-      <figure><img src="images/uforiya/dashboard.png" alt="Uforiya library of projects" loading="lazy"><figcaption>Library</figcaption></figure>
-      <figure><img src="images/uforiya/audioplayer.png" alt="Uforiya waveform player with a timestamped comment" loading="lazy"><figcaption>Player</figcaption></figure>
-      <figure><img src="images/uforiya/collaboratorsettings.png" alt="Uforiya collaborator roles and credits" loading="lazy"><figcaption>Collaborators</figcaption></figure>
-    </div>
-
-    <div class="ufo-split">
-      <div class="ufo-panel">
-        <h3>How it's built</h3>
-        <p>I built Uforiya solo, foundation first: data model, permissions and file security before a single screen. The audio pipeline sits on top of that.</p>
-        <ul>
-          <li>Next.js and React (TypeScript) for the app</li>
-          <li>Python / FastAPI worker for BPM and key analysis</li>
-          <li>Browser-side audio processing for the tools</li>
-          <li>Supabase and PostgreSQL for accounts, roles and data</li>
-          <li>Cloudflare R2 for audio storage, Stripe for Pro</li>
-        </ul>
-        <a class="ufo-link" href="https://blog.chukaufo.xyz/foundation-first/" target="_blank" rel="noopener">Read: Foundation First <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
-      </div>
-      <div class="ufo-panel">
-        <h3>In the studio</h3>
-        <p>My first studio partner is Main One in Toronto. At Camp 12 on October 28 and 29, they'll use Uforiya for the studio sessions, so the artists, producers, writers and engineers across rooms can upload to one private session and nothing gets lost.</p>
-        <ul>
-          <li>Private sessions built around how camps actually run</li>
-          <li>Feedback from the camp goes straight into the next build</li>
-          <li>Built in the open with the producers using it</li>
-        </ul>
-        <a class="ufo-link" href="https://uforiya.space" target="_blank" rel="noopener">Try the beta <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
-      </div>
-    </div>
-
-    <div class="ufo-subhead ufo-subhead-gap">The ecosystem</div>
-    <div class="now-grid">
-      <div class="now-item">
-        <div class="now-status"><span class="live-dot"></span>Live · Beta</div>
-        <h3>Uforiya Web</h3>
-        <p>Upload up to 20 tracks at once and share any track with a public link. Private sessions run studio days and camps, starting with Main One Camp 12.</p>
-        <a class="ufo-link" href="https://uforiya.space" target="_blank" rel="noopener">uforiya.space <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
-      </div>
-      <div class="now-item">
-        <div class="now-status"><span class="live-dot"></span>Shipped · Windows</div>
-        <h3>Sample Organizer</h3>
-        <p>A free, open-source desktop app that finds true duplicate samples across drum kits, even under different names. It found 41.3GB of copies in a 45.4GB library. Runs locally, never deletes your last copy. Mac coming soon.</p>
-        <a class="ufo-link" href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener">Get it free <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SAMPLE ORGANIZER -->
-  <section id="sample-organizer">
-    <div class="section-label"><span class="label-text">Sample Organizer</span><a href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener" class="section-link">Download <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></div>
-
-    <div class="ufo-head">
-      <img src="images/sample/uforiya-sample-icon-256.png" alt="Sample Organizer icon" width="64" height="64" />
-      <div>
-        <div class="ufo-title">Sample Organizer</div>
-        <div class="ufo-tagline">Find duplicate samples across your drum kits. Remove them safely.</div>
-      </div>
-    </div>
-
-    <p class="ufo-lede">Producers buy kits constantly, and the same samples end up in five folders under five different names. Sample Organizer scans your library, finds every exact copy, and clears them in one click while one copy of each sample always stays. It runs fully on your computer, works offline, and never uploads anything.</p>
-
-    <div class="ufo-stats">
-      <div class="ufo-stat"><div class="ufo-stat-val">41.3GB</div><div class="ufo-stat-label">Reclaimable from a 45.4GB library</div></div>
-      <div class="ufo-stat"><div class="ufo-stat-val">43,921</div><div class="ufo-stat-label">Duplicate files found</div></div>
-      <div class="ufo-stat"><div class="ufo-stat-val">4,249</div><div class="ufo-stat-label">Duplicate groups</div></div>
-      <div class="ufo-stat"><div class="ufo-stat-val">48,170</div><div class="ufo-stat-label">Files scanned</div></div>
-    </div>
-
-    <div class="shots">
-      <figure><img src="images/sample/mostcopies.png" alt="Sample Organizer scan results with space reclaimable and duplicate groups" loading="lazy"><figcaption>Scan</figcaption></figure>
-      <figure><img src="images/sample/movetoqurantine.png" alt="Duplicate groups expanded, one copy marked keep, play button on every copy" loading="lazy"><figcaption>Keep one</figcaption></figure>
-      <figure><img src="images/sample/quarantine.png" alt="Quarantine with put back and delete permanently" loading="lazy"><figcaption>Quarantine</figcaption></figure>
-    </div>
-
-    <div class="ufo-split">
-      <div class="ufo-panel">
-        <h3>How it stays safe</h3>
-        <p>Deleting the wrong sample from someone's library is the one mistake this app can't make, so safety is built into the engine, not just the screen.</p>
-        <ul>
-          <li>Exact byte-for-byte matching, no guessing</li>
-          <li>One copy of every group always survives</li>
-          <li>Play button on every copy before you decide</li>
-          <li>Removals go to quarantine, one click puts them back</li>
-          <li>Permanent delete is a separate, deliberate step</li>
-        </ul>
-        <a class="ufo-link" href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener">Get it free <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
-      </div>
-      <div class="ufo-panel">
-        <h3>How it's built</h3>
-        <p>A desktop app built with Electron. I also built near-duplicate detection using MFCC audio fingerprints, then turned it off: it flagged samples that sounded alike but weren't the same. Exact matches only means it never removes something you wanted.</p>
-        <ul>
-          <li>Free and open source</li>
-          <li>No account, no login, nothing uploaded</li>
-          <li>Windows now, macOS next, Linux after</li>
-        </ul>
-        <a class="ufo-link" href="https://github.com/chukaufo/uforiya-sample-organizer" target="_blank" rel="noopener">Source on GitHub <svg class="arr" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAST PROJECTS -->
-  <section id="past">
-    <div class="section-label"><span class="label-text">Past projects</span></div>
-    <div class="past-list">
-      <a class="past-row" href="https://revved-up.skhs.queensu.ca/" target="_blank" rel="noopener">
-        <img class="past-logo" src="images/logos/RevvedUp-Badge.png" alt="" />
-        <div class="past-body">
-          <div class="past-title">Revved Up <span class="past-meta">Node.js · TypeScript · Azure</span></div>
-          <div class="past-desc">Fitness management platform that replaced a paper-based trainer process. 70+ users. Honourable Mention, Queen's Creative Computing Showcase 2026.</div>
+    <!-- 00:00 INTRO -->
+    <header class="intro" id="intro" data-marker="Intro" data-stems="all">
+      <div class="wrap">
+        <div class="intro-grid">
+          <div class="intro-copy reveal">
+            <p class="eyebrow">// Toronto, Ontario · Session 2026</p>
+            <h2 class="intro-name">Chuka<br>Uwefoh<span class="dot">.</span></h2>
+            <p class="intro-role">Audio software engineer · Audio technician · Music producer</p>
+            <p class="intro-lede">I'm an audio software engineer, audio technician and music producer building <a href="#uforiya">Uforiya</a>, a creative ecosystem for musicians. It starts with a workspace for your unreleased tracks, with every version, stem and collaborator in one place, and grows into the tools artists and producers use to make the music itself, like the <a href="#sample-organizer">Sample Organizer</a>, a free desktop app that clears duplicate samples out of drum kits. I've also set up, operated and maintained audio equipment across 130+ rooms.</p>
+            <div class="intro-cta">
+              <a class="btn btn-primary" href="#contact">Book a session</a>
+            </div>
+          </div>
+          <figure class="cover reveal">
+            <div class="cover-art"><img src="images/chukapro2026.jpg" alt="Chuka Uwefoh" /></div>
+            <figcaption class="cover-meta">
+              <span class="cover-title">CHUKAUFO</span>
+              <span>Session 2026 · 5 tracks</span>
+            </figcaption>
+          </figure>
         </div>
-        <svg class="arr past-arr" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg>
-      </a>
-      <a class="past-row" href="https://apps.apple.com/us/app/fint/id6775697441" target="_blank" rel="noopener">
-        <img class="past-logo" src="images/logos/fint-transparent.png" alt="" />
-        <div class="past-body">
-          <div class="past-title">Fint <span class="past-meta">Swift · SwiftUI · CloudKit</span></div>
-          <div class="past-desc">Privacy-first iOS and iPadOS finance tracker with receipt scanning, on-device storage and iCloud sync. Live on the App Store.</div>
-        </div>
-        <svg class="arr past-arr" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg>
-      </a>
-      <a class="past-row" href="https://uforyc.github.io/online-currency-converter/" target="_blank" rel="noopener">
-        <img class="past-logo" src="images/logos/onlineconverterlogo.PNG" alt="" />
-        <div class="past-body">
-          <div class="past-title">Currency Converter <span class="past-meta">JavaScript · REST API</span></div>
-          <div class="past-desc">A desktop-only Java app rebuilt as a responsive web tool with live exchange rates.</div>
-        </div>
-        <svg class="arr past-arr" width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg>
-      </a>
-    </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-block">
-      <div class="contact-headline">Let's<br>make<br><span>something.</span></div>
-      <div class="contact-links">
-        <a class="contact-link" href="mailto:chuka@uforiya.com">chuka@uforiya.com</a>
-        <a class="contact-link" href="https://uforiya.com" target="_blank" rel="noopener">Uforiya</a>
-        <a class="contact-link" href="https://linkedin.com/in/chuka-uwefoh-6183b3277" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="contact-link" href="https://github.com/chukaufo" target="_blank" rel="noopener">GitHub</a>
-        <a class="contact-link" href="https://x.com/chukaufo" target="_blank" rel="noopener">Twitter(X)</a>
+        <div class="deck reveal">
+          <div class="deck-head">
+            <span>chukaufo_session_2026.wav</span>
+            <span id="deck-time">00:00 / 03:47</span>
+          </div>
+          <div class="wave-wrap" id="wave-wrap">
+            <div class="markers" id="markers"></div>
+            <canvas id="wave" aria-label="Waveform of this page. Scroll to play, click to jump." role="img"></canvas>
+            <span class="wave-tip" id="wave-tip" aria-hidden="true"></span>
+          </div>
+          <p class="deck-hint">Scroll to play. Click the waveform to jump.</p>
+        </div>
       </div>
+    </header>
+
+    <!-- MIXER -->
+    <section class="section mixer-section" id="mix" data-stems="all">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="sh-meta"><span data-time>00:00</span> · Mixer</p>
+          <h2>Who's listening?</h2>
+          <p class="section-sub">Solo a channel and the page remixes itself around what you came for.</p>
+        </div>
+
+        <div class="mixer reveal" role="group" aria-label="Choose what to focus on">
+          <button class="channel" type="button" data-solo="client" aria-pressed="false">
+            <span class="ch-top"><span class="ch-num">CH 1</span><span class="ch-solo">S</span></span>
+            <span class="ch-strip" aria-hidden="true"><span class="ch-meter"><i></i><i></i></span><span class="ch-fader"></span></span>
+            <span class="ch-name">Client</span>
+            <span class="ch-desc">What I build, how I work</span>
+          </button>
+          <button class="channel" type="button" data-solo="musician" aria-pressed="false">
+            <span class="ch-top"><span class="ch-num">CH 2</span><span class="ch-solo">S</span></span>
+            <span class="ch-strip" aria-hidden="true"><span class="ch-meter"><i></i><i></i></span><span class="ch-fader"></span></span>
+            <span class="ch-name">Musician</span>
+            <span class="ch-desc">Tools you can use today</span>
+          </button>
+          <button class="channel channel-master" type="button" data-solo="all" aria-pressed="true">
+            <span class="ch-top"><span class="ch-num">MASTER</span><span class="ch-solo">ALL</span></span>
+            <span class="ch-strip" aria-hidden="true"><span class="ch-meter"><i></i><i></i></span><span class="ch-fader"></span></span>
+            <span class="ch-name">Full mix</span>
+            <span class="ch-desc">Everything, as recorded</span>
+          </button>
+        </div>
+
+        <div class="solo-panel" data-panel="client" hidden>
+          <div>
+            <p class="eyebrow">// CH 1 · Client</p>
+            <h3>Building something?</h3>
+            <p>Need a tool for your studio, label or artists? I build audio and music software end to end, from processing and analysis to the app people use every day. Studios already use Uforiya, and I'm open to working with labels too.</p>
+            <div class="panel-actions">
+              <a class="btn btn-primary" href="#contact">Book a session</a>
+              <a class="btn" href="#uforiya">See Uforiya</a>
+            </div>
+          </div>
+          <ul class="panel-list">
+            <li><b>Audio and music software</b> Processing, analysis, players, large uploads</li>
+            <li><b>Products for studios and labels</b> Accounts, roles, payments, file storage</li>
+            <li><b>Audio hardware</b> Set up and maintained audio equipment across 130+ rooms</li>
+            <li><b>Desktop</b> Electron apps that run fully offline</li>
+            <li><b>Before audio</b> Freelanced building websites</li>
+          </ul>
+        </div>
+
+        <div class="solo-panel" data-panel="musician" hidden>
+          <div>
+            <p class="eyebrow">// CH 2 · Musician</p>
+            <h3>Free to use, today</h3>
+            <p>Everything here was built for producers, artists, writers and engineers. Most of it costs nothing to start.</p>
+            <div class="panel-actions">
+              <a class="btn btn-primary" href="https://uforiya.space" target="_blank" rel="noopener">Try Uforiya</a>
+              <a class="btn" href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener">Get Sample Organizer</a>
+            </div>
+          </div>
+          <ul class="panel-list">
+            <li><b>Uforiya</b> Every version, stem and collaborator on a track in one place. Free to start.</li>
+            <li><b>Sample Organizer</b> Clears duplicate samples out of your kits. Free, Windows.</li>
+            <li><b>Audio tools</b> Trim, fade, convert and compress in the browser, no account. <a href="https://uforiya.space/tools" target="_blank" rel="noopener">uforiya.space/tools</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACK 01 -->
+    <section class="section track" id="uforiya" data-marker="Uforiya" data-stems="client musician">
+      <div class="wrap">
+        <p class="sh-meta reveal"><span data-time>00:00</span> · Track 01</p>
+        <div class="track-row reveal">
+          <span class="tr-num">01</span>
+          <img class="tr-art" src="images/logos/ufologo.png" alt="" />
+          <div class="tr-title">
+            <h2>Uforiya</h2>
+            <p>Every track. Every version. Every collaborator. Nothing lost.</p>
+          </div>
+          <div class="tr-tags"><span class="tag live">Open beta</span><span class="tag">20+ users</span></div>
+          <a class="tr-link" href="https://uforiya.com" target="_blank" rel="noopener">uforiya.com ↗</a>
+        </div>
+
+        <div class="track-body">
+          <div class="track-text reveal">
+            <p class="lead">A collaboration workspace for unreleased music. Every version of a song, its stems and everyone working on it live in one place, instead of a folder full of files named <em>final_v3_REALFINAL</em>.</p>
+            <p>Producers, artists, songwriters, engineers and studios work on the same track from anywhere, with feedback pinned to the exact second it's about. I'm growing it into a creative ecosystem: software that helps musicians from the first idea to the final master.</p>
+            <p>I built it foundation first, and wrote an article on the technical decisions behind it. Give it a read.</p>
+            <div class="track-links">
+              <a class="btn btn-primary" href="https://uforiya.space" target="_blank" rel="noopener">Try the beta</a>
+              <a class="btn" href="https://blog.chukaufo.xyz/foundation-first/" target="_blank" rel="noopener">Read: Foundation First</a>
+            </div>
+          </div>
+
+          <div class="shots reveal">
+            <div class="shot-tabs" role="tablist">
+              <button class="shot-tab" type="button" role="tab" aria-selected="true">Library</button>
+              <button class="shot-tab" type="button" role="tab" aria-selected="false">Player</button>
+              <button class="shot-tab" type="button" role="tab" aria-selected="false">Collaborators</button>
+            </div>
+            <div class="shot-stage">
+              <figure class="shot active">
+                <img src="images/uforiya/dashboard.png" alt="Uforiya library of projects" loading="lazy" />
+              </figure>
+              <figure class="shot">
+                <img src="images/uforiya/audioplayer.png" alt="Uforiya waveform player with a timestamped comment" loading="lazy" />
+              </figure>
+              <figure class="shot">
+                <img src="images/uforiya/collaboratorsettings.png" alt="Uforiya collaborator roles and credits" loading="lazy" />
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="versions reveal">
+          <div class="versions-head"><h3>Version history</h3><span>Features, and the problems they fix</span></div>
+          <details class="version">
+            <summary><span class="v-num">v1</span><span class="v-name">Every version kept</span><span class="v-tag">file chaos</span><span class="v-chev" aria-hidden="true"></span></summary>
+            <div class="v-notes"><p><b>The fix:</b> New versions stack on the same track instead of piling up as final_v3_REALFINAL. Nothing gets overwritten, and the owner picks which one is current.</p></div>
+          </details>
+          <details class="version">
+            <summary><span class="v-num">v2</span><span class="v-name">Feedback on the second</span><span class="v-tag">vague notes</span><span class="v-chev" aria-hidden="true"></span></summary>
+            <div class="v-notes"><p><b>The fix:</b> Comments pin to the exact moment in the track, so "the part near the middle" becomes 1:42.</p></div>
+          </details>
+          <details class="version">
+            <summary><span class="v-num">v3</span><span class="v-name">Roles and credits</span><span class="v-tag">lost credits</span><span class="v-chev" aria-hidden="true"></span></summary>
+            <div class="v-notes"><p><b>The fix:</b> Invite people by username or email, give each one a role, and whoever made something keeps the credit.</p></div>
+          </details>
+          <details class="version">
+            <summary><span class="v-num">v4</span><span class="v-name">Stems on every version</span><span class="v-tag">scattered files</span><span class="v-chev" aria-hidden="true"></span></summary>
+            <div class="v-notes"><p><b>The fix:</b> Stems live with the version they belong to, and only the people working on the track can see them.</p></div>
+          </details>
+          <details class="version">
+            <summary><span class="v-num">v5</span><span class="v-name">Share links</span><span class="v-tag">files in DMs</span><span class="v-chev" aria-hidden="true"></span></summary>
+            <div class="v-notes"><p><b>The fix:</b> One link for a track or a whole project. Private music stays private.</p></div>
+          </details>
+          <details class="version">
+            <summary><span class="v-num">v6</span><span class="v-name">Free audio tools</span><span class="v-tag">quick fixes</span><span class="v-chev" aria-hidden="true"></span></summary>
+            <div class="v-notes"><p><b>The fix:</b> Trim, fade, convert, compress, change pitch or tempo, and normalize right in the browser, no DAW needed. Four of them work without an account.</p></div>
+          </details>
+          <details class="version">
+            <summary><span class="v-num">v7</span><span class="v-name">Private sessions</span><span class="v-tag">session chaos</span><span class="v-chev" aria-hidden="true"></span></summary>
+            <div class="v-notes"><p><b>The fix:</b> A camp or session has a lot of people making music at once, and files end up everywhere. A private session gives everyone one place to upload, credits stay with whoever made each track, and the owner covers the storage.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACK 02 -->
+    <section class="section track" id="sample-organizer" data-marker="Samples" data-stems="client musician">
+      <div class="wrap">
+        <p class="sh-meta reveal"><span data-time>00:00</span> · Track 02</p>
+        <div class="track-row reveal">
+          <span class="tr-num">02</span>
+          <img class="tr-art" src="images/sample/uforiya-sample-icon-256.png" alt="" />
+          <div class="tr-title">
+            <h2>Sample Organizer</h2>
+            <p>Find duplicate samples across your drum kits. Remove them safely.</p>
+          </div>
+          <div class="tr-tags"><span class="tag live">Shipped · Windows</span><span class="tag">Free · open source</span></div>
+          <a class="tr-link" href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener">Download ↗</a>
+        </div>
+
+        <p class="lead reveal so-lead">Producers buy kits constantly, and the same samples end up in five folders under five different names. Sample Organizer finds every exact copy and clears them in one click, while one copy of each sample always stays. It runs fully on your computer and never uploads anything.</p>
+
+        <div class="stats reveal">
+          <div class="stat"><span class="stat-num" data-count="41.3" data-dec="1" data-suffix="GB">41.3GB</span><span class="stat-label">Reclaimable from a 45.4GB library</span></div>
+          <div class="stat"><span class="stat-num" data-count="43921">43,921</span><span class="stat-label">Duplicate files found</span></div>
+          <div class="stat"><span class="stat-num" data-count="4249">4,249</span><span class="stat-label">Duplicate groups</span></div>
+          <div class="stat"><span class="stat-num" data-count="48170">48,170</span><span class="stat-label">Files scanned</span></div>
+        </div>
+
+        <div class="so-wrap">
+          <div class="so-demo reveal" id="so-demo">
+            <div class="so-bar"><span class="so-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Sample Organizer · try it on a demo library</span></div>
+            <div class="so-top">
+              <div><span class="so-label" id="so-reclaim-label">Reclaimable</span><span class="so-big" id="so-reclaim">0.00 MB</span></div>
+              <div class="so-actions">
+                <button class="btn btn-primary" id="so-scan" type="button">Scan library</button>
+                <button class="btn" id="so-clean" type="button" disabled>Move copies to quarantine</button>
+                <button class="btn" id="so-restore" type="button" hidden>Put back</button>
+              </div>
+            </div>
+            <ul class="so-list" id="so-list"></ul>
+            <p class="so-foot" id="so-status" aria-live="polite">12 files across 4 kits. Not scanned yet.</p>
+          </div>
+
+          <div class="so-side reveal">
+            <h3>How it stays safe</h3>
+            <p>Deleting the wrong sample from someone's library is the one mistake this app can't make, so safety lives in the engine, not just the screen.</p>
+            <ul class="check-list">
+              <li>Exact byte-for-byte matching, no guessing</li>
+              <li>One copy of every group always survives</li>
+              <li>Play button on every copy before you decide</li>
+              <li>Removals go to quarantine, one click puts them back</li>
+              <li>Permanent delete is a separate, deliberate step</li>
+            </ul>
+            <h3>How it's built</h3>
+            <p>An Electron desktop app. I also built near-duplicate detection with MFCC audio fingerprints, then turned it off: it flagged samples that sounded alike but weren't the same. Exact matches only means it never removes something you wanted.</p>
+            <div class="track-links">
+              <a class="btn btn-primary" href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener">Get it free</a>
+              <a class="btn" href="https://github.com/chukaufo/uforiya-sample-organizer" target="_blank" rel="noopener">Source on GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B-SIDES -->
+    <section class="section" id="bsides" data-marker="B-sides" data-stems="client">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="sh-meta"><span data-time>00:00</span> · B-sides</p>
+          <h2>B-sides</h2>
+          <p class="section-sub">Earlier records. Pull one out of the sleeve.</p>
+        </div>
+        <div class="crate">
+          <a class="record reveal" href="https://revved-up.skhs.queensu.ca/" target="_blank" rel="noopener">
+            <div class="sleeve-wrap">
+              <div class="vinyl" aria-hidden="true"></div>
+              <div class="sleeve sleeve--logo"><img src="images/logos/RevvedUp-Badge.png" alt="Revved Up logo" loading="lazy" /></div>
+            </div>
+            <div class="record-info">
+              <span class="r-side">B1</span>
+              <h3>Revved Up</h3>
+              <p class="r-stack">Node.js · TypeScript · Azure</p>
+              <p>Fitness management platform that replaced a paper-based trainer process. 70+ users. Honourable Mention, Queen's Creative Computing Showcase 2026.</p>
+            </div>
+          </a>
+          <a class="record reveal" href="https://apps.apple.com/us/app/fint/id6775697441" target="_blank" rel="noopener">
+            <div class="sleeve-wrap">
+              <div class="vinyl" aria-hidden="true"></div>
+              <div class="sleeve"><img src="images/fint/fint%20promo.png" alt="Fint finance tracker promo" loading="lazy" /></div>
+            </div>
+            <div class="record-info">
+              <span class="r-side">B2</span>
+              <h3>Fint</h3>
+              <p class="r-stack">Swift · SwiftUI · CloudKit</p>
+              <p>Privacy-first iOS and iPadOS finance tracker with receipt scanning, on-device storage and iCloud sync. Live on the App Store.</p>
+            </div>
+          </a>
+          <a class="record reveal" href="https://uforyc.github.io/online-currency-converter/" target="_blank" rel="noopener">
+            <div class="sleeve-wrap">
+              <div class="vinyl" aria-hidden="true"></div>
+              <div class="sleeve sleeve--logo"><img src="images/logos/onlineconverterlogo.PNG" alt="Currency Converter logo" loading="lazy" /></div>
+            </div>
+            <div class="record-info">
+              <span class="r-side">B3</span>
+              <h3>Currency Converter</h3>
+              <p class="r-stack">JavaScript · REST API</p>
+              <p>A desktop-only Java app rebuilt as a responsive web tool with live exchange rates.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTRO -->
+    <section class="section contact" id="contact" data-marker="Book" data-stems="all">
+      <div class="wrap reveal">
+        <p class="eyebrow">// Outro</p>
+        <h2 class="contact-big">Book a<br><span>session.</span></h2>
+        <p class="contact-sub">Building something or making music? Tell me what you're working on.</p>
+        <a class="contact-email" href="mailto:chuka@uforiya.com">chuka@uforiya.com</a>
+        <div class="contact-links">
+          <a href="https://linkedin.com/in/chuka-uwefoh-6183b3277" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/chukaufo" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://x.com/chukaufo" target="_blank" rel="noopener">Twitter (X)</a>
+          <a href="https://uforiya.com" target="_blank" rel="noopener">Uforiya</a>
+          <a href="https://blog.chukaufo.xyz/" target="_blank" rel="noopener">Blog</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Chuka Uwefoh · Audio Software Engineer · Building <a href="https://uforiya.com">Uforiya</a></span>
+      <span>Turn the sound on. Your keyboard is a synth.</span>
     </div>
-  </section>
+  </footer>
 
-  <footer>© 2026 Chuka Uwefoh · Audio Software Engineer · Building <a href="https://uforiya.com" target="_blank" rel="noopener">Uforiya</a> · chukaufo.xyz</footer>
+  <div class="synth-hint" id="synth-hint">
+    <span class="synth-label">Synth</span>
+    <div class="keys">
+      <button type="button" data-key="a">A</button><button type="button" data-key="s">S</button><button type="button" data-key="d">D</button><button type="button" data-key="f">F</button><button type="button" data-key="g">G</button><button type="button" data-key="h">H</button><button type="button" data-key="j">J</button><button type="button" data-key="k">K</button>
+    </div>
+    <span class="synth-tip">Play A to K</span>
+  </div>
 
-  <script src="script.js?v=2"></script>
+  <script src="js/main.js?v=1" defer></script>
+  <script src="js/stars.js?v=1" defer></script>
+  <script src="js/waveform.js?v=1" defer></script>
+  <script src="js/mixer.js?v=2" defer></script>
+  <script src="js/sample-demo.js?v=1" defer></script>
+  <script src="js/synth.js?v=1" defer></script>
 </body>
 </html>
