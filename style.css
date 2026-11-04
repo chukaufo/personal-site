@@ -468,3 +468,7 @@ html { overflow-x: clip; }
 .shot-video figcaption { padding: 10px 14px; text-align: right; font: 12px var(--font-mono); letter-spacing: 0.04em; }
 .shot-video figcaption a { color: var(--muted); text-decoration: none; }
 .shot-video figcaption a:hover { color: var(--text); }
+
+/* anchor landing: content sits right under the mini waveform */
+.section[id] { scroll-margin-top: -112px; }
+@media (max-width: 600px) { .section[id] { scroll-margin-top: -76px; } }
