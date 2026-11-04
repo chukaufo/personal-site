@@ -457,3 +457,7 @@ html { scroll-padding-top: calc(var(--nav-h) + 44px); }
 
 /* cd: reduced motion */
 @media (prefers-reduced-motion: reduce) { .cover::before { animation: none; } }
+
+/* mobile fit */
+html { overflow-x: clip; }
+@media (max-width: 600px) { .cover { max-width: 62vw; } }
