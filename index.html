@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/glitch.css?v=6" />
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=13" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body data-mix="all">
@@ -52,6 +52,7 @@
     </div>
     <div class="nav-links">
       <a href="#uforiya">Uforiya</a>
+      <a href="#events">Events</a>
       <a href="#sample-organizer">Sample Organizer</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -64,6 +65,13 @@
     </div>
   </nav>
 
+  <div class="mini-deck" id="mini-deck" aria-hidden="true">
+    <span class="mini-label" id="mini-label">Intro</span>
+    <div class="mini-wave-wrap" id="mini-wave-wrap">
+      <canvas id="mini-wave"></canvas>
+    </div>
+  </div>
+
   <main>
 
     <!-- 00:00 INTRO -->
@@ -74,7 +82,7 @@
             <p class="eyebrow">// Toronto, Ontario · Session 2026</p>
             <h2 class="intro-name">Chuka<br>Uwefoh<span class="dot">.</span></h2>
             <p class="intro-role">Audio software engineer · Audio technician · Music producer</p>
-            <p class="intro-lede">I'm building <a href="#uforiya">Uforiya</a>, a creative ecosystem for musicians. It starts with a workspace for your unreleased tracks, with every version, stem and collaborator in one place, and grows into the tools artists and producers use to make the music itself, like the <a href="#sample-organizer">Sample Organizer</a>, a free desktop app that clears duplicate samples out of drum kits. I've also set up, operated and maintained audio equipment across 130+ rooms.</p>
+            <p class="intro-lede">I'm building <a href="#uforiya">Uforiya</a>, a creative ecosystem for musicians. It starts with a workspace for your unreleased tracks, with every version, stem and collaborator in one place, and grows into the tools artists and producers use to make the music itself, like the <a href="#sample-organizer">Sample Organizer</a>, a free desktop app that clears duplicate samples out of drum kits. Main One Studios ran <a href="#events">their 12th music camp</a> on Uforiya. I've also set up, operated and maintained audio equipment across 130+ rooms.</p>
             <div class="intro-cta">
               <a class="btn btn-primary" href="#contact">Book a session</a>
             </div>
@@ -82,8 +90,8 @@
           <figure class="cover reveal">
             <div class="cover-art"><img src="images/chukapro2026.jpg" alt="Chuka Uwefoh" /></div>
             <figcaption class="cover-meta">
+              <span class="cover-session">Session 2026 · 6 tracks</span>
               <span class="cover-title">CHUKAUFO</span>
-              <span>Session 2026 · 5 tracks</span>
             </figcaption>
           </figure>
         </div>
@@ -137,7 +145,7 @@
           <div>
             <p class="eyebrow">// CH 1 · Client</p>
             <h3>Building something?</h3>
-            <p>Need a tool for your studio, label or artists? I build audio and music software end to end, from processing and analysis to the app people use every day. Studios already use Uforiya, and I'm open to working with labels too.</p>
+            <p>Need a tool for your studio, label or artists? I build audio and music software end to end, from processing and analysis to the app people use every day. Main One Studios ran a camp on Uforiya, and I'm open to working with more studios, camps and labels.</p>
             <div class="panel-actions">
               <a class="btn btn-primary" href="#contact">Book a session</a>
               <a class="btn" href="#uforiya">See Uforiya</a>
@@ -248,15 +256,71 @@
             <div class="v-notes"><p><b>The fix:</b> A camp or session has a lot of people making music at once, and files end up everywhere. A private session gives everyone one place to upload, credits stay with whoever made each track, and the owner covers the storage.</p></div>
           </details>
         </div>
+        <div class="uf-next reveal">
+          <h3>Where Uforiya is going</h3>
+          <p class="lead">Uforiya is more than an app. I'm building an ecosystem of creative tools music creators actually use, from the first idea to the final master.</p>
+          <p>Right now that means getting Uforiya into the best studios, and working with any studio, organization or person running recording camps. If you run sessions or camps and want one place for the music and the credits, let's talk.</p>
+          <a class="btn btn-primary" href="#contact">Bring Uforiya to your studio</a>
+        </div>
       </div>
     </section>
 
     <!-- TRACK 02 -->
-    <section class="section track" id="sample-organizer" data-marker="Samples" data-stems="client musician">
+    <section class="section track" id="events" data-marker="Events" data-stems="client musician">
       <div class="wrap">
         <p class="sh-meta reveal"><span data-time>00:00</span> · Track 02</p>
         <div class="track-row reveal">
           <span class="tr-num">02</span>
+          <img class="tr-art" src="images/logos/ufologo.png" alt="" />
+          <div class="tr-title">
+            <h2>Camp 12</h2>
+            <p>Two days. About 50 artists, producers and engineers. One private session.</p>
+          </div>
+          <div class="tr-tags"><span class="tag live">Oct 2026</span><span class="tag">Main One Studios</span></div>
+        </div>
+
+        <div class="stats reveal">
+          <div class="stat"><span class="stat-num" data-count="45" data-suffix="+">45+</span><span class="stat-label">Artists, producers and engineers</span></div>
+          <div class="stat"><span class="stat-num" data-count="20">20</span><span class="stat-label">Became Uforiya users</span></div>
+          <div class="stat"><span class="stat-num" data-count="2">2</span><span class="stat-label">Days</span></div>
+          <div class="stat"><span class="stat-num" data-count="1">1</span><span class="stat-label">Private session</span></div>
+        </div>
+
+        <div class="track-body">
+          <div class="track-text reveal">
+            <p class="lead">Main One Studios used Uforiya as the home for the music made at their 12th camp. Members uploaded their work straight into one shared Camp 12 project.</p>
+            <p>A lot of music gets made at a camp, and with so many sessions happening at once, people don't always get to hear every song they worked on. Everyone at the camp scanned one QR code and joined the same private session.</p>
+            <p>Every member could hear everything made at the camp, including their own work. Credits stayed with whoever made each track, and nothing leaked.</p>
+            <p>20 attendees became Uforiya users.</p>
+            <div class="track-links">
+              <a class="btn btn-primary" href="#contact">Running a camp? Let's talk</a>
+            </div>
+          </div>
+
+          <div class="shots camp-shots reveal">
+            <div class="shot-tabs" role="tablist">
+              <button class="shot-tab" type="button" role="tab" aria-selected="true">Studio</button>
+              <button class="shot-tab" type="button" role="tab" aria-selected="false">Poster</button>
+            </div>
+            <div class="shot-stage">
+              <figure class="shot active">
+                <img src="images/camp12/studio.jpg" alt="Producers working in a studio at Camp 12" loading="lazy" />
+              </figure>
+              <figure class="shot">
+                <img src="images/camp12/poster.jpg" alt="Uforiya scan-to-join poster at Camp 12" loading="lazy" />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACK 03 -->
+    <section class="section track" id="sample-organizer" data-marker="Samples" data-stems="client musician">
+      <div class="wrap">
+        <p class="sh-meta reveal"><span data-time>00:00</span> · Track 03</p>
+        <div class="track-row reveal">
+          <span class="tr-num">03</span>
           <img class="tr-art" src="images/sample/uforiya-sample-icon-256.png" alt="" />
           <div class="tr-title">
             <h2>Sample Organizer</h2>
@@ -266,7 +330,7 @@
           <a class="tr-link" href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener">Download ↗</a>
         </div>
 
-        <p class="lead reveal so-lead">Producers buy kits constantly, and the same samples end up in five folders under five different names. Sample Organizer finds every exact copy and clears them in one click, while one copy of each sample always stays. It runs fully on your computer and never uploads anything.</p>
+        <p class="lead reveal so-lead">Producers buy kits constantly, and the same samples end up in five folders under five different names. Sample Organizer finds every exact copy and clears them in one click, while one copy of each sample always stays. It runs fully on your computer and never uploads anything. I built it after Brent Rambo, an RIAA-certified producer who works with Lucki, tweeted about this problem. It cleared 38GB of duplicates from his library.</p>
 
         <div class="stats reveal">
           <div class="stat"><span class="stat-num" data-count="41.3" data-dec="1" data-suffix="GB">41.3GB</span><span class="stat-label">Reclaimable from a 45.4GB library</span></div>
@@ -362,7 +426,7 @@
 
   <script src="js/main.js?v=1" defer></script>
   <script src="js/stars.js?v=1" defer></script>
-  <script src="js/waveform.js?v=1" defer></script>
+  <script src="js/waveform.js?v=2" defer></script>
   <script src="js/mixer.js?v=2" defer></script>
   <script src="js/sample-demo.js?v=1" defer></script>
   <script src="js/synth.js?v=1" defer></script>

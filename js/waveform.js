@@ -31,26 +31,51 @@
   const C_HOVER = 'rgba(155,127,247,0.42)';
   let w = 0, h = 0, hoverX = -1;
 
-  function draw() {
-    if (!w) return;
-    const p = UFO.progress();
-    ctx.clearRect(0, 0, w, h);
-    const n = Math.max(40, Math.min(PEAKS.length, Math.floor(w / 5)));
-    const step = w / n;
+  // mini waveform under the nav, shown once the deck scrolls away
+  const mini = document.getElementById('mini-deck');
+  const miniWrap = document.getElementById('mini-wave-wrap');
+  const miniCanvas = document.getElementById('mini-wave');
+  const miniLabel = document.getElementById('mini-label');
+  const mctx = miniCanvas ? miniCanvas.getContext('2d') : null;
+  let mw = 0, mh = 0, miniOn = false;
+
+  function paint(c, cw, ch, p, hx, pxPerBar) {
+    c.clearRect(0, 0, cw, ch);
+    const n = Math.max(40, Math.min(PEAKS.length, Math.floor(cw / pxPerBar)));
+    const step = cw / n;
     const bw = Math.max(1.5, step - 2);
-    const mid = h / 2;
+    const mid = ch / 2;
     for (let i = 0; i < n; i++) {
       const x = i * step;
       const peak = PEAKS[Math.floor((i * PEAKS.length) / n)];
-      const bh = Math.max(2, peak * h * 0.92);
-      if ((x + bw / 2) / w <= p) ctx.fillStyle = C_PLAYED;
-      else if (hoverX >= 0 && x <= hoverX) ctx.fillStyle = C_HOVER;
-      else ctx.fillStyle = C_REST;
-      ctx.fillRect(x, mid - bh / 2, bw, bh);
+      const bh = Math.max(2, peak * ch * 0.92);
+      if ((x + bw / 2) / cw <= p) c.fillStyle = C_PLAYED;
+      else if (hx >= 0 && x <= hx) c.fillStyle = C_HOVER;
+      else c.fillStyle = C_REST;
+      c.fillRect(x, mid - bh / 2, bw, bh);
     }
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(Math.min(w - 2, p * w), 0, 2, h);
-    if (deckTime) deckTime.textContent = UFO.fmt(p * UFO.TOTAL) + ' / ' + UFO.fmt(UFO.TOTAL);
+    c.fillStyle = '#ffffff';
+    c.fillRect(Math.min(cw - 2, p * cw), 0, 2, ch);
+  }
+
+  function currentLabel(p) {
+    let name = 'Intro';
+    document.querySelectorAll('[data-marker]').forEach(function (sec) {
+      if (UFO.posOf(sec) <= p + 0.005) name = sec.dataset.marker;
+    });
+    return name;
+  }
+
+  function draw() {
+    const p = UFO.progress();
+    if (w) {
+      paint(ctx, w, h, p, hoverX, 5);
+      if (deckTime) deckTime.textContent = UFO.fmt(p * UFO.TOTAL) + ' / ' + UFO.fmt(UFO.TOTAL);
+    }
+    if (miniOn && mctx && mw) {
+      paint(mctx, mw, mh, p, -1, 4);
+      if (miniLabel) miniLabel.textContent = currentLabel(p);
+    }
   }
 
   function placeMarkers() {
@@ -70,6 +95,17 @@
       b.addEventListener('click', function () { sec.scrollIntoView({ behavior: UFO.reduced ? 'auto' : 'smooth' }); });
       markersEl.appendChild(b);
     });
+    hideOverlaps();
+  }
+
+  function hideOverlaps() {
+    let prevRight = -Infinity;
+    markersEl.querySelectorAll('.marker').forEach(function (m) {
+      m.classList.remove('m-tight');
+      const r = m.getBoundingClientRect();
+      if (r.left < prevRight + 6) m.classList.add('m-tight');
+      else prevRight = r.right;
+    });
   }
 
   function resize() {
@@ -77,6 +113,11 @@
     w = wrap.clientWidth; h = wrap.clientHeight;
     canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (miniWrap && mctx) {
+      mw = miniWrap.clientWidth; mh = miniWrap.clientHeight;
+      miniCanvas.width = Math.round(mw * dpr); miniCanvas.height = Math.round(mh * dpr);
+      mctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
     placeMarkers();
     draw();
   }
@@ -102,6 +143,25 @@
     wrap.classList.remove('hovering');
     draw();
   });
+
+  if (mini && miniWrap) {
+    miniWrap.addEventListener('click', function (e) {
+      const r = miniWrap.getBoundingClientRect();
+      const frac = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+      window.scrollTo({ top: frac * UFO.maxScroll(), behavior: UFO.reduced ? 'auto' : 'smooth' });
+    });
+    const deck = wrap.closest('.deck') || wrap;
+    const navH = parseInt(css.getPropertyValue('--nav-h'), 10) || 64;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          miniOn = !en.isIntersecting && en.boundingClientRect.top < window.innerHeight / 2;
+          mini.classList.toggle('show', miniOn);
+          draw();
+        });
+      }, { rootMargin: '-' + navH + 'px 0px 0px 0px' }).observe(deck);
+    }
+  }
 
   let queued = false;
   window.addEventListener('scroll', function () {
