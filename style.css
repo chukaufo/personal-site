@@ -461,3 +461,10 @@ html { scroll-padding-top: calc(var(--nav-h) + 44px); }
 /* mobile fit */
 html { overflow-x: clip; }
 @media (max-width: 600px) { .cover { max-width: 62vw; } }
+
+/* camp 12 recap video */
+.camp-shots .shot.shot-video { aspect-ratio: auto; background: none; }
+.shot-video iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
+.shot-video figcaption { padding: 10px 14px; text-align: right; font: 12px var(--font-mono); letter-spacing: 0.04em; }
+.shot-video figcaption a { color: var(--muted); text-decoration: none; }
+.shot-video figcaption a:hover { color: var(--text); }
