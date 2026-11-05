@@ -65,7 +65,7 @@
     cx = W / 2; cy = H / 2;
     const narrow = W < 700;
     const aMax = W / 2 - (narrow ? 18 : 40);
-    tilt = Math.min(narrow ? 0.95 : 0.42, (H / 2 - 34) / aMax);
+    tilt = Math.min(narrow ? 0.55 : 0.42, (H / 2 - 34) / aMax);
     const k = Math.max(0.62, Math.min(1, W / 1100));
     const sun = Math.max(54, aMax * 0.12);
     stage.style.setProperty('--sun', sun.toFixed(1) + 'px');
