@@ -64,13 +64,13 @@
     if (!W || !H) return;
     cx = W / 2; cy = H / 2;
     const narrow = W < 700;
-    const aMax = W / 2 - (narrow ? 18 : 40);
+    const aMax = W / 2 - (narrow ? 12 : 40);
     tilt = Math.min(narrow ? 0.55 : 0.42, (H / 2 - 34) / aMax);
     const k = Math.max(0.62, Math.min(1, W / 1100));
-    const sun = Math.max(54, aMax * 0.12);
+    const sun = narrow ? 40 : Math.max(54, aMax * 0.12);
     stage.style.setProperty('--sun', sun.toFixed(1) + 'px');
     // the first orbit has to clear the sun top and bottom, not just side to side
-    const start = Math.max(sun / 2 + 22, (sun / 2 + 18) / tilt);
+    const start = Math.max(sun / 2 + (narrow ? 14 : 22), (sun / 2 + (narrow ? 10 : 18)) / tilt);
     step = (aMax - start) / 8;
     beltA = start + step * BELT_SLOT;
     planets.forEach(function (p) {
