@@ -808,3 +808,8 @@ footer a { color: var(--muted); }
   .glitch-logo { font-size: 1rem; }
   .nav-links a { padding: 10px 5px; }
 }
+
+
+/* station list: names always show (only the nav itself is dots-only on small screens), solid background */
+.mini-list { background: #0e0b1c; }
+.mini-list .nl-name { display: inline; max-width: none; opacity: 1; margin: 0; }
