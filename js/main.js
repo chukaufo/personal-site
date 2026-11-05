@@ -18,16 +18,46 @@
     return Math.min(1, Math.max(0, top / UFO.maxScroll()));
   };
 
-  // timecode + nav background
+  // receiver band: the page tunes from 1400 to 1440 MHz (1420.4 is the hydrogen line)
+  UFO.BAND = [1400, 1440];
+  UFO.freq = function (p) { return (UFO.BAND[0] + p * (UFO.BAND[1] - UFO.BAND[0])).toFixed(1); };
+
+  // signal strength: strong mid-section, drops at the seams between sections
+  const stations = Array.from(document.querySelectorAll('section[id], header[id]'));
+  UFO.signal = function () {
+    const line = window.innerHeight * 0.4;
+    for (const sec of stations) {
+      const r = sec.getBoundingClientRect();
+      if (r.top <= line && r.bottom > line) {
+        const edge = Math.min(line - r.top, r.bottom - line) / window.innerHeight;
+        UFO.current = sec;
+        return Math.max(1, Math.min(5, 1 + Math.floor(edge * 12)));
+      }
+    }
+    UFO.current = null;
+    return 1;
+  };
+
+  // frequency readout + signal meter + nav background
   const nav = document.getElementById('nav');
-  const tc = document.getElementById('timecode');
+  const tc = document.getElementById('freq');
+  const sig = document.getElementById('sig');
+  let lockedSec = null;
   let ticking = false;
   function onScroll() {
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(function () {
       ticking = false;
-      if (tc) tc.textContent = UFO.fmt(UFO.progress() * UFO.TOTAL, true);
+      if (tc) tc.textContent = UFO.freq(UFO.progress());
+      const lvl = UFO.signal();
+      if (sig) sig.dataset.lvl = String(lvl);
+      const lockOn = lvl >= 4 ? UFO.current : null;
+      if (lockOn !== lockedSec) {
+        if (lockedSec) lockedSec.classList.remove('locked');
+        if (lockOn) lockOn.classList.add('locked');
+        lockedSec = lockOn;
+      }
       if (nav) nav.classList.toggle('scrolled', window.scrollY > 8);
     });
   }
@@ -38,7 +68,7 @@
   UFO.stampSections = function () {
     document.querySelectorAll('section[id], header[id]').forEach(function (sec) {
       const t = sec.querySelector('[data-time]');
-      if (t) t.textContent = UFO.fmt(UFO.posOf(sec) * UFO.TOTAL);
+      if (t) t.textContent = UFO.freq(UFO.posOf(sec)) + ' MHz';
     });
   };
   window.addEventListener('load', UFO.stampSections);

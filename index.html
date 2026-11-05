@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/glitch.css?v=6" />
-  <link rel="stylesheet" href="style.css?v=18" />
+  <link rel="stylesheet" href="style.css?v=24" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body data-mix="all">
@@ -61,15 +61,17 @@
       <button class="t-btn" id="sound-toggle" type="button" aria-pressed="false" aria-label="Turn sound on">
         <span class="t-icon" aria-hidden="true"></span><span class="t-label">Sound off</span>
       </button>
-      <span class="timecode" id="timecode" aria-hidden="true">00:00:00</span>
+      <span class="readout" aria-hidden="true"><span class="sig" id="sig" data-lvl="1"><i></i><i></i><i></i><i></i><i></i></span><span class="freq"><span id="freq">1400.0</span><small>MHz</small></span></span>
     </div>
   </nav>
 
-  <div class="mini-deck" id="mini-deck" aria-hidden="true">
-    <span class="mini-label" id="mini-label">Intro</span>
-    <div class="mini-wave-wrap" id="mini-wave-wrap">
+  <div class="mini-deck" id="mini-deck">
+    <button class="mini-label" id="mini-label" type="button" aria-expanded="false" aria-controls="mini-list" aria-label="Stations"><span class="mini-lamp" aria-hidden="true"></span><span id="mini-name">Intro</span></button>
+    <div class="mini-wave-wrap" id="mini-wave-wrap" aria-hidden="true">
       <canvas id="mini-wave"></canvas>
     </div>
+    <span class="mini-freq" id="mini-freq" aria-hidden="true">1400.0</span>
+    <nav class="mini-list" id="mini-list" aria-label="Stations" hidden></nav>
   </div>
 
   <main>
@@ -88,25 +90,29 @@
             </div>
           </div>
           <figure class="cover reveal">
+            <span class="planet" aria-hidden="true"><i></i></span>
             <div class="cover-art"><img src="images/chukapro2026.jpg" alt="Chuka Uwefoh" /></div>
             <figcaption class="cover-meta">
-              <span class="cover-session">Session 2026 · 6 tracks</span>
+              <span class="cover-session">Signal 2026 · 6 stations</span>
               <span class="cover-title">CHUKAUFO</span>
             </figcaption>
           </figure>
         </div>
 
-        <div class="deck reveal">
+        <div class="deck reveal" id="deck">
           <div class="deck-head">
-            <span>chukaufo_session_2026.wav</span>
-            <span id="deck-time">00:00 / 03:47</span>
+            <span>chukaufo · 1420.4 MHz</span>
+            <span class="deck-status"><span class="deck-lamp" id="deck-lamp" aria-hidden="true"></span><span id="deck-station">Intro</span> · <span id="deck-time">1400.0 MHz</span></span>
           </div>
-          <div class="wave-wrap" id="wave-wrap">
+          <div class="scope-wrap" id="scope-wrap" aria-hidden="true">
+            <canvas id="scope"></canvas>
+          </div>
+          <div class="dial-wrap" id="dial-wrap">
             <div class="markers" id="markers"></div>
-            <canvas id="wave" aria-label="Waveform of this page. Scroll to play, click to jump." role="img"></canvas>
-            <span class="wave-tip" id="wave-tip" aria-hidden="true"></span>
+            <canvas id="dial" aria-label="Tuning dial for this page. Scroll to tune, click to jump." role="img"></canvas>
+            <span class="wave-tip" id="dial-tip" aria-hidden="true"></span>
           </div>
-          <p class="deck-hint">Scroll to play. Click the waveform to jump.</p>
+          <p class="deck-hint">Scroll to tune. Click the dial to jump.</p>
         </div>
       </div>
     </header>
@@ -185,7 +191,7 @@
         <p class="sh-meta reveal"><span data-time>00:00</span> · Track 01</p>
         <div class="track-row reveal">
           <span class="tr-num">01</span>
-          <img class="tr-art" src="images/logos/ufologo.png" alt="" />
+          <img class="tr-art tr-art--fill" src="images/logos/ufo-2dlogo-256.png" alt="" />
           <div class="tr-title">
             <h2>Uforiya</h2>
             <p>Every track. Every version. Every collaborator. Nothing lost.</p>
@@ -271,7 +277,7 @@
         <p class="sh-meta reveal"><span data-time>00:00</span> · Track 02</p>
         <div class="track-row reveal">
           <span class="tr-num">02</span>
-          <img class="tr-art" src="images/logos/ufologo.png" alt="" />
+          <img class="tr-art tr-art--light" src="images/m1logo-256.png" alt="" />
           <div class="tr-title">
             <h2>Camp 12</h2>
             <p>Two days. About 50 artists, producers and engineers. One private session.</p>
@@ -433,9 +439,9 @@
     <span class="synth-tip">Play A to K</span>
   </div>
 
-  <script src="js/main.js?v=1" defer></script>
-  <script src="js/stars.js?v=1" defer></script>
-  <script src="js/waveform.js?v=2" defer></script>
+  <script src="js/main.js?v=3" defer></script>
+  <script src="js/stars.js?v=2" defer></script>
+  <script src="js/dial.js?v=1" defer></script>
   <script src="js/mixer.js?v=2" defer></script>
   <script src="js/sample-demo.js?v=1" defer></script>
   <script src="js/synth.js?v=1" defer></script>
