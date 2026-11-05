@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/glitch.css?v=6" />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=28" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body data-mix="all">
@@ -51,11 +51,14 @@
       <h1 class="glitch-logo" data-text="CHUKAUFO">CHUKAUFO</h1>
     </div>
     <div class="nav-links">
-      <a href="#uforiya">Uforiya</a>
-      <a href="#events">Events</a>
-      <a href="#sample-organizer">Sample Organizer</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#intro"><i class="nl-dot nd-mercury" aria-hidden="true"></i><span class="nl-name">Intro</span></a>
+      <a href="#mix"><i class="nl-dot nd-venus" aria-hidden="true"></i><span class="nl-name">Who's listening</span></a>
+      <a href="#uforiya"><i class="nl-dot nd-earth" aria-hidden="true"></i><span class="nl-name">Uforiya</span></a>
+      <a href="#events"><i class="nl-dot nd-mars" aria-hidden="true"></i><span class="nl-name">Events</span></a>
+      <a href="#sample-organizer"><i class="nl-dot nd-jupiter" aria-hidden="true"></i><span class="nl-name">Sample Organizer</span></a>
+      <a href="#about"><i class="nl-dot nd-saturn" aria-hidden="true"></i><span class="nl-name">About</span></a>
+      <a href="#projects"><i class="nl-dot nd-uranus" aria-hidden="true"></i><span class="nl-name">Early work</span></a>
+      <a href="#contact"><i class="nl-dot nd-neptune" aria-hidden="true"></i><span class="nl-name">Contact</span></a>
     </div>
     <div class="transport">
       <button class="t-btn" id="sound-toggle" type="button" aria-pressed="false" aria-label="Turn sound on">
@@ -76,6 +79,33 @@
 
   <main>
 
+    <!-- THE SUN: every planet is a section of this page -->
+    <section class="system" id="sun" aria-label="Map of this page">
+      <div class="system-copy">
+        <p class="eyebrow">// Chuka Uwefoh · Audio software engineer · Toronto</p>
+        <p class="system-hint">Every planet is a section. Pick one to fly there.</p>
+      </div>
+      <div class="orbits" id="orbits">
+        <div class="sun" aria-hidden="true"></div>
+        <canvas class="belt" id="belt" aria-hidden="true"></canvas>
+        <a class="orbiter" href="#intro" data-planet="mercury" data-section="Intro" data-about="Who I am and what I'm building."><span class="pl pl-mercury"></span><span class="pl-label"><b>Mercury</b>Intro</span></a>
+        <a class="orbiter" href="#mix" data-planet="venus" data-section="Who's listening" data-about="Pick client or musician and the page remixes around you."><span class="pl pl-venus"></span><span class="pl-label"><b>Venus</b>Who's listening</span></a>
+        <a class="orbiter" href="#uforiya" data-planet="earth" data-section="Uforiya" data-about="The workspace for unreleased music. Every version, stem and collaborator in one place."><span class="pl pl-earth"></span><span class="pl-label"><b>Earth</b>Uforiya</span></a>
+        <a class="orbiter" href="#events" data-planet="mars" data-section="Events" data-about="Main One Studios ran Camp 12 on Uforiya. 45+ people, one private session."><span class="pl pl-mars"></span><span class="pl-label"><b>Mars</b>Events</span></a>
+        <a class="orbiter" href="#sample-organizer" data-planet="jupiter" data-section="Sample Organizer" data-about="Free desktop app that clears duplicate samples out of drum kits. 41.3GB from one library."><span class="pl pl-jupiter"></span><span class="pl-label"><b>Jupiter</b>Sample Organizer</span></a>
+        <a class="orbiter" href="#about" data-planet="saturn" data-section="About" data-about="How a producer and audio tech ended up building software for musicians."><span class="pl pl-saturn"><i></i></span><span class="pl-label"><b>Saturn</b>About</span></a>
+        <a class="orbiter" href="#projects" data-planet="uranus" data-section="Early work" data-about="Revved Up, Fint and a currency converter. Where it started."><span class="pl pl-uranus"><i></i></span><span class="pl-label"><b>Uranus</b>Early work</span></a>
+        <a class="orbiter" href="#contact" data-planet="neptune" data-section="Contact" data-about="Building something or making music? Send a signal."><span class="pl pl-neptune"></span><span class="pl-label"><b>Neptune</b>Contact</span></a>
+      </div>
+      <div class="orbit-card" id="orbit-card" aria-live="polite" hidden>
+        <button class="oc-close" id="oc-close" type="button" aria-label="Close">×</button>
+        <p class="oc-meta"><span id="oc-planet"></span> · <span id="oc-freq"></span></p>
+        <h3 id="oc-title"></h3>
+        <p class="oc-about" id="oc-about"></p>
+        <a class="btn btn-primary" id="oc-go" href="#intro">Fly there</a>
+      </div>
+    </section>
+
     <!-- 00:00 INTRO -->
     <header class="intro" id="intro" data-marker="Intro" data-stems="all">
       <div class="wrap">
@@ -93,7 +123,7 @@
             <span class="planet" aria-hidden="true"><i></i></span>
             <div class="cover-art"><img src="images/chukapro2026.jpg" alt="Chuka Uwefoh" /></div>
             <figcaption class="cover-meta">
-              <span class="cover-session">Signal 2026 · 6 stations</span>
+              <span class="cover-session">Signal 2026 · 8 stations</span>
               <span class="cover-title">CHUKAUFO</span>
             </figcaption>
           </figure>
@@ -118,7 +148,7 @@
     </header>
 
     <!-- MIXER -->
-    <section class="section mixer-section" id="mix" data-stems="all">
+    <section class="section mixer-section" id="mix" data-marker="Mix" data-stems="all">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="sh-meta"><span data-time>00:00</span> · Mixer</p>
@@ -188,7 +218,7 @@
     <!-- TRACK 01 -->
     <section class="section track" id="uforiya" data-marker="Uforiya" data-stems="client musician">
       <div class="wrap">
-        <p class="sh-meta reveal"><span data-time>00:00</span> · Track 01</p>
+        <p class="sh-meta reveal"><span data-time>00:00</span></p>
         <div class="track-row reveal">
           <span class="tr-num">01</span>
           <img class="tr-art tr-art--fill" src="images/logos/ufo-2dlogo-256.png" alt="" />
@@ -274,7 +304,7 @@
     <!-- TRACK 02 -->
     <section class="section track" id="events" data-marker="Events" data-stems="client musician">
       <div class="wrap">
-        <p class="sh-meta reveal"><span data-time>00:00</span> · Track 02</p>
+        <p class="sh-meta reveal"><span data-time>00:00</span></p>
         <div class="track-row reveal">
           <span class="tr-num">02</span>
           <img class="tr-art tr-art--light" src="images/m1logo-256.png" alt="" />
@@ -333,7 +363,7 @@
     <!-- TRACK 03 -->
     <section class="section track" id="sample-organizer" data-marker="Samples" data-stems="client musician">
       <div class="wrap">
-        <p class="sh-meta reveal"><span data-time>00:00</span> · Track 03</p>
+        <p class="sh-meta reveal"><span data-time>00:00</span></p>
         <div class="track-row reveal">
           <span class="tr-num">03</span>
           <img class="tr-art" src="images/sample/uforiya-sample-icon-256.png" alt="" />
@@ -345,7 +375,7 @@
           <a class="tr-link" href="https://uforiya.com/sample-organizer/" target="_blank" rel="noopener">Download ↗</a>
         </div>
 
-        <p class="lead reveal so-lead">Producers buy kits constantly, and the same samples end up in five folders under five different names. Sample Organizer finds every exact copy and clears them in one click, while one copy of each sample always stays. It runs fully on your computer and never uploads anything. I built it after Brent Rambo, an RIAA-certified producer who works with Lucki, tweeted about this problem. It cleared 38GB of duplicates from his library.</p>
+        <p class="lead reveal so-lead">Producers buy kits constantly, and the same samples end up in five folders under five different names. Sample Organizer finds every exact copy and clears them in one click, while one copy of each sample always stays. It runs fully on your computer and never uploads anything. Brent Rambo, an RIAA Gold-certified producer who works with Lucki, uses it on his library. It cleared 38GB of duplicates for him.</p>
 
         <div class="stats reveal">
           <div class="stat"><span class="stat-num" data-count="41.3" data-dec="1" data-suffix="GB">41.3GB</span><span class="stat-label">Reclaimable from a 45.4GB library</span></div>
@@ -400,7 +430,57 @@
         <div class="about-copy reveal">
           <p class="lead">Before I was an audio software engineer, I was a producer and audio technician. I built websites for clients on the side and shipped a few apps of my own.</p>
           <p>Music, audio and software kept pulling me in the same direction, and that's how I ended up building software for musicians. Uforiya is where that led.</p>
-          <a class="btn" href="projects/">See my early work</a>
+          <p>Outside of music and code, I'm a huge soccer fan and I support Arsenal.</p>
+          <a class="btn" href="#projects">See my early work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EARLY WORK (Uranus) -->
+    <section class="section" id="projects" data-marker="Early work" data-stems="client">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="sh-meta"><span data-time>00:00</span> · Early work</p>
+          <h2>Early work</h2>
+          <p class="section-sub">Before audio software. Where it started.</p>
+        </div>
+        <div class="crate reveal">
+          <a class="record" href="https://revved-up.skhs.queensu.ca/" target="_blank" rel="noopener">
+            <div class="sleeve-wrap">
+              <div class="vinyl" aria-hidden="true"></div>
+              <div class="sleeve sleeve--logo"><img src="images/logos/RevvedUp-Badge.png" alt="Revved Up logo" loading="lazy" /></div>
+            </div>
+            <div class="record-info">
+              <span class="r-side">01</span>
+              <h3>Revved Up</h3>
+              <p class="r-stack">Node.js · TypeScript · Azure</p>
+              <p>Fitness management platform that replaced a paper-based trainer process. 70+ users. Honourable Mention, Queen's Creative Computing Showcase 2026.</p>
+            </div>
+          </a>
+          <a class="record" href="https://apps.apple.com/us/app/fint/id6775697441" target="_blank" rel="noopener">
+            <div class="sleeve-wrap">
+              <div class="vinyl" aria-hidden="true"></div>
+              <div class="sleeve"><img src="images/fint/fint%20promo.png" alt="Fint finance tracker promo" loading="lazy" /></div>
+            </div>
+            <div class="record-info">
+              <span class="r-side">02</span>
+              <h3>Fint</h3>
+              <p class="r-stack">Swift · SwiftUI · CloudKit</p>
+              <p>Privacy-first iOS and iPadOS finance tracker with receipt scanning, on-device storage and iCloud sync. Live on the App Store.</p>
+            </div>
+          </a>
+          <a class="record" href="https://uforyc.github.io/online-currency-converter/" target="_blank" rel="noopener">
+            <div class="sleeve-wrap">
+              <div class="vinyl" aria-hidden="true"></div>
+              <div class="sleeve sleeve--logo"><img src="images/logos/onlineconverterlogo.PNG" alt="Currency Converter logo" loading="lazy" /></div>
+            </div>
+            <div class="record-info">
+              <span class="r-side">03</span>
+              <h3>Currency Converter</h3>
+              <p class="r-stack">JavaScript · REST API</p>
+              <p>A desktop-only Java app rebuilt as a responsive web tool with live exchange rates.</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -442,6 +522,7 @@
   <script src="js/main.js?v=3" defer></script>
   <script src="js/stars.js?v=2" defer></script>
   <script src="js/dial.js?v=1" defer></script>
+  <script src="js/solar.js?v=3" defer></script>
   <script src="js/mixer.js?v=2" defer></script>
   <script src="js/sample-demo.js?v=1" defer></script>
   <script src="js/synth.js?v=1" defer></script>
