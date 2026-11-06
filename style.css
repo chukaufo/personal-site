@@ -820,3 +820,57 @@ footer a { color: var(--muted); }
 .eyebrow .sec-planet { margin-right: 10px; }
 .sh-meta:has(.sec-planet)::before { display: none; }
 .locked .sec-planet { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--green), 0 0 10px var(--green); }
+
+
+/* === interactive system: drag, zoom, labels, panel, controls === */
+.orbits { touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
+.orbits.dragging { cursor: grabbing; }
+.orbits.over-orbit { cursor: pointer; }
+.orbiter { cursor: pointer; -webkit-user-drag: none; }
+
+/* orbits take their planet's colour */
+.orbit { border-color: var(--oc, rgba(155, 127, 247, 0.14)); }
+.orbit.hover { border-color: var(--oc-hi, rgba(155, 127, 247, 0.42)); }
+.orbit.sel { border-width: 2px; border-color: var(--oc-full, #9b7ff7); box-shadow: 0 0 16px var(--oc-hi, transparent); }
+
+/* labels: planet name always (NASA style), section and frequency on hover or when picked */
+.orbits .pl-label { opacity: 0.75; background: none; border-color: transparent; padding: 2px 4px; letter-spacing: 0.22em; color: var(--soft); transition: opacity 0.2s, background 0.2s, border-color 0.2s; }
+.orbits .pl-label b { font-weight: 500; margin: 0; color: inherit; }
+.pl-sec, .orbits .pl-freq { display: none; }
+.orbiter:hover .pl-label, .orbiter:focus-visible .pl-label, .orbiter.sel .pl-label { opacity: 1; background: rgba(10, 8, 22, 0.88); border-color: var(--line); letter-spacing: 0.08em; padding: 4px 8px; }
+.orbiter:hover .pl-sec, .orbiter:focus-visible .pl-sec, .orbiter.sel .pl-sec { display: inline; margin-left: 6px; color: var(--soft); }
+.orbiter:hover .pl-freq, .orbiter:focus-visible .pl-freq, .orbiter.sel .pl-freq { display: inline; }
+.orbiter.on .pl-label { color: var(--green); }
+.orbiter.behind .pl-label { opacity: 0.2; }
+
+/* panel: left side on desktop */
+.orbit-card { top: 50%; bottom: auto; transform: translateY(-50%); width: min(320px, calc(100% - 40px)); max-height: calc(100% - 150px); overflow: auto; animation: ocIn 0.35s ease; }
+@keyframes ocIn { from { opacity: 0; transform: translate(-14px, -50%); } to { opacity: 1; transform: translate(0, -50%); } }
+.oc-orb { position: relative; display: block; width: 56px; height: 56px; margin: 4px 0 14px; box-shadow: inset -8px -8px 14px rgba(0, 0, 0, 0.5), 0 0 30px rgba(155, 127, 247, 0.25); }
+.oc-orb.nd-saturn::after { inset: 20px -16px; border-width: 3px; }
+.oc-orb.oc-belt { border-radius: 50%; box-shadow: none; background: radial-gradient(circle, transparent 46%, rgba(203, 195, 216, 0.55) 48% 62%, transparent 64%); }
+.oc-nav { display: flex; align-items: center; gap: 8px; }
+.oc-nav .btn { flex: 1; justify-content: center; }
+.oc-step { flex: none; width: 40px; height: 40px; border-radius: var(--r); border: 1px solid var(--line); background: rgba(255, 255, 255, 0.03); color: var(--text); font-size: 18px; line-height: 1; cursor: pointer; }
+.oc-step:hover { border-color: var(--accent-bright); }
+
+/* zoom + speed controls */
+.sys-controls { position: absolute; z-index: 6; right: max(20px, calc((100% - 1180px) / 2)); bottom: 32px; display: flex; align-items: center; gap: 10px; transition: opacity 0.25s; }
+.sys-group { display: flex; overflow: hidden; border: 1px solid var(--line); border-radius: var(--r); background: rgba(12, 9, 26, 0.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.sys-group button { appearance: none; -webkit-appearance: none; border: 0; background: none; color: var(--muted); font: 11px var(--font-mono); letter-spacing: 0.08em; min-width: 36px; height: 36px; padding: 0 10px; cursor: pointer; }
+.sys-group button + button { border-left: 1px solid var(--line-2); }
+.sys-group button:hover { color: var(--text); }
+.sys-group button[aria-pressed="true"] { color: var(--green); background: rgba(78, 240, 160, 0.08); }
+
+/* phones: names show once zoomed, panel is a bottom sheet, controls along the bottom */
+@media (max-width: 600px) {
+  .orbits .pl-label { font-size: 8px; }
+  .orbits:not(.zoomed) .orbiter:not(.sel):not(.on) .pl-label { opacity: 0; }
+  .orbit-card { left: 0; right: 0; top: auto; bottom: 0; width: auto; max-height: 58%; transform: none; border-radius: 16px 16px 0 0; padding: 22px 18px calc(18px + env(safe-area-inset-bottom)); animation: sheetIn 0.3s ease; }
+  .orbit-card::before { content: ''; position: absolute; top: 8px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 2px; background: rgba(255, 255, 255, 0.18); }
+  .oc-orb { width: 44px; height: 44px; margin: 0 0 10px; }
+  .sys-controls { left: 14px; right: 14px; bottom: 16px; justify-content: space-between; }
+  .sys-group button { min-width: 40px; height: 40px; }
+  .system.panel-open .sys-controls { opacity: 0; pointer-events: none; }
+}
+@keyframes sheetIn { from { transform: translateY(100%); } to { transform: none; } }
