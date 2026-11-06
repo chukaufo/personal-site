@@ -10,6 +10,9 @@
   const sunEl = stage.querySelector('.sun');
   const beltCanvas = document.getElementById('belt');
   const bctx = beltCanvas ? beltCanvas.getContext('2d') : null;
+  const beltF = beltCanvas ? beltCanvas.cloneNode(false) : null;
+  if (beltF) { beltF.removeAttribute('id'); beltF.classList.add('belt-front'); stage.appendChild(beltF); }
+  const fctx = beltF ? beltF.getContext('2d') : null;
   const card = document.getElementById('orbit-card');
   const ocPlanet = document.getElementById('oc-planet');
   const ocFreq = document.getElementById('oc-freq');
@@ -29,6 +32,7 @@
     return 'rgba(' + (n >> 16) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
   }
   function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+  function orbitClass(p, cls, on) { orbitClass(p, cls, on); p.orbitF.classList.toggle(cls, on); }
 
   const planets = orbiters.map(function (el, i) {
     const key = el.dataset.planet || '';
@@ -39,6 +43,9 @@
     orbit.style.setProperty('--oc-hi', rgba(col, 0.5));
     orbit.style.setProperty('--oc-full', rgba(col, 0.9));
     stage.insertBefore(orbit, stage.firstChild);
+    const orbitF = orbit.cloneNode(false);
+    orbitF.classList.add('orbit-front');
+    stage.appendChild(orbitF);
     const name = key.charAt(0).toUpperCase() + key.slice(1);
     const section = el.dataset.section || '';
     // label: the planet's name always, its section and frequency on hover or when picked
@@ -58,7 +65,7 @@
     return {
       el: el, key: key, slot: i < BELT_SLOT ? i : i + 1,
       target: document.querySelector(el.getAttribute('href')),
-      orbit: orbit, freq: freq, pl: el.querySelector('.pl'), base: SIZES[key] || 16,
+      orbit: orbit, orbitF: orbitF, freq: freq, pl: el.querySelector('.pl'), base: SIZES[key] || 16,
       name: name, section: section, about: el.dataset.about || '',
       a: 0, speed: 0, theta: i * 2.39996 + 0.6, x: 0, y: 0
     };
@@ -67,6 +74,7 @@
   // view: rotation, tilt, zoom, camera and focal point all ease toward their targets
   let W = 0, H = 0, narrow = false, k = 1, step = 1, beltA = 0, sunBase = 60, inited = false;
   let baseTilt = 0.42, tilt = 0.42, tiltT = 0.42, userTilted = false, rot = 0, rotT = 0;
+  let minTilt = 0, tiltEff = 0.42;
   let zoom = 1, zoomT = 1, userZoom = 1, camX = 0, camY = 0;
   let fx = 0, fy = 0, fxT = 0, fyT = 0;
   let focus = null, beltSel = false, beltHover = false, hoverPause = false;
@@ -123,6 +131,7 @@
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       beltCanvas.width = Math.round(W * dpr); beltCanvas.height = Math.round(H * dpr);
       bctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (fctx) { beltF.width = beltCanvas.width; beltF.height = beltCanvas.height; fctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
       const n = narrow ? 120 : 280;
       if (rocks.length !== n) makeRocks(n);
     }
@@ -135,8 +144,11 @@
   function render() {
     if (!W) return;
     const zs = Math.pow(zoom, 0.7);
-    const sx = fx - camX * zoom, sy = fy - camY * tilt * zoom;
-    const sunSize = sunBase * zs;
+    const sunSize = sunBase * Math.pow(zoom, 0.5); // the sun grows slower than the rings
+    // never flatter than Mercury's ring can hold the sun: it always sits inside the closest orbit
+    minTilt = Math.min(0.9, (sunSize / 2 + 10) / Math.max(1, planets[0].a * zoom));
+    tiltEff = Math.max(tilt, minTilt);
+    const sx = fx - camX * zoom, sy = fy - camY * tiltEff * zoom;
     if (sunEl) {
       sunEl.style.left = sx.toFixed(1) + 'px';
       sunEl.style.top = sy.toFixed(1) + 'px';
@@ -147,17 +159,19 @@
       const ang = p.theta + rot;
       const c = Math.cos(ang), s = Math.sin(ang);
       p.x = sx + p.a * c * zoom;
-      p.y = sy + p.a * s * tilt * zoom;
+      p.y = sy + p.a * s * tiltEff * zoom;
       const sc = 0.82 + 0.18 * ((s + 1) / 2); // a little bigger on the near side
       p.pl.style.setProperty('--s', (p.base * k * zs).toFixed(1) + 'px');
       p.el.style.transform = 'translate3d(' + p.x.toFixed(1) + 'px,' + p.y.toFixed(1) + 'px,0) translate(-50%,-50%) scale(' + sc.toFixed(3) + ')';
       p.el.style.zIndex = s > 0 ? 4 : 1; // far side passes behind the sun
       p.el.classList.toggle('behind', s < 0 && Math.abs(p.x - sx) < sunR + 8 && Math.abs(p.y - sy) < sunR + 8);
       const ow = p.a * 2 * zoom;
-      p.orbit.style.left = sx.toFixed(1) + 'px';
-      p.orbit.style.top = sy.toFixed(1) + 'px';
-      p.orbit.style.width = ow.toFixed(1) + 'px';
-      p.orbit.style.height = (ow * tilt).toFixed(1) + 'px';
+      [p.orbit, p.orbitF].forEach(function (o) {
+        o.style.left = sx.toFixed(1) + 'px';
+        o.style.top = sy.toFixed(1) + 'px';
+        o.style.width = ow.toFixed(1) + 'px';
+        o.style.height = (ow * tiltEff).toFixed(1) + 'px';
+      });
     });
     drawBelt(sx, sy);
   }
@@ -165,23 +179,27 @@
   function drawBelt(sx, sy) {
     if (!bctx || !W) return;
     bctx.clearRect(0, 0, W, H);
+    if (fctx) fctx.clearRect(0, 0, W, H);
     const band = step * 0.32;
     const hi = beltSel || beltHover;
     const rs = Math.sqrt(zoom);
     bctx.fillStyle = hi ? '#c9b8ff' : '#cbc3d8';
+    if (fctx) fctx.fillStyle = bctx.fillStyle;
     for (let i = 0; i < rocks.length; i++) {
       const r = rocks[i];
       const rad = beltA + r.rj * band;
       const ang = r.phi + rot;
       const s = Math.sin(ang), c = Math.cos(ang);
-      const x = sx + rad * c * zoom, y = sy + rad * s * tilt * zoom;
+      const x = sx + rad * c * zoom, y = sy + rad * s * tiltEff * zoom;
       if (x < -10 || x > W + 10 || y < -10 || y > H + 10) continue;
-      bctx.globalAlpha = r.alpha * (s > 0 ? 1 : 0.65) * (hi ? 1 : 0.85);
-      bctx.beginPath();
-      bctx.ellipse(x, y, r.size * rs, r.size * r.squash * rs, r.rot + ang, 0, Math.PI * 2);
-      bctx.fill();
+      const g = s > 0 && fctx ? fctx : bctx;
+      g.globalAlpha = r.alpha * (s > 0 ? 1 : 0.65) * (hi ? 1 : 0.85);
+      g.beginPath();
+      g.ellipse(x, y, r.size * rs, r.size * r.squash * rs, r.rot + ang, 0, Math.PI * 2);
+      g.fill();
     }
     bctx.globalAlpha = 1;
+    if (fctx) fctx.globalAlpha = 1;
   }
 
   function tick(dt, still) {
@@ -275,7 +293,7 @@
     beltSel = item === 'belt';
     planets.forEach(function (p) {
       const on = p === item;
-      p.orbit.classList.toggle('sel', on);
+      orbitClass(p, 'sel', on);
       p.el.classList.toggle('sel', on);
     });
     if (focus) { if (!was) userZoom = zoomT; zoomT = narrow ? 2.2 : 2.4; }
@@ -311,7 +329,7 @@
     '<div class="sys-group" role="group" aria-label="Zoom">' +
       '<button type="button" data-z="out" aria-label="Zoom out">−</button>' +
       '<button type="button" data-z="in" aria-label="Zoom in">+</button>' +
-      '<button type="button" data-z="rotate" aria-pressed="false" aria-label="Rotate mode">⟳</button>' +
+      '<button type="button" data-z="rotate" aria-pressed="false" aria-label="Rotate mode"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
       '<button type="button" data-z="reset" aria-label="Reset view">Reset</button>' +
     '</div>' +
     '<div class="sys-group" role="group" aria-label="Orbit speed">' +
@@ -352,7 +370,7 @@
   function nearest(e) {
     const r = stage.getBoundingClientRect();
     const wx = (e.clientX - r.left - fx) / zoom + camX;
-    const wy = (e.clientY - r.top - fy) / (zoom * tilt) + camY;
+    const wy = (e.clientY - r.top - fy) / (zoom * tiltEff) + camY;
     const reff = Math.sqrt(wx * wx + wy * wy);
     let best = null, bestD = step * 0.5;
     planets.forEach(function (p) {
@@ -388,7 +406,7 @@
       stage.classList.add('dragging');
     }
     rot = rotT = rot0 - dx * 0.006;
-    if (e.pointerType === 'mouse' || rotateMode) { userTilted = true; tilt = tiltT = clamp(tilt0 + dy * 0.0025, 0.12, 0.9); }
+    if (e.pointerType === 'mouse' || rotateMode) { userTilted = true; tilt = tiltT = clamp(tilt0 + dy * 0.0025, Math.max(0.12, minTilt), 0.9); }
     poke();
   });
   function up(e) {
@@ -424,13 +442,13 @@
   function hoverAt(e) {
     if (e.target.closest && e.target.closest('.orbiter')) return;
     const h = nearest(e);
-    planets.forEach(function (p) { p.orbit.classList.toggle('hover', p === h); });
+    planets.forEach(function (p) { orbitClass(p, 'hover', p === h); });
     beltHover = h === 'belt';
     stage.classList.toggle('over-orbit', !!h);
     poke();
   }
   stage.addEventListener('mouseleave', function () {
-    planets.forEach(function (p) { p.orbit.classList.remove('hover'); });
+    planets.forEach(function (p) { orbitClass(p, 'hover', false); });
     beltHover = false;
     stage.classList.remove('over-orbit');
     poke();
@@ -447,7 +465,7 @@
     planets.forEach(function (p) {
       const on = !!target && p.target === target;
       p.el.classList.toggle('on', on);
-      p.orbit.classList.toggle('on', on);
+      orbitClass(p, 'on', on);
     });
   }
   if ('IntersectionObserver' in window) {

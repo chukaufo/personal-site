@@ -885,3 +885,12 @@ footer a { color: var(--muted); }
 /* rotate mode: the page stops scrolling under your finger so it turns the system instead */
 .orbits.rotate-mode { touch-action: none; }
 @media (max-width: 600px) { .sys-group button { min-width: 34px; padding: 0 8px; } }
+
+
+/* orbits and belt: back half behind the sun, front half in front of it */
+.orbit { z-index: 1; clip-path: inset(-24px -24px 50% -24px); }
+.orbit.orbit-front { z-index: 3; clip-path: inset(50% -24px -24px -24px); filter: drop-shadow(0 0 1.5px rgba(0, 0, 0, 0.9)); }
+.orbit.orbit-front:not(.on):not(.sel):not(.hover) { border-color: var(--oc-hi); }
+.belt.belt-front { z-index: 3; }
+.orbiter[data-planet="saturn"] .pl-label { top: 74%; }
+.sys-group button svg { display: block; margin: auto; }
