@@ -311,6 +311,7 @@
     '<div class="sys-group" role="group" aria-label="Zoom">' +
       '<button type="button" data-z="out" aria-label="Zoom out">−</button>' +
       '<button type="button" data-z="in" aria-label="Zoom in">+</button>' +
+      '<button type="button" data-z="rotate" aria-pressed="false" aria-label="Rotate mode">⟳</button>' +
       '<button type="button" data-z="reset" aria-label="Reset view">Reset</button>' +
     '</div>' +
     '<div class="sys-group" role="group" aria-label="Orbit speed">' +
@@ -329,6 +330,12 @@
   controls.querySelectorAll('[data-z]').forEach(function (b) {
     b.addEventListener('click', function () {
       const z = b.dataset.z;
+      if (z === 'rotate') {
+        rotateMode = !rotateMode;
+        b.setAttribute('aria-pressed', String(rotateMode));
+        stage.classList.toggle('rotate-mode', rotateMode);
+        return;
+      }
       if (z === 'in') setZoom(zoomT * 1.35);
       else if (z === 'out') setZoom(zoomT / 1.35);
       else {
@@ -356,6 +363,7 @@
     return best;
   }
 
+  let rotateMode = false; // on touch: one finger turns and tilts instead of scrolling
   const pts = new Map();
   let downX = 0, downY = 0, rot0 = 0, tilt0 = 0, dragging = false, justDragged = false, pinch0 = 1, zoom0 = 1;
   function pair() { const v = Array.from(pts.values()); return Math.hypot(v[0].x - v[1].x, v[0].y - v[1].y) || 1; }
@@ -374,13 +382,13 @@
     if (!dragging) {
       if (Math.abs(dx) + Math.abs(dy) < 6) return;
       // on touch, a mostly vertical move is the page scrolling: leave it to the browser
-      if (e.pointerType !== 'mouse' && Math.abs(dy) > Math.abs(dx)) { pts.delete(e.pointerId); return; }
+      if (e.pointerType !== 'mouse' && !rotateMode && Math.abs(dy) > Math.abs(dx)) { pts.delete(e.pointerId); return; }
       dragging = true; justDragged = true;
       try { stage.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
       stage.classList.add('dragging');
     }
     rot = rotT = rot0 - dx * 0.006;
-    if (e.pointerType === 'mouse') { userTilted = true; tilt = tiltT = clamp(tilt0 + dy * 0.0025, 0.12, 0.9); }
+    if (e.pointerType === 'mouse' || rotateMode) { userTilted = true; tilt = tiltT = clamp(tilt0 + dy * 0.0025, 0.12, 0.9); }
     poke();
   });
   function up(e) {
