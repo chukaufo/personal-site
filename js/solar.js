@@ -244,6 +244,17 @@
   window.addEventListener('load', layout);
   document.addEventListener('ufo:mix', function () { requestAnimationFrame(layout); });
   if ('ResizeObserver' in window) new ResizeObserver(layout).observe(document.body);
+  // each section's label gets its planet in front of it
+  planets.forEach(function (p) {
+    if (!p.target) return;
+    const meta = p.target.querySelector('.sh-meta, .eyebrow');
+    if (!meta || meta.querySelector('.sec-planet')) return;
+    const dot = document.createElement('i');
+    dot.className = 'sec-planet nl-dot nd-' + p.el.dataset.planet;
+    dot.setAttribute('aria-hidden', 'true');
+    meta.insertBefore(dot, meta.firstChild);
+  });
+
   layout();
   setRunning(true);
 })();

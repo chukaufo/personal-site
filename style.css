@@ -813,3 +813,10 @@ footer a { color: var(--muted); }
 /* station list: names always show (only the nav itself is dots-only on small screens), solid background */
 .mini-list { background: #0e0b1c; }
 .mini-list .nl-name { display: inline; max-width: none; opacity: 1; margin: 0; }
+
+
+/* planet icon ahead of each section label; it is the section's lamp now */
+.sec-planet { display: inline-block; width: 14px; height: 14px; vertical-align: middle; transition: box-shadow 0.3s; }
+.eyebrow .sec-planet { margin-right: 10px; }
+.sh-meta:has(.sec-planet)::before { display: none; }
+.locked .sec-planet { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--green), 0 0 10px var(--green); }
