@@ -32,7 +32,7 @@
     return 'rgba(' + (n >> 16) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
   }
   function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
-  function orbitClass(p, cls, on) { orbitClass(p, cls, on); p.orbitF.classList.toggle(cls, on); }
+  function orbitClass(p, cls, on) { p.orbit.classList.toggle(cls, on); p.orbitF.classList.toggle(cls, on); }
 
   const planets = orbiters.map(function (el, i) {
     const key = el.dataset.planet || '';
@@ -97,7 +97,7 @@
 
   function setFocal() {
     fxT = W / 2; fyT = H / 2;
-    if (card && !card.hidden) {
+    if (card && !card.hidden && focus) {
       const s = stage.getBoundingClientRect(), c = card.getBoundingClientRect();
       if (sheetMQ.matches) {
         const top = c.top - s.top;
@@ -287,9 +287,9 @@
     poke();
   }
 
-  function select(item) {
+  function select(item, fly) {
     const was = !!focus;
-    focus = item && item !== 'belt' ? item : null;
+    focus = fly && item && item !== 'belt' ? item : null;
     beltSel = item === 'belt';
     planets.forEach(function (p) {
       const on = p === item;
@@ -310,7 +310,7 @@
     if (beltSel) i = dir > 0 ? BELT_SLOT : BELT_SLOT - 1;
     else if (focus) i = (planets.indexOf(focus) + dir + planets.length) % planets.length;
     else i = 0;
-    select(planets[i]);
+    select(planets[i], true);
   }
 
   if (ocClose) ocClose.addEventListener('click', function () { select(null); });
@@ -372,12 +372,13 @@
     const wx = (e.clientX - r.left - fx) / zoom + camX;
     const wy = (e.clientY - r.top - fy) / (zoom * tiltEff) + camY;
     const reff = Math.sqrt(wx * wx + wy * wy);
-    let best = null, bestD = step * 0.5;
+    let best = null, bestD = Math.min(step * 0.5, 18 / zoom);
     planets.forEach(function (p) {
       const d = Math.abs(reff - p.a);
       if (d < bestD) { bestD = d; best = p; }
     });
-    if (Math.abs(reff - beltA) < bestD) best = 'belt';
+    const db = Math.abs(reff - beltA);
+    if (db < step * 0.3 && (!best || db < bestD)) best = 'belt';
     return best;
   }
 
@@ -426,7 +427,7 @@
     const o = e.target.closest('.orbiter');
     if (o) {
       e.preventDefault();
-      select(planets.find(function (p) { return p.el === o; }) || null);
+      select(planets.find(function (p) { return p.el === o; }) || null, true);
       return;
     }
     select(nearest(e));
