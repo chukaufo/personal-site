@@ -495,6 +495,18 @@
     dot.className = 'sec-planet nl-dot nd-' + p.key;
     dot.setAttribute('aria-hidden', 'true');
     meta.insertBefore(dot, meta.firstChild);
+    // back to the system, landing on this section's planet
+    const back = document.createElement('a');
+    back.className = 'to-sun';
+    back.href = '#sun';
+    back.textContent = '↑ Solar system';
+    back.setAttribute('aria-label', 'Back to the solar system');
+    back.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+      select(p, true);
+    });
+    meta.appendChild(back);
   });
 
   document.addEventListener('visibilitychange', function () { setRunning(onScreen); });

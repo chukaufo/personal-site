@@ -894,3 +894,9 @@ footer a { color: var(--muted); }
 .belt.belt-front { z-index: 3; }
 .orbiter[data-planet="saturn"] .pl-label { top: 74%; }
 .sys-group button svg { display: block; margin: auto; }
+
+
+/* back to the solar system, at the top of each section */
+.to-sun { margin-left: 14px; padding-left: 14px; border-left: 1px solid var(--line); color: var(--muted); text-decoration: none; font: 11px var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; transition: color 0.2s; }
+.sh-meta .to-sun { margin-left: 4px; }
+.to-sun:hover, .to-sun:focus-visible { color: var(--green); }
