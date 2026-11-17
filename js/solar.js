@@ -113,7 +113,7 @@
     W = stage.clientWidth; H = stage.clientHeight;
     if (!W || !H) return;
     narrow = W < 700;
-    const aMax = W / 2 - (narrow ? 12 : 40);
+    const aMax = Math.min(W / 2 - (narrow ? 12 : 40), (H / 2 - 34) / 0.3); // fill wide screens, keep tilt >= 0.3
     const t = Math.min(narrow ? 0.55 : 0.42, (H / 2 - 34) / aMax);
     baseTilt = t;
     if (!userTilted) tilt = tiltT = t;
