@@ -902,3 +902,18 @@ footer a { color: var(--muted); }
 .to-sun { margin-left: 14px; padding-left: 14px; border-left: 1px solid var(--line); color: var(--muted); text-decoration: none; font: 11px var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; transition: color 0.2s; }
 .sh-meta .to-sun { margin-left: 4px; }
 .to-sun:hover, .to-sun:focus-visible { color: var(--green); }
+
+
+/* === map below the intro: phones get a compact, top-down system === */
+.hint-phone { display: none; }
+@media (max-width: 600px) {
+  .system { min-height: 0; padding-bottom: 20px; }
+  .orbits { flex: none; height: clamp(340px, 98vw, 440px); min-height: 0; }
+  .hint-wide { display: none; }
+  .hint-phone { display: inline; }
+  /* no zoom or speed bar on phones: a lone Reset shows after a pinch zoom */
+  .sys-controls { display: none; }
+  .orbits.zoomed ~ .sys-controls { display: flex; justify-content: flex-end; }
+  .sys-controls .sys-group + .sys-group, .sys-controls [data-z="out"], .sys-controls [data-z="in"], .sys-controls [data-z="rotate"] { display: none; }
+  .sys-controls [data-z="reset"] { border-left: 0; }
+}

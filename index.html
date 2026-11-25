@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/glitch.css?v=6" />
-  <link rel="stylesheet" href="style.css?v=41" />
+  <link rel="stylesheet" href="style.css?v=42" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body data-mix="all">
@@ -78,33 +78,6 @@
   </div>
 
   <main>
-
-    <!-- THE SUN: every planet is a section of this page -->
-    <section class="system" id="sun" aria-label="Map of this page">
-      <div class="system-copy">
-        <p class="eyebrow">// Chuka Uwefoh · Audio software engineer · Toronto</p>
-        <p class="system-hint">Every planet is a section. Tap one to explore, drag to turn.</p>
-      </div>
-      <div class="orbits" id="orbits">
-        <div class="sun" aria-hidden="true"></div>
-        <canvas class="belt" id="belt" aria-hidden="true"></canvas>
-        <a class="orbiter" href="#intro" data-planet="mercury" data-section="Intro" data-about="Who I am and what I'm building."><span class="pl pl-mercury"></span><span class="pl-label"><b>Mercury</b>Intro</span></a>
-        <a class="orbiter" href="#mix" data-planet="venus" data-section="Who's listening" data-about="Pick client or musician and the page remixes around you."><span class="pl pl-venus"></span><span class="pl-label"><b>Venus</b>Who's listening</span></a>
-        <a class="orbiter" href="#uforiya" data-planet="earth" data-section="Uforiya" data-about="The workspace for unreleased music. Every version, stem and collaborator in one place."><span class="pl pl-earth"></span><span class="pl-label"><b>Earth</b>Uforiya</span></a>
-        <a class="orbiter" href="#events" data-planet="mars" data-section="Events" data-about="Main One Studios ran Camp 12 on Uforiya. 45+ people, one private session."><span class="pl pl-mars"></span><span class="pl-label"><b>Mars</b>Events</span></a>
-        <a class="orbiter" href="#sample-organizer" data-planet="jupiter" data-section="Sample Organizer" data-about="Free desktop app that clears duplicate samples out of drum kits. 41.3GB from one library."><span class="pl pl-jupiter"></span><span class="pl-label"><b>Jupiter</b>Sample Organizer</span></a>
-        <a class="orbiter" href="#about" data-planet="saturn" data-section="About" data-about="How a producer and audio tech ended up building software for musicians."><span class="pl pl-saturn"><i></i></span><span class="pl-label"><b>Saturn</b>About</span></a>
-        <a class="orbiter" href="#projects" data-planet="uranus" data-section="Early work" data-about="Revved Up, Fint and a currency converter. Where it started."><span class="pl pl-uranus"><i></i></span><span class="pl-label"><b>Uranus</b>Early work</span></a>
-        <a class="orbiter" href="#contact" data-planet="neptune" data-section="Contact" data-about="Building something or making music? Send a signal."><span class="pl pl-neptune"></span><span class="pl-label"><b>Neptune</b>Contact</span></a>
-      </div>
-      <div class="orbit-card" id="orbit-card" aria-live="polite" hidden>
-        <button class="oc-close" id="oc-close" type="button" aria-label="Close">×</button>
-        <p class="oc-meta"><span id="oc-planet"></span> · <span id="oc-freq"></span></p>
-        <h3 id="oc-title"></h3>
-        <p class="oc-about" id="oc-about"></p>
-        <a class="btn btn-primary" id="oc-go" href="#intro">Fly there</a>
-      </div>
-    </section>
 
     <!-- 00:00 INTRO -->
     <header class="intro" id="intro" data-marker="Intro" data-stems="all">
@@ -146,6 +119,33 @@
         </div>
       </div>
     </header>
+
+    <!-- THE SUN: every planet is a section of this page -->
+    <section class="system" id="sun" aria-label="Map of this page">
+      <div class="system-copy">
+        <p class="eyebrow">// The map</p>
+        <p class="system-hint"><span class="hint-wide">Every planet is a section. Tap one to explore, drag to turn.</span><span class="hint-phone">Tap a planet to explore.</span></p>
+      </div>
+      <div class="orbits" id="orbits">
+        <div class="sun" aria-hidden="true"></div>
+        <canvas class="belt" id="belt" aria-hidden="true"></canvas>
+        <a class="orbiter" href="#intro" data-planet="mercury" data-section="Intro" data-about="Who I am and what I'm building."><span class="pl pl-mercury"></span><span class="pl-label"><b>Mercury</b>Intro</span></a>
+        <a class="orbiter" href="#mix" data-planet="venus" data-section="Who's listening" data-about="Pick client or musician and the page remixes around you."><span class="pl pl-venus"></span><span class="pl-label"><b>Venus</b>Who's listening</span></a>
+        <a class="orbiter" href="#uforiya" data-planet="earth" data-section="Uforiya" data-about="The workspace for unreleased music. Every version, stem and collaborator in one place."><span class="pl pl-earth"></span><span class="pl-label"><b>Earth</b>Uforiya</span></a>
+        <a class="orbiter" href="#events" data-planet="mars" data-section="Events" data-about="Main One Studios ran Camp 12 on Uforiya. 45+ people, one private session."><span class="pl pl-mars"></span><span class="pl-label"><b>Mars</b>Events</span></a>
+        <a class="orbiter" href="#sample-organizer" data-planet="jupiter" data-section="Sample Organizer" data-about="Free desktop app that clears duplicate samples out of drum kits. 41.3GB from one library."><span class="pl pl-jupiter"></span><span class="pl-label"><b>Jupiter</b>Sample Organizer</span></a>
+        <a class="orbiter" href="#about" data-planet="saturn" data-section="About" data-about="How a producer and audio tech ended up building software for musicians."><span class="pl pl-saturn"><i></i></span><span class="pl-label"><b>Saturn</b>About</span></a>
+        <a class="orbiter" href="#projects" data-planet="uranus" data-section="Early work" data-about="Revved Up, Fint and a currency converter. Where it started."><span class="pl pl-uranus"><i></i></span><span class="pl-label"><b>Uranus</b>Early work</span></a>
+        <a class="orbiter" href="#contact" data-planet="neptune" data-section="Contact" data-about="Building something or making music? Send a signal."><span class="pl pl-neptune"></span><span class="pl-label"><b>Neptune</b>Contact</span></a>
+      </div>
+      <div class="orbit-card" id="orbit-card" aria-live="polite" hidden>
+        <button class="oc-close" id="oc-close" type="button" aria-label="Close">×</button>
+        <p class="oc-meta"><span id="oc-planet"></span> · <span id="oc-freq"></span></p>
+        <h3 id="oc-title"></h3>
+        <p class="oc-about" id="oc-about"></p>
+        <a class="btn btn-primary" id="oc-go" href="#intro">Fly there</a>
+      </div>
+    </section>
 
     <!-- MIXER -->
     <section class="section mixer-section" id="mix" data-marker="Mix" data-stems="all">
@@ -523,7 +523,7 @@
   <script src="js/main.js?v=3" defer></script>
   <script src="js/stars.js?v=2" defer></script>
   <script src="js/dial.js?v=1" defer></script>
-  <script src="js/solar.js?v=14" defer></script>
+  <script src="js/solar.js?v=15" defer></script>
   <script src="js/mixer.js?v=2" defer></script>
   <script src="js/sample-demo.js?v=1" defer></script>
   <script src="js/synth.js?v=1" defer></script>

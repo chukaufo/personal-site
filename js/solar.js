@@ -114,7 +114,7 @@
     if (!W || !H) return;
     narrow = W < 700;
     const aMax = Math.min(W / 2 - (narrow ? 12 : 40), (H / 2 - 34) / 0.3); // fill wide screens, keep tilt >= 0.3
-    const t = Math.min(narrow ? 0.55 : 0.42, (H / 2 - 34) / aMax);
+    const t = Math.min(sheetMQ.matches ? 0.8 : (narrow ? 0.55 : 0.42), (H / 2 - 34) / aMax); // phones: closer to top-down so the system fills the width
     baseTilt = t;
     if (!userTilted) tilt = tiltT = t;
     k = Math.max(0.62, Math.min(1, W / 1100));
@@ -499,11 +499,12 @@
     const back = document.createElement('a');
     back.className = 'to-sun';
     back.href = '#sun';
-    back.textContent = '↑ Solar system';
+    const below = !!(p.target.compareDocumentPosition(system) & Node.DOCUMENT_POSITION_FOLLOWING);
+    back.textContent = (below ? '↓' : '↑') + ' Solar system';
     back.setAttribute('aria-label', 'Back to the solar system');
     back.addEventListener('click', function (e) {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+      (system.querySelector('.system-copy') || system).scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
       select(p, true);
     });
     meta.appendChild(back);
