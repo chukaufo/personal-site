@@ -18,7 +18,7 @@
   --amber: #ffb84e;
   --glow: 0 0 24px rgba(123, 95, 245, 0.35);
   --font-head: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-body: 'Turret Road', sans-serif;
   --font-mono: 'DM Mono', monospace;
   --nav-h: 64px;
   --strip: 120px;
@@ -32,7 +32,7 @@ html {
 }
 body {
   margin: 0; background: var(--bg); color: var(--text);
-  font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+  font-family: var(--font-body); font-size: 18px; line-height: 1.6;
   -webkit-font-smoothing: antialiased; overflow-x: hidden;
 }
 /* deep space: two glows and faint signal rings from the top right */
@@ -211,7 +211,7 @@ h2, h3 { margin: 0; }
 .intro { position: relative; z-index: 1; display: flex; align-items: center; padding: 120px 0 72px; }
 .intro-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 64px; align-items: center; }
 .intro-role { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-bright); margin: 22px 0 18px; }
-.intro-lede { font-size: clamp(17px, 1.6vw, 22px); color: var(--soft); max-width: 58ch; margin: 0; }
+.intro-lede { font-size: clamp(18px, 1.7vw, 23px); color: var(--soft); max-width: 58ch; margin: 0; }
 .intro-lede a { color: var(--text); text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .intro-lede strong { color: var(--text); font-weight: 600; }
 .intro-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
@@ -554,7 +554,7 @@ footer a { color: var(--muted); }
 }
 @media (max-width: 600px) {
   :root { --nav-h: 58px; --strip: 72px; }
-  body { font-size: 16px; }
+  body { font-size: 17px; }
   .glitch-logo { font-size: 1.2rem; }
   .section { padding: 84px 0; }
   .section[id] { scroll-margin-top: -76px; }
