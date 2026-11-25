@@ -210,11 +210,10 @@ h2, h3 { margin: 0; }
 /* intro */
 .intro { position: relative; z-index: 1; display: flex; align-items: center; padding: 120px 0 72px; }
 .intro-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 64px; align-items: center; }
-.intro-name { font-family: var(--font-head); font-weight: 800; font-size: clamp(56px, 9vw, 128px); line-height: 0.9; letter-spacing: -0.04em; margin: 18px 0 22px; text-shadow: 0 0 60px rgba(123, 95, 245, 0.35); }
-.intro-name .dot { color: var(--green); text-shadow: 0 0 18px rgba(78, 240, 160, 0.7); }
-.intro-role { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-bright); margin: 0 0 18px; }
-.intro-lede { font-size: clamp(17px, 1.4vw, 19px); color: var(--soft); max-width: 58ch; margin: 0; }
+.intro-role { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-bright); margin: 22px 0 18px; }
+.intro-lede { font-size: clamp(17px, 1.6vw, 22px); color: var(--soft); max-width: 58ch; margin: 0; }
 .intro-lede a { color: var(--text); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.intro-lede strong { color: var(--text); font-weight: 600; }
 .intro-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 
 /* cover: photo in front of a ringed planet whose rings are a grooved disc */
@@ -260,9 +259,6 @@ h2, h3 { margin: 0; }
     repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 3px),
     linear-gradient(180deg, rgba(123, 95, 245, 0.08), rgba(7, 5, 15, 0.25));
 }
-.cover-meta { display: flex; flex-direction: column; gap: 4px; margin-top: 14px; font: 12px var(--font-mono); color: var(--muted); }
-.cover-session { color: var(--text); font-family: var(--font-head); font-weight: 700; font-size: 14px; letter-spacing: 0.02em; }
-.cover-title { color: var(--muted); font-family: var(--font-head); font-weight: 700; letter-spacing: 0.12em; }
 
 /* tuning deck: scope + dial */
 .deck {
